@@ -1,0 +1,11 @@
+.btn{
+   padding: 20px 25px;
+   background-color: #FBBF46; 
+   display: flex;
+   gap: 15px;
+   font-size: 20px;
+   border: none;
+   align-items: center;
+   margin-top: 60px;
+   cursor: pointer;
+}
