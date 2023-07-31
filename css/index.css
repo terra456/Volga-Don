@@ -3,6 +3,7 @@
 @import url(./content/content.css);
 @import url(./btn/btn.css);
 @import url(./section/section.css);
+@import url(./team/team.css);
 *{
     padding: 0;
     margin: 0;
