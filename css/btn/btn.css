@@ -8,4 +8,10 @@
    align-items: center;
    margin-top: 60px;
    cursor: pointer;
+   flex-shrink: 0;
+}
+.btn_type_about{
+   width: max-content;
+   margin-left: auto;
+   margin-top: auto;
 }

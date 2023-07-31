@@ -2,6 +2,7 @@
 @import url(./main-page/main-page.css);
 @import url(./content/content.css);
 @import url(./btn/btn.css);
+@import url(./section/section.css);
 *{
     padding: 0;
     margin: 0;

@@ -1,6 +1,7 @@
 .main-page {
     position: relative;
     z-index: 20;
+    padding-bottom: 30px
 }
 
 .main-page__container {
@@ -29,6 +30,7 @@
 
 .main-page__img {
     width: 984px;
+    height: 100%;
     position: absolute;
     top: 0;
     right: 0;
