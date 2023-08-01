@@ -3,8 +3,9 @@
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 120px
+    gap: 120px;
+    padding-bottom: 120px;
 }
 .content_type_about{
-    padding-top: 120px;
+    padding: 120px 0;
 }

@@ -1,7 +1,4 @@
-/* .team{
-    display: flex;
-    flex-wrap: wrap;
-} */
+
 .team__card{
     display: flex;
     flex-direction: column;

@@ -9,9 +9,9 @@
    margin-top: 60px;
    cursor: pointer;
    flex-shrink: 0;
+   width: max-content;
 }
 .btn_type_about{
-   width: max-content;
    margin-left: auto;
    margin-top: auto;
 }
