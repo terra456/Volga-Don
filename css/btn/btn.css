@@ -10,8 +10,13 @@
    cursor: pointer;
    flex-shrink: 0;
    width: max-content;
+ 
 }
 .btn_type_about{
    margin-left: auto;
    margin-top: auto;
+}
+.btn_type_catalog{
+   margin: 0 auto;
+   margin-top: 80px;
 }
