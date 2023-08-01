@@ -1,12 +1,12 @@
-.team{
+/* .team{
     display: flex;
     flex-wrap: wrap;
-}
+} */
 .team__card{
     display: flex;
     flex-direction: column;
     gap: 15px;
-    max-width: 240px;
+    width: 240px;
 }
 .team__name{
     font-size: 20px;
@@ -16,4 +16,7 @@
 }
 .team__about{
     flex-wrap: wrap;
+}
+.team__img{
+    width: 100%
 }

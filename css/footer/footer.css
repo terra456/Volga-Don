@@ -1,0 +1,30 @@
+.footer{
+    background-color: #FBBF46;
+}
+.footer__container{
+    margin: 0 auto;
+    max-width: 1920px;
+    padding: 44px 120px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.footer__list{
+    list-style-type: none;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.footer__nav{
+    width: 528px
+}
+.footer__connect{
+    display: flex;
+    flex-direction: column;
+    gap: 30px
+}
+.footer__contact{
+    font-size: 20px;
+font-style: normal;
+font-weight: 700;
+}
