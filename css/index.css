@@ -8,6 +8,8 @@
 @import url(./logotype/logotype.css);
 @import url(./footer/footer.css);
 @import url(./catalog/catalog.css);
+@import url(./news/news.css);
+@import url(./contact/contact.css);
 *{
     padding: 0;
     margin: 0;

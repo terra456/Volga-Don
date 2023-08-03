@@ -1,0 +1,17 @@
+.news__name-container{
+    display: flex;
+    justify-content: space-between;
+    padding: 60px 0 30px 0;
+}
+.news__name {
+    max-width: 415px;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+}
+.news__about {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}

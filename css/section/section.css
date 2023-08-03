@@ -2,7 +2,16 @@
     margin: 0 auto;
     padding: 0 120px;
     display: flex;
-    gap: 48px
+    gap: 48px;
+
+}
+.section__container_type_news{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+.section__container_type_contacts{
+    justify-content: space-between;
+    align-items: flex-end;
 }
 .section__title{
     font-size: 84px;
