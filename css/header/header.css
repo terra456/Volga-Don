@@ -10,7 +10,9 @@
     justify-content: space-between;
     align-items: center;
 }
-
+.header__burger{
+    display: none
+}
 .header__nav {
     width: 528px;
 }
@@ -61,5 +63,23 @@
     }
     .header__link {
         font-size: 14px;
+    }
+}
+@media (max-width:550px){
+    .header__nav {
+        display: none
+    }
+    .header__link {
+        font-size: 14px;
+    }
+    .header__connect{
+        display: none
+    }
+    .header__burger{
+        display: block
+    }
+    .header__container{
+        justify-content: flex-start;
+        gap: 8px
     }
 }
