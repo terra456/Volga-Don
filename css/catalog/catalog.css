@@ -1,4 +1,6 @@
-
+.catalog_type_page{
+    padding: 120px 0
+}
 .catalog__name{
     font-size: 20px;
     font-weight: 700;

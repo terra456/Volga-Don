@@ -10,6 +10,7 @@
 @import url(./catalog/catalog.css);
 @import url(./news/news.css);
 @import url(./contact/contact.css);
+@import url(./questions/questions.css);
 *{
     padding: 0;
     margin: 0;

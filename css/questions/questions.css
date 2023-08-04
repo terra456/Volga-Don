@@ -1,0 +1,24 @@
+.questions__form{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%
+}
+.questions__input{
+    padding: 25px 0 25px 36px;
+    border: 2px solid #000;
+    font-size: 20px;
+    font-weight: 700;
+}
+.questions__input::placeholder {
+    color: rgba(0, 0, 0, 0.52);
+    font-size: 20px;
+    font-weight: 700;
+    line-height: normal;
+}
+.questions__form-title{
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    padding-bottom: 25px
+}

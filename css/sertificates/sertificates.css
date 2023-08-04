@@ -8,5 +8,11 @@
     width: 100%
 }
 .sertificates__card{
-    width: 384px;
+    width: 100%;
+}
+@media (max-width: 1060px){
+    .sertificates__name{
+        font-size: 12px;
+        padding-top: 15px;
+    }
 }

@@ -9,3 +9,19 @@
 .content_type_about{
     padding: 120px 0;
 }
+@media (max-width: 1240px){
+    .content{
+        gap: 60px
+    }
+    .content_type_about{
+        padding: 50px 0;
+    }
+}
+@media (max-width: 800px){
+    .content{
+        gap: 40px
+    }
+    .content_type_about{
+        padding: 20px 0;
+    }
+}

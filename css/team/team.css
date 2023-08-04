@@ -17,3 +17,8 @@
 .team__img{
     width: 100%
 }
+@media (max-width: 1240px){
+    .team__card{
+        width: 100%
+    }
+}

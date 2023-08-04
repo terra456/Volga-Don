@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Volga-Don-Stroy</title>
     <link rel="stylesheet" href="./css/index.css">
+    <script src="./js/index.js" defer></script>
 </head>
 <body class="page">
     <header class="header">
@@ -13,7 +14,7 @@
             <nav class="header__nav">
                 <ul class="header__list">
                     <li><a class="header__link" href="./about.html">О нас</a></li>
-                    <li><a class="header__link">Новости</a></li>
+                    <li><a class="header__link" href="#news" id="news-link">Новости</a></li>
                     <li><a class="header__link" href="./catalog.html">Каталог</a></li>
                 </ul>
             </nav>
@@ -55,7 +56,7 @@
         </div>
         </div>
         </section>
-        <section class="section news">
+        <section class="section" id="news">
             <h2 class="section__title">Последние новости</h2>
             <div class="section__container section__container_type_news">
                 <article class="news__card">
@@ -87,7 +88,7 @@
         </section>
         <section class="section catalog">
             <h2 class="section__title">Каталог</h2>
-            <div class="section__container">
+            <div class="section__container section__container_type_catalog">
                 <div class="catalog__card">
                     <img class="catalog__img" src="./vendor/images/item1.png" alt="">
                     <p class="catalog__name">Растворонасос СО-150N</p>
@@ -113,7 +114,7 @@
         </section>
         <section class="section sertificates">
             <h2 class="section__title">Сертификаты</h2>
-            <div class="section__container">
+            <div class="section__container section__container_type_sertificates">
                 <div class="sertificates__card">
                     <img class="sertificates__img" src="./vendor/images/about-team.png" alt="">
                     <p class="sertificates__name">Сертификат качества ISO 9001:2015</p>
@@ -132,6 +133,19 @@
                 </div>
             </div>
         </section>
+        <section class="section questions">
+            <h2 class="section__title">Остались вопросы?</h2>
+            <div class="section__container section__container_type_questions">
+            <img src="./vendor/images/questions.png" alt="" class="questions__img">
+            <form class="questions__form">
+                <p class="questions__form-title">Оставьте заявку, и мы перезвоним в течение 30 минут</p>
+                <input type="text" class="questions__input questions__input_type_name" placeholder="Имя">
+                <input type="text" class="questions__input questions__input_type_surname" placeholder="Фамилия">
+                <input type="number" class="questions__input questions__input_type_phone" placeholder="Телефон">
+
+            </form>
+        </div>
+        </section>
         <section class="section contacts">
             <h2 class="section__title">Контакты</h2>
             <div class="section__container section__container_type_contacts">
@@ -149,9 +163,9 @@
             <a class="logotype" href="./index.html">Logotype</a>
             <nav class="footer__nav">
                 <ul class="footer__list">
-                    <li><a href="./about.html">О нас</a></li>
-                    <li><a>Новости</a></li>
-                    <li><a href="./catalog.html">Каталог</a></li>
+                    <li><a href="./about.html" class="footer__link">О нас</a></li>
+                    <li><a class="footer__link">Новости</a></li>
+                    <li><a href="./catalog.html" class="footer__link">Каталог</a></li>
                 </ul>
             </nav>
             <div class="contact footer__contact">

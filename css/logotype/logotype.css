@@ -4,3 +4,18 @@
     text-decoration: none;
     color: black
 }
+@media (max-width:1600px){
+    .logotype{
+        font-size: 32px;
+    }
+}
+@media (max-width:1240px){
+    .logotype{
+        font-size: 26px;
+    }
+}
+@media (max-width:800px){
+    .logotype{
+        font-size: 18px;
+    }
+}
