@@ -20,6 +20,9 @@
 }
 .footer__contact{
     align-items: end;
+    display: flex;
+    flex-direction: column;
+    gap: 30px
 }
 .footer__link{
     color: black;
@@ -50,5 +53,7 @@
     .footer__nav{
         display: none;
     }
-    
+    .footer__contact{
+        display: none;
+    }
 }

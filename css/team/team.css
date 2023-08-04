@@ -19,6 +19,17 @@
 }
 @media (max-width: 1240px){
     .team__card{
-        width: 100%
+        width: 100%;
+    }
+}
+@media (max-width: 550px){
+    .team__name{
+        font-size: 12px
+    }
+    .team__about{
+        font-size: 12px
+    }
+    .team__card{
+        gap: 4px
     }
 }

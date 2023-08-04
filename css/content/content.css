@@ -19,7 +19,7 @@
 }
 @media (max-width: 800px){
     .content{
-        gap: 40px
+        gap: 30px
     }
     .content_type_about{
         padding: 20px 0;

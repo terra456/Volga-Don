@@ -16,3 +16,9 @@
         padding-top: 15px;
     }
 }
+@media (max-width: 550px){
+    .sertificates__name{
+        font-size: 8px;
+        padding-top: 8px;
+    }
+}
