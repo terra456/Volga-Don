@@ -9,6 +9,7 @@
     border: 2px solid #000;
     font-size: 20px;
     font-weight: 700;
+    width: 100%
 }
 .questions__input::placeholder {
     color: rgba(0, 0, 0, 0.52);
@@ -21,4 +22,16 @@
     font-style: normal;
     font-weight: 700;
     padding-bottom: 25px
+}
+.questions__img{
+    width: 50%;
+}
+@media(max-width:1240px){
+    .questions__img{
+        width: 100%;
+    }
+    .questions__form{
+        display: flex;
+        align-items: center;
+    }
 }

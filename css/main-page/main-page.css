@@ -36,3 +36,17 @@
     right: 0;
     z-index: -10;
 }
+
+@media(max-width: 1400px){
+    .main-page__title{
+        font-size: 60px;
+        text-align: center;
+        padding-left: 40px;
+    }
+}
+@media(max-width: 650px){
+    .main-page__title{
+        padding: 20px 30px 150px 30px;
+        font-size: 22px;
+    }
+}
