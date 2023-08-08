@@ -18,3 +18,8 @@
         font-size: 14px;
     }
 }
+@media (max-width:1240px){
+    .contact__link{
+        font-weight: 400;
+    }
+}

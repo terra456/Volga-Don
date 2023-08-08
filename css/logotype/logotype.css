@@ -1,21 +1,36 @@
-.logotype{
-    font-size: 40px;
-    font-weight: 700;
-    text-decoration: none;
-    color: black
+.logotype_type_header{
+    padding-top: 5px
+}
+.logotype_type_footer{
+    background-image: url('../../vendor/images/logotype-footer.svg');
+    width: 131px;
+    height: 115px
 }
 @media (max-width:1600px){
-    .logotype{
-        font-size: 32px;
+    .logotype_type_header{
+        width: 270px;
     }
 }
 @media (max-width:1240px){
-    .logotype{
-        font-size: 26px;
+    .logotype_type_header{
+        width: 200px;
     }
 }
 @media (max-width:800px){
-    .logotype{
-        font-size: 18px;
+    .logotype_type_header{
+        width: 150px;
+    }
+}
+@media (max-width:650px){
+    .logotype_type_header{
+        width: 100px;
+    }
+    .logotype_type_footer{
+        background-image: url('../../vendor/images/logotype.svg');
+        background-position: 100%;
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 150px;
+        height: 50px
     }
 }
