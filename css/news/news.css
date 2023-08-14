@@ -18,3 +18,14 @@
 .news__img{
     width: 100%
 }
+@media (max-width: 550px){
+    .news__name, .news__date, .news__about{
+        font-size: 12px;
+    }
+    .news__name-container{
+        padding: 15px 0 8px 0;
+    }
+    .news__card{
+        width: 220px
+    }
+}

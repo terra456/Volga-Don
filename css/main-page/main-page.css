@@ -34,6 +34,7 @@
     position: absolute;
     top: 0;
     right: 0;
+    margin-left: auto;
     z-index: -10;
 }
 
@@ -44,9 +45,20 @@
         padding-left: 40px;
     }
 }
-@media(max-width: 650px){
+@media(max-width: 550px){
     .main-page__title{
-        padding: 20px 30px 150px 30px;
+        padding: 20px 0 150px 0;
         font-size: 22px;
+    }
+    .main-page__img {
+        width: 250px;
+        height: 250px; 
+    }
+    .main-page__container{
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    .main-page__text{
+        font-size: 12px;
     }
 }

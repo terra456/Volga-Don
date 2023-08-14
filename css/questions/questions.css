@@ -33,5 +33,21 @@
     .questions__form{
         display: flex;
         align-items: center;
+        gap: 18px
+    }
+}
+@media(max-width:550px){
+    .questions__form-title{
+        font-size: 12px;
+        max-width: 220px;
+        margin-right: auto;
+        padding-bottom: 0;
+    }
+    .questions__input{
+        padding: 0 13px 5px 12px;
+        border: 1px solid #000;
+    }
+    .questions__input::placeholder {
+        font-size: 12px;
     }
 }

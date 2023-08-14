@@ -19,7 +19,8 @@
 }
 @media (max-width: 800px){
     .content{
-        gap: 30px
+        gap: 30px;
+        padding-bottom: 0;
     }
     .content_type_about{
         padding: 20px 0;
