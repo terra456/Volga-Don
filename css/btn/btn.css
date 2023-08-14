@@ -28,3 +28,14 @@
       padding: 15px 15px;
    }
 }
+@media (max-width: 550px){
+   .btn_type_catalog{
+      margin-top: 0
+   }
+   .btn_type_main{
+      display: none;
+   }
+   .btn_type_about{
+      margin: 0 auto;
+   }
+}

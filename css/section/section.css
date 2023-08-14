@@ -5,13 +5,21 @@
     gap: 48px;
 
 }
+.section__container_type_about{
+    flex-direction: row;
+}
+.section__container_type_catalog{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+}
 .section__container_type_news{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
 }
 .section__container_type_contacts{
-    justify-content: space-between;
-    align-items: flex-end;
+    /* justify-content: space-between; */
+    /* align-items: flex-end; */
+    padding-left: 20px
 }
 .section__title{
     font-size: 84px;
@@ -34,10 +42,6 @@
   .section__text_type_about:first-child{
     padding-left: 144px;
   }
-.about__container{
-    display: flex;
-    flex-direction: column;
-}
 @media (max-width:1600px){
     .section__img_type_about{
         width: 500px;
@@ -78,8 +82,8 @@
     }
     .section__container{
         padding:30px;
+        gap: 15px;
         max-width: 1000px;
-        gap: 30px
     }
     .section__title{
         font-size: 60px;
@@ -103,10 +107,10 @@
 }
 @media (max-width: 550px){
     .section__text{
-        font-size: 14px
+        font-size: 12px
     }
     .section__text_type_about:not(:first-child) {
-        padding-top: 15px;
+        padding-top: 0;
       }
     .section__title{
         font-size: 18px
@@ -118,7 +122,10 @@
     .section__container_type_team{
         grid-template-columns: repeat(2, 1fr);
     }
-    .section__container{
-        gap: 20px
+    .section__container_type_catalog{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .section__container_type_contacts{
+        flex-direction: column;
     }
 }

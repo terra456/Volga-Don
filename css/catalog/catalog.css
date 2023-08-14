@@ -9,7 +9,7 @@
     padding-top: 30px
 }
 .catalog__card{
-    width: 393px
+    width: 100%
 }
 .catalog__img{
     width: 100%
@@ -18,4 +18,13 @@
     display: flex;
     flex-wrap: wrap;
     gap: 80px 36px
+}
+@media (max-width: 550px){
+    .catalog__name{
+        font-size: 12px;
+    }
+    .catalog__about{
+        padding-top: 8px;
+        font-size: 12px
+    }
 }
