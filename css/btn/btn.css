@@ -30,12 +30,15 @@
 }
 @media (max-width: 550px){
    .btn_type_catalog{
-      margin-top: 0
+      margin-top: 15px
    }
    .btn_type_main{
       display: none;
    }
    .btn_type_about{
       margin: 0 auto;
+   }
+   .btn_type_questions{
+      margin-top:0
    }
 }

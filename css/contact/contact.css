@@ -9,9 +9,6 @@
     font-weight: 700;
     
 }
-.contacts__map{
-    width: 1000px
-}
 @media (max-width:1240px){
     .contact__link{
         font-size: 14px;

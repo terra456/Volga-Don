@@ -57,15 +57,15 @@
         padding: 20px 40px
     }
 }
-@media (max-width:800px){
+/* @media (max-width:800px){
     .header__nav {
         width: 200px;
     }
     .header__link {
         font-size: 14px;
     }
-}
-@media (max-width:650px){
+} */
+@media (max-width:550px){
     .header__nav {
         display: none
     }
@@ -80,6 +80,7 @@
     }
     .header__container{
         justify-content: flex-start;
-        gap: 8px
+        gap: 8px;
+        padding-left: 20px;
     }
 }

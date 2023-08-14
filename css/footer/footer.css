@@ -54,9 +54,12 @@
         display: none;
     }
 }
-@media (max-width:600px){
+@media (max-width:550px){
     .footer__container{
         flex-direction: column-reverse;
+        align-items: flex-start;
+        padding: 0;
+        padding-left: 10px
     }
     .footer__contact.contact{
         gap: 7px;

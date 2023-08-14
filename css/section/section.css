@@ -82,6 +82,7 @@
     }
     .section__container{
         padding:30px;
+        padding-bottom: 0;
         gap: 15px;
         max-width: 1000px;
     }
