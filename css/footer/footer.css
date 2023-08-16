@@ -49,10 +49,13 @@
         padding: 44px 40px;
     }
 }
-@media (max-width:800px){
-    .footer__nav{
+@media(max-width: 800px){
+    .footer__contact_type_main.contact{
         display: none;
-    }
+     }
+     .footer__nav_type_main{
+         display: none;
+     }
 }
 @media (max-width:550px){
     .footer__container{
@@ -65,4 +68,5 @@
         gap: 7px;
         align-items: flex-start;
     }
+
 }
