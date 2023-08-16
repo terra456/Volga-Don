@@ -11,6 +11,7 @@
 @import url(./news/news.css);
 @import url(./contact/contact.css);
 @import url(./questions/questions.css);
+@import url(./admin/admin-registration/admin-registration.css);
 *{
     padding: 0;
     margin: 0;
