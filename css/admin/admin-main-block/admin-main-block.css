@@ -1,0 +1,17 @@
+.admin-main-block{
+ 
+}
+.admin-main-block__header{
+    background-color: #FBBF46;
+    display: flex;
+    justify-content: space-between;
+    padding: 23px 90px;
+}
+.admin-main-block__title{
+font-size: 20px;
+font-weight: 700;
+}
+.admin-main-block__content{
+    padding: 0 90px;
+    
+}

@@ -1,0 +1,11 @@
+.admin-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #000;
+    font-size: 20px;
+    font-weight: 400;
+}

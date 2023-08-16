@@ -12,6 +12,10 @@
 @import url(./contact/contact.css);
 @import url(./questions/questions.css);
 @import url(./admin/admin-registration/admin-registration.css);
+@import url(./admin/admin-main/admin-main.css);
+@import url(./admin/admin-header/admin-header.css);
+@import url(./admin/admin-btn/admin-btn.css);
+@import url(./admin/admin-main-block/admin-main-block.css);
 *{
     padding: 0;
     margin: 0;

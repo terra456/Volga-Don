@@ -1,0 +1,10 @@
+.admin-main{
+
+}
+.admin-main__title{
+    font-size: 72px;
+    font-style: normal;
+    font-weight: 700;
+    text-align: center;
+    padding-bottom: 60px
+}
