@@ -1,13 +1,15 @@
-const baseUrl = 'https://cv08121-django-53po4.tw1.ru'
-function getInfo(){
-    try{
-    return fetch(`${baseUrl}/articles`,{
-    headers: {
-        "Content-Type": "application/json",
-      }})
-      .then(res => res.json())
-      .then(res => console.log(res))}
-      catch(error){
-        console.log(error)
-      }
-}
+const baseUrl = 'http://cv08121-django-53po4.tw1.ru';
+const checkAnswer = (res) => {
+  if (res.ok) {
+    return res.json();
+  } else {
+    return Promise.reject(`Ошибка: ${res.status}`);
+  }
+};
+
+   const getInfo = () => {
+    return fetch(`${baseUrl}/articles/`)
+    .then(response => response.json())
+    .then(data => console.log(data));
+    }
+getInfo()
