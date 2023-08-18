@@ -15,7 +15,7 @@
 }
 .admin-news-card__info{
     display: flex;
-    justify-content: space-between;
+    gap: 60px;
     align-items: center;
 }
 .admin-news-card__buttons{
@@ -26,4 +26,6 @@
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
+    color: #000;
+font-family: Arial;
 }
