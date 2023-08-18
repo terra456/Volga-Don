@@ -12,6 +12,13 @@
    width: max-content;
  
 }
+.btn:hover{
+   background-color: #D6A038;
+}
+.btn_disabled{
+   background-color: #CBCBCB;
+   color:rgba(99, 99, 99, 1)
+}
 .btn_type_about{
    margin-left: auto;
    margin-top: auto;

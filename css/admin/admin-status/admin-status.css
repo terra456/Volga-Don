@@ -8,10 +8,17 @@
     font-weight: 400;
     padding: 9px 10px;
     align-items: center;
+    cursor: pointer;
 }
 .admin-status_type_ok{
     background-color: #84DA82;
 }
+.admin-status_type_ok:hover{
+    background-color: #7BBD79;
+}
 .admin-status_type_archive{
     background-color: #CBCBCB;
+}
+.admin-status_type_archive:hover{
+    background-color: #B4B2B2;
 }

@@ -1,8 +1,11 @@
 .admin-btn-change{
-    background-color: rgba(251, 191, 70, 1);
     background-image: url('../../../vendor/images/icons/Change.svg');
     width: 36px;
     height: 36px;
     border: none;
     background-position: 100%;
+    cursor:pointer;
+}
+.admin-btn-change:hover{
+    background-image: url('../../../vendor/images/icons/Property\ 1=Hover.svg');
 }
