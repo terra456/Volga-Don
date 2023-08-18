@@ -24,13 +24,15 @@ const formattedDate = `${formatDay()}.0${date.getMonth() + 1}.${date.getFullYear
 return formattedDate
 }
 
-
+// вывод на главную страницу админа первых 3х новостей
 const renderAdminNews = () => {
     return fetch(`${baseUrl}/articles/`)
     .then(checkAnswer)
-    .then(data =>  data.forEach((article) => {
+    .then(data =>  {
+      const firstThreeArticles = data.slice(0, 3);
+      firstThreeArticles.forEach((article) => {
       addCard(article, newsContainer)
-    }));
+    })});
     }
 
 renderAdminNews()

@@ -1,6 +1,6 @@
 import { formatDate } from './api.js'
 const cardTemplateNews = document.querySelector("#template-card-news").content;
-export const newsContainer = document.querySelector(".admin-news")
+export const newsContainer = document.querySelector(".admin-main-block__content-news")
 
 // создание карточки новостей
 
