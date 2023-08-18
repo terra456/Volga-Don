@@ -13,26 +13,6 @@ font-weight: 700;
 }
 .admin-main-block__content{
     padding: 40px 90px 50px;
-    
-}
-.admin-main-block__btn-ok {
-    background-color: #84DA82;
-    border: none;
     display: flex;
-    gap: 15px;
-    font-family: Arial;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    padding: 9px 10px;
-    align-items: center;
+    gap: 36px
 }
-/* .admin-main-block__btn-change{
-    background-color: rgba(251, 191, 70, 1);
-    background-image: url('../../../vendor/images/icons/Change.svg');
-    width: 36px;
-    height: 36px;
-    border: none;
-    background-position: 100%;
-    margin-left: 15px;
-} */

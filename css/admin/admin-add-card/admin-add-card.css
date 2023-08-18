@@ -1,0 +1,22 @@
+.admin-add-card {
+    background-color: #FBBF46;
+    padding: 0 42px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   
+}
+.admin-add-card__icon{
+    width: 60px;
+    height: 60px
+}
+.admin-add-card__text {
+    font-family: Arial;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+}
+.admin-add-card_type_news{
+ gap: 65px;
+ padding-top: 90px;
+}
