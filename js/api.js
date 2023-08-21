@@ -1,4 +1,5 @@
-import {addCard, newsContainer} from './admin-main.js';
+import {addCard, newsContainerMain} from './admin-main.js';
+import { newsContainer } from './admin-news.js';
 
 const baseUrl = 'http://cv08121-django-53po4.tw1.ru';
 const checkAnswer = (res) => {
@@ -25,14 +26,24 @@ return formattedDate
 }
 
 // вывод на главную страницу админа первых 3х новостей
-const renderAdminNews = () => {
+export const renderAdminNewsMain = () => {
     return fetch(`${baseUrl}/articles/`)
     .then(checkAnswer)
     .then(data =>  {
+      console.log(data)
       const firstThreeArticles = data.slice(0, 3);
       firstThreeArticles.forEach((article) => {
-      addCard(article, newsContainer)
+      addCard(article, newsContainerMain)
     })});
     }
+    renderAdminNewsMain()
 
+export const renderAdminNews = () => {
+  return fetch(`${baseUrl}/articles/`)
+  .then(checkAnswer)
+  .then(data =>  {
+    data.forEach((article) => {
+    addCard(article, newsContainer)
+  })});
+}
 renderAdminNews()

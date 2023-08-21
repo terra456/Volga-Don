@@ -5,20 +5,20 @@
     padding: 17px 90px 40px 90px;
 }
 .admin-header__link {
-    color: #636363;
+    /* color: #636363; */
     font-size: 20px;
     font-weight: 400;
     font-family: Arial;
+}
+.admin-header__link_state_focus{
+    cursor: pointer;
 }
 .admin-header__buttons-container{
     display: flex;
     gap: 60px
 }
-/* .admin-header__btn{
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
+.admin-header__link-container{
     display: flex;
-    align-items: center;
-    gap: 15px
-} */
+    gap: 15px;
+    opacity: .6;
+}
