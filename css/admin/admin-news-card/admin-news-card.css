@@ -4,6 +4,9 @@
     flex-direction: column;
     gap: 15px
 }
+.admin-news-card_type_catalog{
+    max-width: 180px;
+}
 .admin-news-card__text {
     font-size: 16px;
     font-style: normal;

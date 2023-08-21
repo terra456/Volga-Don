@@ -1,4 +1,4 @@
-import {addCard, newsContainerMain} from './admin-main.js';
+import {addCard, createCardCatalog, createCardNews, newsContainerMain, catalogContainerMain} from './admin-main.js';
 import { newsContainer } from './admin-news.js';
 
 const baseUrl = 'http://cv08121-django-53po4.tw1.ru';
@@ -33,7 +33,7 @@ export const renderAdminNewsMain = () => {
       console.log(data)
       const firstThreeArticles = data.slice(0, 3);
       firstThreeArticles.forEach((article) => {
-      addCard(article, newsContainerMain)
+      addCard(article, newsContainerMain, createCardNews)
     })});
     }
     renderAdminNewsMain()
@@ -43,7 +43,16 @@ export const renderAdminNews = () => {
   .then(checkAnswer)
   .then(data =>  {
     data.forEach((article) => {
-    addCard(article, newsContainer)
+    addCard(article, newsContainer, createCardNews)
   })});
 }
-renderAdminNews()
+// renderAdminNews()
+export const renderAdminCatalog = () => {
+  return fetch(`${baseUrl}/products/`)
+  .then(checkAnswer)
+  .then(data =>  {
+    data.forEach((item) => {
+    addCard(item, catalogContainerMain, createCardCatalog)
+  })});
+}
+renderAdminCatalog()

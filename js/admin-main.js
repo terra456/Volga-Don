@@ -1,6 +1,7 @@
 import { formatDate } from './api.js'
 const cardTemplateNews = document.querySelector("#template-card-news").content;
-export const newsContainerMain = document.querySelector(".admin-main-block__content-news")
+export const newsContainerMain = document.querySelector(".admin-main-block__content-news");
+export const catalogContainerMain = document.querySelector(".admin-main-block__content-catalog")
 
 // создание карточки новостей
 
@@ -16,10 +17,20 @@ export const createCardNews = function (array) {
     newCardDate.textContent = formatDate(array["created_at"]);
     return newCard;
   };
+  export const createCardCatalog = function (array) {
+    const newCard = cardTemplateNews.querySelector(".admin-news-card").cloneNode(true);
+    const newCardImage = newCard.querySelector(".admin-news-card__img");
+    const newCardText = newCard.querySelector(".admin-news-card__text")
+    const newCardButtonChange = newCard.querySelector(".admin-btn-change");
+    newCardText.textContent = array["title"]
+    newCardImage.src = array["image"];
+    newCardImage.alt = array["title"];
+    return newCard;
+  };
 
   //добавление новой карточки
-  export const addCard = function (array, container) {
-    const newCard = createCardNews(array);
+  export const addCard = function (array, container, func) {
+    const newCard = func(array);
     container.append(newCard);
   };
  

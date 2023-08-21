@@ -1,11 +1,9 @@
 .admin-add-card {
     background-color: #FBBF46;
-    padding: 0 42px;
     display: flex;
     flex-direction: column;
     align-items: center;
     cursor: pointer;
-    max-width: 288px;
    
 }
 .admin-add-card__icon{
@@ -21,4 +19,13 @@
 .admin-add-card_type_news{
  gap: 65px;
  padding-top: 90px;
+ max-width: 288px;
+ padding: 90px 42px 0
 }
+.admin-add-card_type_catalog{
+   gap: 65px;
+    padding-top: 80px;
+    max-width: 180px;
+    padding: 80px 27px 0;
+    text-align: center;
+   }

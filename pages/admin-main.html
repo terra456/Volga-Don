@@ -10,10 +10,12 @@
 </head>
 <body class="admin-main">
     <header class="admin-header">
+        <div class="admin-header__link-container">
         <p class="admin-header__link">Главная</p>
+       </div>
         <div class="admin-header__buttons-container">
-            <button class="admin-btn"><a>Изменить пароль <img src="../vendor/images/arrow.svg" alt=""></a></button>
-            <button class="admin-btn"><a>Выйти <img src="../vendor/images/arrow.svg" alt=""></a></button>
+            <button class="admin-btn"><a class="admin-btn__link">Изменить пароль <img class="admin-btn__arrow" src="../vendor/images/arrow.svg" alt=""></a></button>
+            <button class="admin-btn"><a class="admin-btn__link">Выйти <img class="admin-btn__arrow" src="../vendor/images/arrow.svg" alt=""></a></button>
         </div>
     </header>
     <h1 class="admin-main__title">Добро пожаловать!</h1>
@@ -38,9 +40,17 @@
             <button class="admin-btn"><a>Показать все <img src="../vendor/images/arrow.svg" alt=""></a></button>
         </div>
         <section class="admin-main-block__content">
-            
+            <div class="admin-main-block__content-catalog">
+
+            </div>
+            <div class="admin-add-card admin-add-card_type_catalog">
+                <img src="../vendor/images/icons/add.svg" alt="Добавить запись" class="admin-add-card__icon">
+               <p class="admin-add-card__text">Добавить новый товар</p>
+           </div>
         </section>
     </div>
+
+
 
     <!-- секция новостей -->
     <template id="template-card-news">
@@ -53,6 +63,20 @@
                 <button class="admin-btn-change"></button>
             </div>
                 <p class="admin-news-card__date"></p>
+            </div>
+        </article>
+    </template>
+
+   <!-- секция каталог -->
+    <template id="template-card-catalog">
+        <article class="admin-news-card admin-news-card_type_catalog">
+            <img src="" alt="" class="admin-news-card__img">
+            <p class="admin-news-card__text"></p>
+            <div class="admin-news-card__info">
+                <div class="admin-news-card__buttons">
+                <button class="admin-status admin-status_type_archive">В архиве <img src="../vendor/images/icons/minus.svg"></button>
+                <button class="admin-btn-change"></button>
+            </div>
             </div>
         </article>
     </template>
