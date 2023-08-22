@@ -23,6 +23,8 @@
 @import url(./admin/admin-news/admin-news.css);
 @import url(./admin/admin-catalog/admin-catalog.css);
 @import url(./admin/admin-users/admin-users.css);
+@import url(./admin/admin-title/admin-title.css);
+@import url(./base-input/base-input.css);
 *{
     padding: 0;
     margin: 0;
