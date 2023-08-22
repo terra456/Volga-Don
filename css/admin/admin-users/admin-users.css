@@ -1,0 +1,31 @@
+.admin-users__card{
+    background-color: #FBBF46;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 43px 70px;
+    gap: 15px;
+    position: relative;
+}
+.admin-users__name{
+    font-family: Arial;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+}
+.admin-users__close{
+position: absolute;
+top: 0;
+right: 0;
+cursor: pointer;
+color: #FB7146
+}
+.admin-users__close:hover{
+color: #C95936
+}
+.admin-users__content{
+    display: flex;
+    gap: 36px;
+    padding: 0 90px
+}

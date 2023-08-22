@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin-main</title>
+    <link rel="stylesheet" href="../css/index.css">
+    <script src="../js/admin-main.js" type="module" defer></script>
+    <script src="../js/api.js" type="module" defer></script>
+</head>
+<body class="admin-main">
+    <header class="admin-header">
+        <div class="admin-header__link-container">
+        <p class="admin-header__link">Главная</p>
+       </div>
+        <div class="admin-header__buttons-container">
+            <button class="admin-btn"><a class="admin-btn__link">Изменить пароль <img class="admin-btn__arrow" src="../vendor/images/arrow.svg" alt=""></a></button>
+            <button class="admin-btn"><a class="admin-btn__link">Выйти <img class="admin-btn__arrow" src="../vendor/images/arrow.svg" alt=""></a></button>
+        </div>
+    </header>
+    <h1 class="admin-main__title">Добро пожаловать!</h1>
+    <div class="admin-main-block">
+        <div class="admin-main-block__header">
+            <p class="admin-main-block__title">Новости</p>
+            <button class="admin-btn"><a class="admin-btn__link" href="./admin-news.html">Показать все <img src="../vendor/images/arrow.svg" alt=""></a></button>
+        </div>
+        <section class="admin-main-block__content">
+            <div class="admin-main-block__content-news">
+                <!-- место для карточек новостей -->
+            </div>
+        <div class="admin-add-card admin-add-card_type_news">
+             <img src="../vendor/images/icons/add.svg" alt="Добавить запись" class="admin-add-card__icon">
+            <p class="admin-add-card__text">Добавить новую запись</p>
+        </div>
+        </section>
+    </div>
+    <div class="admin-main-block">
+        <div class="admin-main-block__header">
+            <p class="admin-main-block__title">Каталог</p>
+            <button class="admin-btn"><a class="admin-btn__link" href="./admin-catalog.html">Показать все <img src="../vendor/images/arrow.svg" alt=""></a></button>
+        </div>
+        <section class="admin-main-block__content">
+            <div class="admin-main-block__content-catalog">
+
+            </div>
+            <div class="admin-add-card admin-add-card_type_catalog">
+                <img src="../vendor/images/icons/add.svg" alt="Добавить запись" class="admin-add-card__icon">
+               <p class="admin-add-card__text">Добавить новый товар</p>
+           </div>
+        </section>
+    </div>
+
+    <div class="admin-main-block">
+        <div class="admin-main-block__header">
+            <p class="admin-main-block__title">Сотрудники</p>
+            <button class="admin-btn"><a class="admin-btn__link" href="./admin-users.html">Показать все <img src="../vendor/images/arrow.svg" alt=""></a></button>
+        </div>
+        <section class="admin-main-block__content">
+            <div class="admin-users">
+               <div class="admin-users__card">
+                <img src="../vendor/images/icons/user.svg" alt="пользователь" class="admin-users__icon">
+                <p class="admin-users__name">user</p>
+                <svg class="admin-users__close" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="36" height="36" fill="currentColor"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M18 8C12.47 8 8 12.47 8 18C8 23.53 12.47 28 18 28C23.53 28 28 23.53 28 18C28 12.47 23.53 8 18 8ZM18 26C13.59 26 10 22.41 10 18C10 13.59 13.59 10 18 10C22.41 10 26 13.59 26 18C26 22.41 22.41 26 18 26ZM18 16.59L21.59 13L23 14.41L19.41 18L23 21.59L21.59 23L18 19.41L14.41 23L13 21.59L16.59 18L13 14.41L14.41 13L18 16.59Z" fill="black"/>
+              </svg>
+               </div>
+            </div>
+            <div class="admin-add-card admin-add-card_type_users">
+                <img src="../vendor/images/icons/add.svg" alt="Добавить запись" class="admin-add-card__icon">
+               <p class="admin-add-card__text">Добавить нового сотрудника</p>
+           </div>
+        </section>
+    </div>
+
+
+
+    <!-- секция новостей -->
+    <template id="template-card-admin">
+        <article class="admin-news-card">
+            <img src="../vendor/images/news2.png" alt="" class="admin-news-card__img">
+            <p class="admin-news-card__text"></p>
+            <div class="admin-news-card__info">
+                <div class="admin-news-card__buttons">
+                <button class="admin-status admin-status_type_archive">В архиве <img src="../vendor/images/icons/minus.svg"></button>
+                <button class="admin-btn-change"></button>
+            </div>
+                <p class="admin-news-card__date"></p>
+            </div>
+        </article>
+    </template>
+
+   <!-- секция каталог -->
+    <template id="template-card-admin">
+        <article class="admin-news-card admin-news-card_type_catalog">
+            <img src="" alt="" class="admin-news-card__img">
+            <p class="admin-news-card__text"></p>
+            <div class="admin-news-card__info">
+                <div class="admin-news-card__buttons">
+                <button class="admin-status admin-status_type_archive">В архиве <img src="../vendor/images/icons/minus.svg"></button>
+                <button class="admin-btn-change"></button>
+            </div>
+            </div>
+        </article>
+    </template>
+</body>
+</html>

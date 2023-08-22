@@ -1,0 +1,36 @@
+.admin-add-card {
+    background-color: #FBBF46;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    text-align: center;
+}
+.admin-add-card__icon{
+    width: 60px;
+    height: 60px
+}
+.admin-add-card__text {
+    font-family: Arial;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+}
+
+.admin-add-card_type_news{
+ gap: 65px;
+ padding-top: 90px;
+ max-width: 288px;
+ padding: 90px 42px 0
+}
+.admin-add-card_type_catalog{
+   gap: 65px;
+    padding-top: 80px;
+    max-width: 180px;
+    padding: 80px 27px 0;
+ }
+.admin-add-card_type_users{
+    padding: 25px 10px 0;
+    max-width: 180px;
+    gap: 20px
+}

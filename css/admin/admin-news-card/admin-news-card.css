@@ -1,0 +1,34 @@
+.admin-news-card{
+    max-width: 288px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px
+}
+.admin-news-card_type_catalog{
+    max-width: 180px;
+}
+.admin-news-card__text {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+}
+.admin-news-card__img{
+    width: 100%;
+    height: 200px
+}
+.admin-news-card__info{
+    display: flex;
+    gap: 60px;
+    align-items: center;
+}
+.admin-news-card__buttons{
+    display: flex;
+    gap: 15px
+}
+.admin-news-card__date {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    color: #000;
+font-family: Arial;
+}
