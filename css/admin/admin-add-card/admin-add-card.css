@@ -4,7 +4,7 @@
     flex-direction: column;
     align-items: center;
     cursor: pointer;
-   
+    text-align: center;
 }
 .admin-add-card__icon{
     width: 60px;
@@ -16,6 +16,7 @@
     font-style: normal;
     font-weight: 700;
 }
+
 .admin-add-card_type_news{
  gap: 65px;
  padding-top: 90px;
@@ -27,5 +28,9 @@
     padding-top: 80px;
     max-width: 180px;
     padding: 80px 27px 0;
-    text-align: center;
-   }
+ }
+.admin-add-card_type_users{
+    padding: 25px 10px 0;
+    max-width: 180px;
+    gap: 20px
+}

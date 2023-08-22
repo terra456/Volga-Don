@@ -1,5 +1,6 @@
 import {addCard, createCardCatalog, createCardNews, newsContainerMain, catalogContainerMain} from './admin-main.js';
 import { newsContainer } from './admin-news.js';
+import { catalogContainer} from './admin-catalog.js';
 
 const baseUrl = 'http://cv08121-django-53po4.tw1.ru';
 const checkAnswer = (res) => {
@@ -28,16 +29,9 @@ return formattedDate
 // вывод на главную страницу админа первых 3х новостей
 export const renderAdminNewsMain = () => {
     return fetch(`${baseUrl}/articles/`)
-    .then(checkAnswer)
-    .then(data =>  {
-      console.log(data)
-      const firstThreeArticles = data.slice(0, 3);
-      firstThreeArticles.forEach((article) => {
-      addCard(article, newsContainerMain, createCardNews)
-    })});
+    .then(checkAnswer);
     }
-    renderAdminNewsMain()
-
+//вывод на страницу новостей
 export const renderAdminNews = () => {
   return fetch(`${baseUrl}/articles/`)
   .then(checkAnswer)
@@ -46,13 +40,27 @@ export const renderAdminNews = () => {
     addCard(article, newsContainer, createCardNews)
   })});
 }
-// renderAdminNews()
+//вывод каталог главная админ
+export const renderAdminCatalogMain = () => {
+  return fetch(`${baseUrl}/products/`)
+  .then(checkAnswer)
+}
+//вывод на страницу каталог
 export const renderAdminCatalog = () => {
   return fetch(`${baseUrl}/products/`)
   .then(checkAnswer)
   .then(data =>  {
     data.forEach((item) => {
-    addCard(item, catalogContainerMain, createCardCatalog)
+    addCard(item, catalogContainer, createCardCatalog)
   })});
 }
-renderAdminCatalog()
+
+document.addEventListener("DOMContentLoaded", function(){
+
+if (window.location.pathname.endsWith('admin-news.html')){
+  renderAdminNews()
+}
+if (window.location.pathname.endsWith('admin-catalog.html')){
+  renderAdminCatalog();
+}
+})

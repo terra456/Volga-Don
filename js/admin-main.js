@@ -1,5 +1,5 @@
-import { formatDate } from './api.js'
-const cardTemplateNews = document.querySelector("#template-card-news").content;
+import { formatDate, renderAdminCatalogMain, renderAdminNewsMain } from './api.js'
+const cardTemplateNews = document.querySelector("#template-card-admin").content;
 export const newsContainerMain = document.querySelector(".admin-main-block__content-news");
 export const catalogContainerMain = document.querySelector(".admin-main-block__content-catalog")
 
@@ -33,4 +33,21 @@ export const createCardNews = function (array) {
     const newCard = func(array);
     container.append(newCard);
   };
- 
+
+  document.addEventListener("DOMContentLoaded", function(){
+    if (window.location.pathname.endsWith('admin-main.html')){
+      renderAdminCatalogMain()
+      .then(data =>  {
+        data.forEach((item) => {
+        addCard(item, catalogContainerMain, createCardCatalog)
+      })});
+
+
+      renderAdminNewsMain()
+      .then(data =>  {
+        const firstThreeArticles = data.slice(0, 3);
+        firstThreeArticles.forEach((article) => {
+        addCard(article, newsContainerMain, createCardNews)
+      })})
+    }
+  })
