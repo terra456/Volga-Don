@@ -16,7 +16,11 @@ font-weight: 700;
     display: flex;
     gap: 36px
 }
-.admin-main-block__content-news{
+/* .admin-main-block__content-news{
+    display: flex;
+    gap: 36px
+} */
+.admin-main-block__content-container{
     display: flex;
     gap: 36px
 }
