@@ -1,12 +1,13 @@
 
-import { renderAdminCatalogMain, renderAdminNewsMain, auth, refresh, getAdminProducts, getAdminNews } from './api.js'
+import { renderAdminCatalogMain, renderAdminNewsMain, refresh, getAdminProducts, getAdminNews } from './api.js'
 import { formatDate } from './utils.js';
-const cardTemplateNews = document.querySelector("#template-card-admin").content;
+// const cardTemplateNews = document.querySelector("#template-card-admin").content;
 export const newsContainerMain = document.querySelector(".admin-main-block__content-news");
 export const catalogContainerMain = document.querySelector(".admin-main-block__content-catalog")
 
 // создание карточки новостей
 export const createCardNews = function (array) {
+  const cardTemplateNews = document.querySelector("#template-card-admin").content;
     const newCard = cardTemplateNews.querySelector(".admin-news-card").cloneNode(true);
     const newCardImage = newCard.querySelector(".admin-news-card__img");
     const newCardText = newCard.querySelector(".admin-news-card__text")
@@ -19,6 +20,7 @@ export const createCardNews = function (array) {
     return newCard;
   };
   export const createCardCatalog = function (array) {
+    const cardTemplateNews = document.querySelector("#template-card-admin").content;
     const newCard = cardTemplateNews.querySelector(".admin-news-card").cloneNode(true);
     const newCardImage = newCard.querySelector(".admin-news-card__img");
     const newCardText = newCard.querySelector(".admin-news-card__text")
