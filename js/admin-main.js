@@ -1,5 +1,5 @@
 
-import { renderAdminCatalogMain, renderAdminNewsMain, refresh, getAdminProducts, getAdminNews } from './api.js'
+import { getAdminProducts, getAdminNews } from './api.js'
 import { formatDate } from './utils.js';
 // const cardTemplateNews = document.querySelector("#template-card-admin").content;
 export const newsContainerMain = document.querySelector(".admin-main-block__content-news");
@@ -19,6 +19,7 @@ export const createCardNews = function (array) {
     newCardDate.textContent = formatDate(array["created_at"]);
     return newCard;
   };
+  //создание карточки каталога
   export const createCardCatalog = function (array) {
     const cardTemplateNews = document.querySelector("#template-card-admin").content;
     const newCard = cardTemplateNews.querySelector(".admin-news-card").cloneNode(true);

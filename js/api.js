@@ -3,31 +3,12 @@ import { newsContainer } from './admin-news.js';
 import { catalogContainer} from './admin-catalog.js';
 import { baseUrl, checkAnswer } from './utils.js';
 
-// export const auth = () => {
-//   return fetch(`${baseUrl}/auth/login/`, {
-//     method: "POST",
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//     body: JSON.stringify({
-//       username: "admin",
-//       password: "123",
-//     }),
-//   })
-//   .then(checkAnswer)
-//   .then((data) => {
-//     localStorage.setItem('access', data.access);
-//     localStorage.setItem('refresh', data.refresh);})
-// }
-
 // setInterval(auth, 86400000)
 // setInterval(() => {                   //обновление токена
 //   refresh();
 // }, 30 * 60 * 1000);
 // console.log(localStorage.getItem('refresh'))
 // refresh()
-
-
 
 // вывод на главную страницу админа первых 3х новостей
 export const renderAdminNewsMain = () => {

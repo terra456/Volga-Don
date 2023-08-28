@@ -11,8 +11,16 @@
     <div class="admin-registration__container">
         <h1 class="admin-registration__title">Вход в админ-панель</h1>
         <form action="" class="admin-registration__form">
-        <input type="text" class="admin-registration__input admin-registration__input_type_login" placeholder="Логин">
-        <input type="password" class="admin-registration__input admin-registration__input_type_password" placeholder="Пароль">
+
+        <fieldset class="admin-registration__fieldset">
+        <input type="text" id="login" name="login" class="admin-registration__input admin-registration__input_type_login" placeholder="Логин" required>
+        <span class="admin-registration__error-message">*Это поле обязательно к заполнению</span>
+        </fieldset>
+
+        <fieldset class="admin-registration__fieldset">
+        <input type="password" id="password" name="password" class="admin-registration__input admin-registration__input_type_password" placeholder="Пароль" required>
+        <span class="admin-registration__error-message">*Это поле обязательно к заполнению</span>
+        </fieldset>
         <button class="btn admin-registration__btn" type="submit">Войти<img src="../vendor/images/arrow.svg" alt="" class="btn__img"></button>
       </form>
     </div>

@@ -10,7 +10,7 @@ export const refresh = () => {
   },
   body: JSON.stringify({
     username: localStorage.getItem('username'),
-    password: localStrorage.getItem('password'),
+    password: localStorage.getItem('password'),
     refresh: localStorage.getItem('refresh')
   })
 })
@@ -30,6 +30,14 @@ export const checkAnswer = (res) => {
     return Promise.reject(`Ошибка: ${res.status}`);
   }
 };
+
+export const checkAnswerAuth = (res) => {
+  if(res.ok){
+    return res.json()
+  } else {
+    throw new Error('Неверный логин или пароль');
+  }
+}
 
 
 export const formatDate = (someDate) => {
