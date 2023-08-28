@@ -1,26 +1,40 @@
 import { baseUrl, checkAnswerAuth} from "./utils.js";
+document.addEventListener("DOMContentLoaded", function(){
+  if (window.location.pathname.endsWith('admin-registration.html')){
 const login = document.querySelector('.admin-registration__input_type_login');
 const password = document.querySelector('.admin-registration__input_type_password');
 const enterButton = document.querySelector('.admin-registration__btn');
 const errorMessages = document.querySelectorAll('.admin-registration__error-message');
+const loading = document.querySelector('.loading-img');
 
+const authLoadingActive = () => {
+  loading.classList.add('loading-img_active')
+}
+const authLoadingInactive = () => {
+  loading.classList.remove('loading-img_active')
+}
 
 const validateInput = () => {
+  authLoadingActive();
   if (login.validity.valid) {
     errorMessages[0].classList.remove('admin-registration__error-message_active');
     return true
   } else {
     errorMessages[0].classList.add('admin-registration__error-message_active');
-    return false
+    authLoadingInactive()
+    return false;
   }
+  
 }
 
 const validatePassword = () => {
+  authLoadingActive();
   if (password.validity.valid) {
     errorMessages[1].classList.remove('admin-registration__error-message_active');
     return true
   } else {
     errorMessages[1].classList.add('admin-registration__error-message_active');
+    authLoadingInactive();
     return false
   }
 }
@@ -41,9 +55,10 @@ export const auth = () => {
       localStorage.setItem('access', data.access);
       localStorage.setItem('refresh', data.refresh);
       localStorage.setItem('username',login.value);
-      localStorage.setItem('username', password.value)})
+      localStorage.setItem('username', password.value)
+      window.location.href = 'admin-main.html'})
       .catch((err) => {
-        console.log(err)
+        authLoadingInactive()
         const loginError = document.querySelector('#login + .admin-registration__error-message');
         const passwordError = document.querySelector('#password + .admin-registration__error-message');
         if (loginError) {
@@ -58,6 +73,7 @@ export const auth = () => {
       
   }
 
+
 enterButton.addEventListener('click', (e) => {
   e.preventDefault();
   validateInput();
@@ -65,6 +81,8 @@ enterButton.addEventListener('click', (e) => {
   if (validateInput() && validatePassword()) {
     auth();
   }
-
+  
 });
+  }
+})
 

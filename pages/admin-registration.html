@@ -21,7 +21,10 @@
         <input type="password" id="password" name="password" class="admin-registration__input admin-registration__input_type_password" placeholder="Пароль" required>
         <span class="admin-registration__error-message">*Это поле обязательно к заполнению</span>
         </fieldset>
-        <button class="btn admin-registration__btn" type="submit">Войти<img src="../vendor/images/arrow.svg" alt="" class="btn__img"></button>
+        <button class="btn admin-registration__btn admin-registration__btn_loading" type="submit">
+            Войти<img src="../vendor/images/arrow.svg" alt="" class="btn__img btn__img_type_arrow">
+            <div class="loading-img"></div>
+            </button>
       </form>
     </div>
 </body>
