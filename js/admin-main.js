@@ -49,6 +49,7 @@ export const createCardNews = function (array) {
     
       getAdminNews()
       .then(data =>  {
+        console.log(data)
           const firstThreeArticles = data.slice(0, 3);
           firstThreeArticles.forEach((article) => {
           addCard(article, newsContainerMain, createCardNews)

@@ -1,6 +1,5 @@
 import { baseUrl, checkAnswerAuth} from "./utils.js";
-document.addEventListener("DOMContentLoaded", function(){
-  if (window.location.pathname.endsWith('admin-registration.html')){
+
 const login = document.querySelector('.admin-registration__input_type_login');
 const password = document.querySelector('.admin-registration__input_type_password');
 const enterButton = document.querySelector('.admin-registration__btn');
@@ -83,6 +82,5 @@ enterButton.addEventListener('click', (e) => {
   }
   
 });
-  }
-})
+
 
