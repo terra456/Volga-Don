@@ -27,6 +27,7 @@
 @import url(./base-input/base-input.css);
 @import url(./loading/loading-img/loading-img.css);
 @import url(./about/about.css);
+@import url(./reason/reason.css);
 *{
     padding: 0;
     margin: 0;

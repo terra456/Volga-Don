@@ -16,6 +16,11 @@
     display: grid;
     grid-template-columns: repeat(4,1fr);
 }
+.section__container_type_sertificates{
+   gap: 30px;
+   justify-content: center;
+    
+}
 .section__container_type_news{
     display: grid;
     grid-template-columns: repeat(3, 1fr);

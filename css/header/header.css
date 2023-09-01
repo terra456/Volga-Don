@@ -57,14 +57,7 @@
         padding: 20px 40px
     }
 }
-/* @media (max-width:800px){
-    .header__nav {
-        width: 200px;
-    }
-    .header__link {
-        font-size: 14px;
-    }
-} */
+
 @media (max-width:550px){
     .header__nav {
         display: none
