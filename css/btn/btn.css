@@ -25,10 +25,6 @@
    background-color: #CBCBCB;
    color:rgba(99, 99, 99, 1)
 }
-.btn_type_about{
-   margin-left: auto;
-   margin-top: auto;
-}
 .btn_type_catalog{
    margin: 0 auto;
    margin-top: 80px;
@@ -47,9 +43,6 @@
    }
    .btn_type_main{
       display: none;
-   }
-   .btn_type_about{
-      margin: 0 auto;
    }
    .btn_type_questions{
       margin-top:0
