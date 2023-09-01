@@ -1,30 +1,15 @@
-import {addCard, createCardCatalog, createCardNews, newsContainerMain, catalogContainerMain} from './admin-main.js';
+import {addCard,  createCardNews, createCardCatalog} from './admin-main.js';
 import { newsContainer } from './admin-news.js';
-import { catalogContainer} from './admin-catalog.js';
+import { baseUrl, checkAnswer } from './utils.js';
+import { catalogContainer } from './admin-catalog.js';
 
-const baseUrl = 'http://cv08121-django-53po4.tw1.ru';
-const checkAnswer = (res) => {
-  if (res.ok) {
-    return res.json();
-  } else {
-    return Promise.reject(`Ошибка: ${res.status}`);
-  }
-};
+// setInterval(auth, 86400000)
+// setInterval(() => {                   //обновление токена
+//   refresh();
+// }, 30 * 60 * 1000);
+// console.log(localStorage.getItem('refresh'))
+// refresh()
 
-
-export const formatDate = (someDate) => {
-const date = new Date(someDate);
-const day = date.getDate()
-const formatDay = () => {
-  if(day < 10){
-    return `0${day}`
-  } else {
-    return day
-  }
-}
-const formattedDate = `${formatDay()}.0${date.getMonth() + 1}.${date.getFullYear().toString().slice(-2)}`;
-return formattedDate
-}
 
 // вывод на главную страницу админа первых 3х новостей
 export const renderAdminNewsMain = () => {
@@ -50,17 +35,59 @@ export const renderAdminCatalog = () => {
   return fetch(`${baseUrl}/products/`)
   .then(checkAnswer)
   .then(data =>  {
-    data.forEach((item) => {
-    addCard(item, catalogContainer, createCardCatalog)
-  })});
+        data.forEach((item) => {
+       addCard(item, catalogContainer, createCardCatalog)
+          })})
 }
 
+
+export const getAdminProducts = () => {
+  return fetch(`${baseUrl}/products/admin/list/`,{
+  headers:{
+    "Authorization": `Bearer ${localStorage.getItem('access')}`,
+    "Content-Type": "application/json"
+  }
+  })
+  .then(checkAnswer)
+}
+
+export const getAdminNews = () => {
+  return fetch(`${baseUrl}/articles/admin/list/`,{
+  headers:{
+    "Authorization": `Bearer ${localStorage.getItem('access')}`,
+    "Content-Type": "application/json"
+  }
+  })
+  .then(checkAnswer)
+}
+
+const btnArchive = document.querySelector('.add-news__btn_type_archive');
+export const addNews = () => {
+  return fetch(`${baseUrl}/articles/admin/list/`, {
+    method: "POST",
+    headers: {
+      // "Content-Type": "application/json",
+      "Authorization": `Bearer ${localStorage.getItem('access')}`
+
+    },
+    body: JSON.stringify({
+     title: 'Test News',
+      text: 'Тестовая новость',
+      image: 'https://img.freepik.com/free-vector/link-building-concept_23-2148000680.jpg?w=996&t=st=1693227660~exp=1693228260~hmac=9499f98b1a0948aa47c1c535d45ef32cae95558bf7cf842100ef5fdeffed3843',
+      published: false
+    })
+  })
+    .then(checkAnswer)
+    .then(res => console.log(res))
+}
+// btnArchive.addEventListener('click', addNews)
 document.addEventListener("DOMContentLoaded", function(){
 
-if (window.location.pathname.endsWith('admin-news.html')){
-  renderAdminNews()
-}
-if (window.location.pathname.endsWith('admin-catalog.html')){
-  renderAdminCatalog();
-}
-})
+  if (window.location.pathname.endsWith('admin-news.html')){
+    renderAdminNews()
+  }
+  if (window.location.pathname.endsWith('admin-catalog.html')){
+    renderAdminCatalog();
+  }
+  })
+  

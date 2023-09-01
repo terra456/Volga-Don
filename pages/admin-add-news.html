@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add-news</title>
+    <link rel="stylesheet" href="../css/index.css">
+    <script src="../js/api.js" type="module" defer></script>
+</head>
+<body class="admin-users">
+    <header class="admin-header">
+        <div class="admin-header__link-container">
+            <button class="admin-btn"><a class="admin-btn__link" href="./admin-main.html">Главная <img class="admin-btn__arrow" src="../vendor/images/arrow.svg" alt=""></a></button>
+            <button class="admin-btn"><a class="admin-btn__link" href="./admin-main.html">Новости <img class="admin-btn__arrow" src="../vendor/images/arrow.svg" alt=""></a></button>
+        <p class="admin-header__link">Добавить новую запись</p>
+    </div>
+        <div class="admin-header__buttons-container">
+            <button class="admin-btn"><a class="admin-btn__link">Изменить пароль <img class="admin-btn__arrow" src="../vendor/images/arrow.svg" alt=""></a></button>
+            <button class="admin-btn"><a class="admin-btn__link">Выйти <img class="admin-btn__arrow" src="../vendor/images/arrow.svg" alt=""></a></button>
+        </div>
+    </header>
+    <h1 class="admin-title">Добавить новость</h1>
+    <form action="" class="admin-users__form questions">
+        <div class="admin-add-card admin-add-card_type_add-photo">
+            <img src="../vendor/images/icons/add.svg" alt="Добавить запись" class="admin-add-card__icon">
+           <p class="admin-add-card__text">Добавить фото</p>
+       </div>
+       <div class="admin-users__inputs-container">
+        <input type="text" class="base-input base-input_type_name" placeholder="Заголовок">
+        <textarea type="text" class="base-input base-input_type_textarea" placeholder="Текст"></textarea>
+      </div>
+    </form>
+    <div class="admin-users__buttons-container">
+        <button class="btn btn_type_white add-news__btn_type_archive">Сохранить в архив<img src="../vendor/images/arrow.svg" alt="" class="btn__img"></button>
+        <button class="btn add-news__btn_type_archive">Сохранить и опубликовать<img src="../vendor/images/arrow.svg" alt="" class="btn__img"></button>
+        <button class="btn btn_type_white add-news__btn_type_exit">На главную<img src="../vendor/images/arrow.svg" alt="" class="btn__img"></button>
+    </div>
+</body>
+</html>

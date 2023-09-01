@@ -29,3 +29,19 @@ color: #C95936
     gap: 36px;
     padding: 0 90px
 }
+.admin-users__form{
+    padding: 0 90px 40px;
+    display: flex;
+    gap: 36px
+}
+.admin-users__inputs-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 25px
+}
+.admin-users__buttons-container{
+    display: flex;
+    gap: 40px;
+    padding: 0 300px
+}

@@ -6,7 +6,6 @@
    font-size: 20px;
    border: none;
    align-items: center;
-   margin-top: 60px;
    cursor: pointer;
    flex-shrink: 0;
    width: max-content;
@@ -14,6 +13,10 @@
 }
 .btn:hover{
    background-color: #D6A038;
+}
+.btn_type_white{
+   background-color: #FFF;
+   border:3px solid #FBBF46;
 }
 .btn_disabled{
    background-color: #CBCBCB;
