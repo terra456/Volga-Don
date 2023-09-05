@@ -68,7 +68,7 @@ export const addNews = () => {
   formData.append('title', inputName.value);
   formData.append('text', inputText.value);
   formData.append('image', inputFile);
-  formData.append('published', false);
+  formData.append('published', true);
   return fetch(`${baseUrl}/articles/admin/list/`,{
     method: "POST",
    headers:{
