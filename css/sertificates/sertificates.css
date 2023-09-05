@@ -1,24 +1,5 @@
-.sertificates__name{
-    font-size: 20px;
-    font-weight: 700;
-    padding-top: 30px;
-    
-}
+
 .sertificates__img{
-    width: 100%
-}
-.sertificates__card{
-    width: 100%;
-}
-@media (max-width: 1060px){
-    .sertificates__name{
-        font-size: 12px;
-        padding-top: 15px;
-    }
-}
-@media (max-width: 550px){
-    .sertificates__name{
-        font-size: 8px;
-        padding-top: 8px;
-    }
+    max-width: 385px;
+    max-height: 544px
 }

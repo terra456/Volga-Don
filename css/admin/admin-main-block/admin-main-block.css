@@ -24,3 +24,6 @@ font-weight: 700;
     display: flex;
     gap: 36px
 }
+.admin-main-block__content-catalog{
+    height: 300px
+}

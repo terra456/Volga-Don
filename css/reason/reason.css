@@ -1,0 +1,22 @@
+.reason__card {
+    max-width: 387px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px
+}
+
+.reason__title {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+}
+
+.reason__text {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+}
+.reason__img{
+    width: 135px;
+    height: 135px
+}

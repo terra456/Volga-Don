@@ -5,6 +5,10 @@
     gap: 48px;
 
 }
+.section__img_type_about{
+    width: 50%;
+    height: 600px
+}
 .section__container_type_about{
     flex-direction: row;
 }
@@ -12,13 +16,16 @@
     display: grid;
     grid-template-columns: repeat(4,1fr);
 }
+.section__container_type_sertificates{
+   gap: 30px;
+   justify-content: center;
+    
+}
 .section__container_type_news{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
 }
 .section__container_type_contacts{
-    /* justify-content: space-between; */
-    /* align-items: flex-end; */
     padding-left: 20px
 }
 .section__title{
@@ -36,23 +43,11 @@
 .section__text span{
     font-weight: bold;
 }
-.section__text_type_about:not(:first-child) {
-    padding-top: 26px;
-  }
-  .section__text_type_about:first-child{
-    padding-left: 144px;
-  }
 @media (max-width:1600px){
     .section__img_type_about{
         width: 500px;
         height: 500px
     }
-    .section__text_type_about{
-        padding-bottom: 10px
-    }
-    .section__text_type_about:first-child{
-        padding-left: 0;
-      }
       .section__container{
         padding: 0px 80px
       }
@@ -110,9 +105,6 @@
     .section__text{
         font-size: 12px
     }
-    .section__text_type_about:not(:first-child) {
-        padding-top: 0;
-      }
     .section__title{
         font-size: 18px
     }
