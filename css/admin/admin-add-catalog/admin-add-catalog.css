@@ -1,0 +1,24 @@
+.admin-add-catalog{
+    padding-bottom: 50px;
+}
+.admin-add-catalog__form{
+    display: flex;
+    flex-direction: column;
+}
+.admin-add-catalog__inputs-container{
+    display: flex;
+    flex-direction: column;
+    gap: 25px
+}
+.admin-add-catalog__add-photo-container{
+    height: 180px
+}
+.admin-add-catalog__add-photo{
+    width: 180px;
+    height: 100%;
+    gap: 15px;
+}
+.admin-add-catalog__icon{
+    width: 40px;
+    height: 40px
+}

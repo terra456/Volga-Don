@@ -28,6 +28,7 @@
 @import url(./loading/loading-img/loading-img.css);
 @import url(./about/about.css);
 @import url(./reason/reason.css);
+@import url(./admin/admin-add-catalog/admin-add-catalog.css);
 *{
     padding: 0;
     margin: 0;

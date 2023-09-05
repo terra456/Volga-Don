@@ -22,9 +22,9 @@ export const createCardNews = function (array) {
   };
   //создание карточки каталога
   export const createCardCatalog = function (array) {
-    const cardTemplateNews = document.querySelector("#template-card-admin").content;
+    const cardTemplateNews = document.querySelector("#template-card-admin-catalog").content;
     const newCard = cardTemplateNews.querySelector(".admin-news-card").cloneNode(true);
-    const newCardImage = newCard.querySelector(".admin-news-card__img");
+    const newCardImage = newCard.querySelector(".admin-catalog__img");
     const newCardText = newCard.querySelector(".admin-news-card__text")
     const newCardButtonChange = newCard.querySelector(".admin-btn-change");
     newCardText.textContent = array["name"]
@@ -49,7 +49,6 @@ export const createCardNews = function (array) {
     
       getAdminNews()
       .then(data =>  {
-        console.log(data)
           const firstThreeArticles = data.slice(0, 3);
           firstThreeArticles.forEach((article) => {
           addCard(article, newsContainerMain, createCardNews)
