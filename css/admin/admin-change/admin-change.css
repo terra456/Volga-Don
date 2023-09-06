@@ -10,3 +10,10 @@
    padding-top: 180px
 
 }
+.admin-change__form{
+    max-width: 612px;
+    display: flex;
+    flex-direction: column;
+    gap:25px;
+    margin: 0 auto;
+}
