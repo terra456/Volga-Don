@@ -3,13 +3,6 @@ import { newsContainer } from './admin-news.js';
 import { baseUrl, checkAnswer } from './utils.js';
 import { catalogContainer } from './admin-catalog.js';
 
-// setInterval(auth, 86400000)
-// setInterval(() => {                   //обновление токена
-//   refresh();
-// }, 30 * 60 * 1000);
-// console.log(localStorage.getItem('refresh'))
-// refresh()
-
 
 // вывод на главную страницу админа первых 3х новостей
 export const renderAdminNewsMain = () => {
@@ -40,7 +33,7 @@ export const renderAdminCatalog = () => {
           })})
 }
 
-
+//каталог продуктов 
 export const getAdminProducts = () => {
   return fetch(`${baseUrl}/products/admin/list/`,{
   headers:{
@@ -50,7 +43,7 @@ export const getAdminProducts = () => {
   })
   .then(checkAnswer)
 }
-
+//получение новостей с сервера
 export const getAdminNews = () => {
   return fetch(`${baseUrl}/articles/admin/list/`,{
   headers:{
@@ -60,6 +53,7 @@ export const getAdminNews = () => {
   })
   .then(checkAnswer)
 }
+//post новости
 export const addNews = () => {
   const inputName = document.querySelector('.admin-add-card__input-name');
   const inputText = document.querySelector('.admin-add-card__input-text');
@@ -80,7 +74,7 @@ export const addNews = () => {
   .then(checkAnswer)
   .then(res => console.log(res))
 }
-
+//post товара
 export const addProduct = () => {
   const inputName = document.querySelector('.admin-add-catalog__input-name');
   const inputText = document.querySelector('.admin-add-catalog__input-text');
@@ -102,6 +96,7 @@ export const addProduct = () => {
   .then(res => console.log(res))
 
 }
+
 
 document.addEventListener("DOMContentLoaded", function(){
 

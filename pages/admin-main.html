@@ -14,11 +14,11 @@
         <p class="admin-header__link">Главная</p>
        </div>
         <div class="admin-header__buttons-container">
-            <button class="admin-btn"><a class="admin-btn__link">Изменить пароль <img class="admin-btn__arrow" src="../vendor/images/arrow.svg" alt=""></a></button>
+            <button class="admin-btn"><a href="./admin-change.html" class="admin-btn__link">Сменить логин или пароль <img class="admin-btn__arrow" src="../vendor/images/arrow.svg" alt=""></a></button>
             <button class="admin-btn admin-btn_type_exit"><a class="admin-btn__link">Выйти <img class="admin-btn__arrow" src="../vendor/images/arrow.svg" alt=""></a></button>
         </div>
     </header>
-    <h1 class="admin-main__title">Добро пожаловать!</h1>
+    <h1 class="admin-title">Добро пожаловать!</h1>
     <div class="admin-main-block">
         <div class="admin-main-block__header">
             <p class="admin-main-block__title">Новости</p>
@@ -66,10 +66,10 @@
               </svg>
                </div>
             </div>
-            <div class="admin-add-card admin-add-card_type_users">
+            <a class="admin-add-card admin-add-card_type_users" href="./admin-add-user.html">
                 <img src="../vendor/images/icons/add.svg" alt="Добавить запись" class="admin-add-card__icon">
                <p class="admin-add-card__text">Добавить нового сотрудника</p>
-           </div>
+            </a>
         </section>
     </div>
 
@@ -79,9 +79,9 @@
     <template id="template-card-admin">
         <article class="admin-news-card">
             <img src="../vendor/images/news2.png" alt="" class="admin-news-card__img">
-            <p class="admin-news-card__text"></p>
-            <div class="admin-news-card__info">
-                <div class="admin-news-card__buttons">
+            <p class="admin-news-card__text admin-card__text"></p>
+            <div class="admin-news-card__info admin-card__info">
+                <div class="admin-news-card__buttons admin-card__buttons">
                 <button class="admin-status admin-status_type_archive">В архиве <img src="../vendor/images/icons/minus.svg"></button>
                 <button class="admin-btn-change"></button>
             </div>
@@ -94,9 +94,9 @@
     <template id="template-card-admin-catalog">
         <article class="admin-news-card admin-news-card_type_catalog">
             <img src="" alt="" class="admin-catalog__img">
-            <p class="admin-news-card__text"></p>
-            <div class="admin-news-card__info">
-                <div class="admin-news-card__buttons">
+            <p class="admin-catalog-card__text admin-card__text"></p>
+            <div class="admin-catalog-card__info admin-card__info">
+                <div class="admin-catalog-card__buttons admin-card__buttons">
                 <button class="admin-status admin-status_type_archive">В архиве <img src="../vendor/images/icons/minus.svg"></button>
                 <button class="admin-btn-change"></button>
             </div>

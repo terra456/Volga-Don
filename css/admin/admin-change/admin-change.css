@@ -1,0 +1,19 @@
+.admin-change{
+    height: 100vh
+}
+.admin-change__buttons-container{
+   display: flex;
+   flex-direction: column;
+   gap: 40px;
+   align-items: center;
+   justify-content: center;
+   padding-top: 180px
+
+}
+.admin-change__form{
+    max-width: 612px;
+    display: flex;
+    flex-direction: column;
+    gap:25px;
+    margin: 0 auto;
+}

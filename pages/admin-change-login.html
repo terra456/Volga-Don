@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin-add-user</title>
+    <link rel="stylesheet" href="../css/index.css">
+    <script src="../js/api.js" type="module" defer></script>
+</head>
+
+<body class="admin-change-login">
+    <header class="admin-header">
+        <div class="admin-header__link-container">
+            <button class="admin-btn"><a class="admin-btn__link" href="./admin-main.html">Главная <img class="admin-btn__arrow" src="../vendor/images/arrow.svg" alt=""></a></button>
+            <button class="admin-btn"><a class="admin-btn__link" href="./admin-change.html">Изменить логин или пароль <img class="admin-btn__arrow" src="../vendor/images/arrow.svg" alt=""></a></button>
+            <p class="admin-header__link">Изменить логин</p>
+        </div>
+        <div class="admin-header__buttons-container">
+            <button class="admin-btn"><a class="admin-btn__link">Выйти <img class="admin-btn__arrow" src="../vendor/images/arrow.svg" alt=""></a></button>
+        </div>
+    </header>
+    <h1 class="admin-title">Изменить логин</h1>
+    <form action="" class="admin-change__form admin-change-login__form">
+        <input type="text" class="base-input base-input_type_name admin-change-login__input-old-login" placeholder="Старый логин">
+        <input type="text" class="base-input base-input_type_name admin-change-login__input-new-login" placeholder="Новый логин">
+        <input type="text" class="base-input base-input_type_name admin-change-login__input-password" placeholder="Пароль">
+    </form>
+    <div class="admin-add-user__buttons-container">
+        <button class="btn admin-change-login__add-btn">Сохранить изменения<img src="../vendor/images/arrow.svg" alt="" class="btn__img"></button>
+       <a href="./admin-main.html"><button class="btn btn_type_white admin-change-login__exit-btn">На главную<img src="../vendor/images/arrow.svg" alt="" class="btn__img"></button></a> 
+    </div>
+</body>
+</html>
