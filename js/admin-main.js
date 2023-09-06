@@ -22,10 +22,10 @@ export const createCardNews = function (array) {
   };
   //создание карточки каталога
   export const createCardCatalog = function (array) {
-    const cardTemplateNews = document.querySelector("#template-card-admin-catalog").content;
-    const newCard = cardTemplateNews.querySelector(".admin-news-card").cloneNode(true);
+    const cardTemplateCatalog = document.querySelector("#template-card-admin-catalog").content;
+    const newCard = cardTemplateCatalog.querySelector(".admin-news-card_type_catalog").cloneNode(true);
     const newCardImage = newCard.querySelector(".admin-catalog__img");
-    const newCardText = newCard.querySelector(".admin-news-card__text")
+    const newCardText = newCard.querySelector(".admin-catalog-card__text")
     const newCardButtonChange = newCard.querySelector(".admin-btn-change");
     newCardText.textContent = array["name"]
     newCardImage.src = array["images"]["img1"];
@@ -43,9 +43,11 @@ export const createCardNews = function (array) {
     if (window.location.pathname.endsWith('admin-main.html')){
       getAdminProducts()
       .then(data => {
-        data.forEach((item) => {
-          addCard(item, catalogContainerMain, createCardCatalog)
-      })})
+        const firstThreeProducts = data.slice(0, 5);
+        firstThreeProducts.forEach((product) => {
+          addCard(product, catalogContainerMain, createCardCatalog)
+        })
+    })
     
       getAdminNews()
       .then(data =>  {
