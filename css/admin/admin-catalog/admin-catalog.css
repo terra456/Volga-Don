@@ -1,7 +1,8 @@
 .admin-catalog__content{
     padding: 60px 90px 40px;
     display: flex;
-    gap: 36px
+    gap: 36px;
+    flex-wrap: wrap;
 }
 .admin-catalog__img{
     height: 190px;

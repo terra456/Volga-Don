@@ -34,15 +34,12 @@ export const getAdminNews = () => {
   .then(checkAnswer)
 }
 //post новости
-export const addNews = () => {
-  const inputName = document.querySelector('.admin-add-card__input-name');
-  const inputText = document.querySelector('.admin-add-card__input-text');
-  const inputFile = document.querySelector('.admin-add-card__input-file').files[0];
+export const postAdminNews = (name, text, file, published) => {
   const formData = new FormData();
-  formData.append('title', inputName.value);
-  formData.append('text', inputText.value);
-  formData.append('image', inputFile);
-  formData.append('published', true);
+  formData.append('title', name.value);
+  formData.append('text', text.value);
+  formData.append('image', file);
+  formData.append('published', published);
   return fetch(`${baseUrl}/articles/admin/list/`,{
     method: "POST",
    headers:{
@@ -52,18 +49,15 @@ export const addNews = () => {
   body: formData
   })
   .then(checkAnswer)
-  .then(res => console.log(res))
+
 }
 //post товара
-export const addProduct = () => {
-  const inputName = document.querySelector('.admin-add-catalog__input-name');
-  const inputText = document.querySelector('.admin-add-catalog__input-text');
-  const inputFile = document.querySelector('.admin-add-catalog__input-file').files[0];
+export const postAdminProduct = (name, text, file, published) => {
   const formData = new FormData();
-  formData.append('name', inputName.value);
-  formData.append('description', inputText.value);
-  formData.append('img1', inputFile);
-  formData.append('published', true);
+  formData.append('name', name.value);
+  formData.append('description', text.value);
+  formData.append('img1', file);
+  formData.append('published', published);
   return fetch(`${baseUrl}/products/admin/add/`,{
    method: "POST",
    headers:{
@@ -73,20 +67,15 @@ export const addProduct = () => {
   body: formData
   })
   .then(checkAnswer)
-  .then(res => console.log(res))
 
 }
 
 
-document.addEventListener("DOMContentLoaded", function(){
+// document.addEventListener("DOMContentLoaded", function(){
 
-  if (window.location.pathname.endsWith('admin-add-news.html')){
-    const btnArchive = document.querySelector('.add-news__btn_type_archive');
-    btnArchive.addEventListener('click', addNews)
-  }
-  if (window.location.pathname.endsWith('admin-add-catalog.html')){
-    const btnArchive = document.querySelector('.add-catalog__btn_type_archive');
-    btnArchive.addEventListener('click', addProduct)
-  }
-  })
+//   if (window.location.pathname.endsWith('admin-add-catalog.html')){
+//     const btnArchive = document.querySelector('.add-catalog__btn_type_archive');
+//     btnArchive.addEventListener('click', addProduct)
+//   }
+//   })
   
