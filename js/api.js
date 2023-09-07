@@ -1,5 +1,4 @@
 import {addCard,  createCardNews, createCardCatalog} from './admin-main.js';
-import { newsContainer } from './admin-news.js';
 import { baseUrl, checkAnswer } from './utils.js';
 import { catalogContainer } from './admin-catalog.js';
 
@@ -13,10 +12,10 @@ export const renderAdminNewsMain = () => {
 export const renderAdminNews = () => {
   return fetch(`${baseUrl}/articles/`)
   .then(checkAnswer)
-  .then(data =>  {
-    data.forEach((article) => {
-    addCard(article, newsContainer, createCardNews)
-  })});
+  // .then(data =>  {
+  //   data.forEach((article) => {
+  //   addCard(article, newsContainer, createCardNews)
+  // })});
 }
 //вывод каталог главная админ
 export const renderAdminCatalogMain = () => {
@@ -101,7 +100,7 @@ export const addProduct = () => {
 document.addEventListener("DOMContentLoaded", function(){
 
   if (window.location.pathname.endsWith('admin-news.html')){
-    renderAdminNews()
+    // renderAdminNews()
   }
   if (window.location.pathname.endsWith('admin-catalog.html')){
     renderAdminCatalog();
