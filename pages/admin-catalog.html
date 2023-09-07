@@ -6,7 +6,7 @@
     <title>Admin-catalog</title>
     <link rel="stylesheet" href="../css/index.css">
     <script src="../js/admin-catalog.js" type="module" defer></script>
-    <script src="../js/api.js" type="module" defer></script>
+    <!-- <script src="../js/api.js" type="module" defer></script> -->
 </head>
 <body class="admin-catalog">
     <header class="admin-header">
@@ -15,8 +15,8 @@
         <p class="admin-header__link">Каталог</p>
     </div>
         <div class="admin-header__buttons-container">
-            <button class="admin-btn"><a class="admin-btn__link">Изменить пароль <img class="admin-btn__arrow" src="../vendor/images/arrow.svg" alt=""></a></button>
-            <button class="admin-btn"><a class="admin-btn__link">Выйти <img class="admin-btn__arrow" src="../vendor/images/arrow.svg" alt=""></a></button>
+            <button class="admin-btn"><a href="./admin-change.html" class="admin-btn__link">Сменить логин или пароль<img class="admin-btn__arrow" src="../vendor/images/arrow.svg" alt=""></a></button>
+            <button class="admin-btn admin-btn_type_exit"><a class="admin-btn__link">Выйти <img class="admin-btn__arrow" src="../vendor/images/arrow.svg" alt=""></a></button>
         </div>
     </header>
     <h1 class="admin-title admin-catalog__title">Каталог</h1>
@@ -28,12 +28,24 @@
     </div>
 
      <!-- секция каталог -->
-     <template id="template-card-admin">
+     <!-- <template id="template-card-admin">
         <article class="admin-news-card admin-news-card_type_catalog">
             <img src="" alt="" class="admin-news-card__img">
             <p class="admin-news-card__text"></p>
             <div class="admin-news-card__info">
                 <div class="admin-news-card__buttons">
+                <button class="admin-status admin-status_type_archive">В архиве <img src="../vendor/images/icons/minus.svg"></button>
+                <button class="admin-btn-change"></button>
+            </div>
+            </div>
+        </article>
+    </template> -->
+    <template id="template-card-admin-catalog">
+        <article class="admin-news-card admin-news-card_type_catalog">
+            <img src="" alt="" class="admin-catalog__img">
+            <p class="admin-catalog-card__text admin-card__text"></p>
+            <div class="admin-catalog-card__info admin-card__info">
+                <div class="admin-catalog-card__buttons admin-card__buttons">
                 <button class="admin-status admin-status_type_archive">В архиве <img src="../vendor/images/icons/minus.svg"></button>
                 <button class="admin-btn-change"></button>
             </div>

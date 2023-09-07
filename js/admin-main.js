@@ -1,10 +1,8 @@
 
 import { getAdminProducts, getAdminNews } from './api.js'
 import { formatDate } from './utils.js';
-// const cardTemplateNews = document.querySelector("#template-card-admin").content;
 export const newsContainerMain = document.querySelector(".admin-main-block__content-news");
 export const catalogContainerMain = document.querySelector(".admin-main-block__content-catalog");
-export const buttonExit = document.querySelector(".admin-btn_type_exit")
 
 // создание карточки новостей
 export const createCardNews = function (array) {
@@ -40,24 +38,20 @@ export const createCardNews = function (array) {
   };
 
   document.addEventListener("DOMContentLoaded", function(){
+
     if (window.location.pathname.endsWith('admin-main.html')){
-      getAdminProducts()
-      .then(data => {
-        const firstThreeProducts = data.slice(0, 5);
-        firstThreeProducts.forEach((product) => {
-          addCard(product, catalogContainerMain, createCardCatalog)
-        })
-    })
-    
-      getAdminNews()
-      .then(data =>  {
-          const firstThreeArticles = data.slice(0, 3);
-          firstThreeArticles.forEach((article) => {
-          addCard(article, newsContainerMain, createCardNews)
-        })})
-        buttonExit.addEventListener('click', () => {
-          localStorage.clear();
-          window.location.href = "admin-registration.html"
-        })
-    }
-  })
+getAdminProducts().then((data) => {
+  const firstThreeProducts = data.slice(0, 5);
+  firstThreeProducts.forEach((product) => {
+    addCard(product, catalogContainerMain, createCardCatalog);
+  });
+});
+
+getAdminNews().then((data) => {
+  const firstThreeArticles = data.slice(0, 3);
+  firstThreeArticles.forEach((article) => {
+    addCard(article, newsContainerMain, createCardNews);
+  });
+});
+    }})
+

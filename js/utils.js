@@ -53,3 +53,11 @@ const formatDay = () => {
 const formattedDate = `${formatDay()}.0${date.getMonth() + 1}.${date.getFullYear().toString().slice(-2)}`;
 return formattedDate
 }
+
+export const exitAuth = () => {
+  const buttonExit = document.querySelector(".admin-btn_type_exit");
+  buttonExit.addEventListener("click", () => {
+    localStorage.clear();
+    window.location.href = "admin-registration.html";
+  });
+}

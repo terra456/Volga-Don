@@ -9,6 +9,7 @@ function scrollToNews() {
       });
     }
   }
+
   newsLink.addEventListener('click', function(event){
     event.preventDefault();
     scrollToNews()
