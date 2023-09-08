@@ -9,10 +9,12 @@
     padding-top: 30px
 }
 .catalog__card{
-    width: 100%
+    /* width: 100% */
+    max-width: 390px
 }
 .catalog__img{
-    width: 100%
+    width: 100%;
+    height: 360px
 }
 .catalog__container{
     display: flex;

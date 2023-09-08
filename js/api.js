@@ -1,13 +1,13 @@
 
 import { baseUrl, checkAnswer } from './utils.js';
 
-// вывод на главную страницу админа первых 3х новостей
+// вывод на клиентскую часть новостей
 export const getNews = () => {
     return fetch(`${baseUrl}/articles/`)
     .then(checkAnswer);
     }
 
-//вывод на страницу каталог
+//вывод на клиентскую страницу каталог
 export const getProductsCatalog = () => {
   return fetch(`${baseUrl}/products/`)
   .then(checkAnswer)
@@ -70,12 +70,4 @@ export const postAdminProduct = (name, text, file, published) => {
 
 }
 
-
-// document.addEventListener("DOMContentLoaded", function(){
-
-//   if (window.location.pathname.endsWith('admin-add-catalog.html')){
-//     const btnArchive = document.querySelector('.add-catalog__btn_type_archive');
-//     btnArchive.addEventListener('click', addProduct)
-//   }
-//   })
   
