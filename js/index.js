@@ -1,4 +1,4 @@
-import { getNews, getProductsCatalog } from "./api.js";
+import { getNews, getProductsCatalog, postFeedback} from "./api.js";
 import { createCardNews, addCard, createCardCatalog } from "./admin-main.js";
 const newsLink = document.querySelector('#news-link');
 const aboutLink = document.querySelector('#about-link');
@@ -6,6 +6,11 @@ const newsBlock = document.querySelector('#news');
 const aboutBlock = document.querySelector('#about');
 const newsContainer = document.querySelector('.section__container_type_news')
 const catalogContainer = document.querySelector('.section__container_type_catalog');
+
+// const inputNameFeedback = document.querySelector('.questions__form-input-name').value;
+// const inputSurnameFeedback = document.querySelector('.questions__form-input-surname').value;
+// const inputPhoneFeedback = document.querySelector('.questions__form-input-number').value;
+const btnFeedback = document.querySelector('.btn_type_questions')
 
 
 function scrollToBlock(block) {
@@ -51,7 +56,7 @@ newsBlock.addEventListener('mouseleave', () => {
   history.replaceState(null, null, window.location.pathname);
 });
 
-
+//  получение новостей и товаров с сервера
 getNews()
 .then(data =>  {
   const firstThreeArticles = data.slice(0, 3);
@@ -65,3 +70,14 @@ getProductsCatalog()
     addCard(product, catalogContainer, createCardCatalog, cardProduct)
   })})
   }
+
+  //форма обратной связи
+btnFeedback.addEventListener('click', (e) => {
+  const inputNameFeedback = document.querySelector('.questions__form-input-name').value;
+const inputSurnameFeedback = document.querySelector('.questions__form-input-surname').value;
+const inputPhoneFeedback = document.querySelector('.questions__form-input-number').value;
+  e.preventDefault();
+  postFeedback(inputNameFeedback, inputSurnameFeedback, inputPhoneFeedback)
+  .then(data => data)
+})
+

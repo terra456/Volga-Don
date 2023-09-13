@@ -4,6 +4,19 @@ import { formatDate } from './utils.js';
 export const newsContainerMain = document.querySelector(".admin-main-block__content-news");
 export const catalogContainerMain = document.querySelector(".admin-main-block__content-catalog");
 
+const cardNewsAdmin = {
+  id: "#template-card-admin",
+  article: ".admin-news-card",
+  img: ".admin-news-card__img",
+  name: ".admin-news-card__text",
+  date: ".admin-news-card__date",
+};
+const cardCatalogAdmin = {
+  id: "#template-card-admin-catalog",
+  article: ".admin-news-card_type_catalog",
+  img: ".admin-catalog__img",
+  name: ".admin-catalog-card__text",
+};
 // создание карточки новостей
 // export const createCardNews = function (array) {
 //   const cardTemplateNews = document.querySelector("#template-card-admin").content;
@@ -27,7 +40,6 @@ export const catalogContainerMain = document.querySelector(".admin-main-block__c
       const newCardName = newCard.querySelector(card.name);
       const newCardDate = newCard.querySelector(card.date);
       const newCardText = newCard.querySelector(card.text);
-      // const newCardButtonChange = newCard.querySelector(".admin-btn-change");
       newCardName.textContent = array["title"]
       newCardImage.src = array["image"];
       newCardImage.alt = array["title"];
@@ -35,6 +47,18 @@ export const catalogContainerMain = document.querySelector(".admin-main-block__c
       newCardDate.textContent = formatDate(array["created_at"]);
       return newCard;
     };
+    export const createCardNewsAdmin = function (array, card) {
+      const cardTemplateNews = document.querySelector(card.id).content;
+        const newCard = cardTemplateNews.querySelector(card.article).cloneNode(true);
+        const newCardImage = newCard.querySelector(card.img);
+        const newCardName = newCard.querySelector(card.name);
+        const newCardDate = newCard.querySelector(card.date);
+        newCardName.textContent = array["title"]
+        newCardImage.src = array["image"];
+        newCardImage.alt = array["title"];
+        newCardDate.textContent = formatDate(array["created_at"]);
+        return newCard;
+      };
 
   //создание карточки каталога
   // export const createCardCatalog = function (array) {
@@ -61,6 +85,16 @@ export const catalogContainerMain = document.querySelector(".admin-main-block__c
     newCardImage.src = array["images"]["img1"];
     newCardImage.alt = array["name"];
     return newCard;
+  };    
+  export const createCardCatalogAdmin = function (array, card) {
+    const cardTemplateCatalog = document.querySelector(card.id).content;
+    const newCard = cardTemplateCatalog.querySelector(card.article).cloneNode(true);
+    const newCardImage = newCard.querySelector(card.img);
+    const newCardName = newCard.querySelector(card.name);
+    newCardName.textContent = array["name"];
+    newCardImage.src = array["images"]["img1"];
+    newCardImage.alt = array["name"];
+    return newCard;
   };
 
   //добавление новой карточки
@@ -68,22 +102,22 @@ export const catalogContainerMain = document.querySelector(".admin-main-block__c
     const newCard = func(array, card);
     container.append(newCard);
   };
+ document.addEventListener("DOMContentLoaded", function () {
+   if (window.location.pathname.endsWith("admin-main.html")) {
+     getAdminProducts().then((data) => {
+       const firstThreeProducts = data.slice(0, 5);
+       firstThreeProducts.forEach((product) => {
+         addCard(product, catalogContainerMain, createCardCatalogAdmin, cardCatalogAdmin);
+       });
+     });
 
-  document.addEventListener("DOMContentLoaded", function(){
-
-if (window.location.pathname.endsWith('admin-main.html')){
-getAdminProducts().then((data) => {
-  const firstThreeProducts = data.slice(0, 5);
-  firstThreeProducts.forEach((product) => {
-    addCard(product, catalogContainerMain, createCardCatalog);
-  });
-});
-
-getAdminNews().then((data) => {
-  const firstThreeArticles = data.slice(0, 3);
-  firstThreeArticles.forEach((article) => {
-    addCard(article, newsContainerMain, createCardNews);
-  });
-});
-    }})
+     getAdminNews().then((data) => {
+       console.log(data);
+       const firstThreeArticles = data.slice(0, 3);
+       firstThreeArticles.forEach((article) => {
+         addCard(article, newsContainerMain, createCardNewsAdmin, cardNewsAdmin);
+       });
+     });
+   }
+ });
 

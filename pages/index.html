@@ -104,42 +104,16 @@
         <section class="section news" id="news">
             <h2 class="section__title">Последние новости</h2>
             <div class="section__container section__container_type_news">
-                <!-- <article class="news__card">
-                    <img class="news__img" src="../vendor/images/news1.png" alt="">
-                    <div class="news__name-container">
-                    <p class="news__name">Мы становимся международным лидером в экологически чистых технологиях</p>
-                    <p class="news__date">01.08.23</p>
-                    </div>
-                    <p class="news__about">Мы с гордостью объявляем, что наша компания достигла замечательного успеха в разработке и внедрении экологически чистых технологий в нашей промышленной технике. Будучи ответственными участниками общества, мы активно работали над снижением негативного воздействия на окружающую среду, не уступая при этом в производительности и эффективности оборудования. Наша новая серия экологически устойчивых продуктов уже пользуется спросом у клиентов по всему миру, что подтверждает наше обязательство к зеленой индустрии и сохранению природных ресурсов.</p>
-                </article> -->
+        <!-- контейнер для новостей из js -->
             </div>
 
         </section>
         <section class="section catalog">
             <h2 class="section__title">Каталог</h2>
             <div class="section__container section__container_type_catalog">
-                <!-- <div class="catalog__card">
-                    <img class="catalog__img" src="../vendor/images/item1.png" alt="">
-                    <p class="catalog__name">Растворонасос СО-150N</p>
-                    <p class="catalog__about">Предназначен для поэтажной подачи и нанесения на обрабатываемую поверхность водных щтукатурных составов и шпаклевок с содержанием твердой фазы до 75% размерами зерен фракций до 3 мм и подвижностью не менее 7 см.</p>
-                </div>
-                <div class="catalog__card">
-                    <img class="catalog__img" src="../vendor/images/item2.png" alt="">
-                    <p class="catalog__name">Машина плоскошлифовальная трехдисковая СО-318 </p>
-                    <p class="catalog__about">Предназначен для сухого шлифования деревянных, паркетных и пробковых полов, предварительно прошлифованных паркетошлифовальной машиной барабанного типа.</p>
-                </div>
-                <div class="catalog__card">
-                    <img class="catalog__img" src="../vendor/images/item3.png" alt="">
-                    <p class="catalog__name">Агрегат штукатурный СО-362</p>
-                    <p class="catalog__about">Предназначен для просеивания, подачи и нанесения на обрабатываемые поверхности водных штукатурных, кладочных, малярных составов, огнезащитных составов, растворов для наливных полов и других аналогичных составов.</p>
-                </div>
-                <div class="catalog__card">
-                    <img class="catalog__img" src="../vendor/images/item4.png" alt="">
-                    <p class="catalog__name">Виброплиты с ДВС СО-341</p>
-                    <p class="catalog__about">Предназначена для уплотнения разного рода грунтов (песок, щебень и т.п.) и тротуарных плиток методом поверхностной вибрации.</p>
-                </div> -->
+                <!-- контейнер для товаров из js -->
             </div>
-            <button class="btn btn_type_catalog">Показать еще <img src="../vendor/images/arrow.svg" alt="" class="btn__img"></button>
+           <a href="./catalog.html"><button class="btn btn_type_catalog">Показать еще <img src="../vendor/images/arrow.svg" alt="" class="btn__img"></button></a>
         </section>
         <section class="section sertificates">
             <h2 class="section__title">Сертификаты</h2>
@@ -154,10 +128,10 @@
             <img src="../vendor/images/questions.png" alt="" class="questions__img">
             <form class="questions__form">
                 <p class="questions__form-title">Оставьте заявку, и мы перезвоним в течение 30 минут</p>
-                <input type="text" class="base-input base-input_type_name" placeholder="Имя">
-                <input type="text" class="base-input base-input_type_surname" placeholder="Фамилия">
-                <input type="number" class="base-input base-input_type_phone" placeholder="Телефон">
-                <button class="btn btn_type_questions">Отправить заявку<img src="../vendor/images/arrow.svg" alt="" class="btn__img"></button>
+                <input type="text" class="base-input base-input_type_name questions__form-input-name" placeholder="Имя" required>
+                <input type="text" class="base-input base-input_type_surname questions__form-input-surname" placeholder="Фамилия" required>
+                <input type="tel" class="base-input base-input_type_phone questions__form-input-number" placeholder="Телефон" required>
+                <button type="submit" class="btn btn_type_questions">Отправить заявку<img src="../vendor/images/arrow.svg" alt="стрелка на кнопке" class="btn__img"></button>
             </form>
             
         </div>

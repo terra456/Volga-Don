@@ -70,4 +70,28 @@ export const postAdminProduct = (name, text, file, published) => {
 
 }
 
-  
+// export const deleletAdminNews = () => {
+//   getAdminNews()
+//   .then((data) => {
+//     fetch(`${baseUrl}/`)}
+    
+//     )
+
+// }
+
+//запрос для формы обратной связи
+
+export const postFeedback = (name, surname, phone) => {
+  return fetch(`${baseUrl}/feedbacks/add/`,{
+   method: "POST",
+   headers:{
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({
+    "first_name": name,
+    "last_name": surname,
+    "phone": phone
+  })
+  })
+  .then(checkAnswer)
+}
