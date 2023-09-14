@@ -5,18 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add-catalog</title>
     <link rel="stylesheet" href="../css/index.css">
-    <script src="../js/api.js" type="module" defer></script>
+    <script src="../js/admin-add-catalog.js" type="module" defer></script>
 </head>
 <body class="admin-add-catalog">
     <header class="admin-header">
         <div class="admin-header__link-container">
             <button class="admin-btn"><a class="admin-btn__link" href="./admin-main.html">Главная <img class="admin-btn__arrow" src="../vendor/images/arrow.svg" alt=""></a></button>
-            <button class="admin-btn"><a class="admin-btn__link" href="./admin-main.html">Каталог <img class="admin-btn__arrow" src="../vendor/images/arrow.svg" alt=""></a></button>
+            <button class="admin-btn"><a class="admin-btn__link" href="./admin-catalog.html">Каталог <img class="admin-btn__arrow" src="../vendor/images/arrow.svg" alt=""></a></button>
         <p class="admin-header__link">Добавить новый товар</p>
     </div>
         <div class="admin-header__buttons-container">
-            <button class="admin-btn"><a class="admin-btn__link">Изменить пароль <img class="admin-btn__arrow" src="../vendor/images/arrow.svg" alt=""></a></button>
-            <button class="admin-btn"><a class="admin-btn__link">Выйти <img class="admin-btn__arrow" src="../vendor/images/arrow.svg" alt=""></a></button>
+            <button class="admin-btn"><a href="./admin-change.html" class="admin-btn__link">Сменить логин или пароль <img class="admin-btn__arrow" src="../vendor/images/arrow.svg" alt=""></a></button>
+            <button class="admin-btn admin-btn_type_exit"><a class="admin-btn__link">Выйти <img class="admin-btn__arrow" src="../vendor/images/arrow.svg" alt=""></a></button>
         </div>
     </header>
     <h1 class="admin-title">Добавить товар</h1>
@@ -35,7 +35,7 @@
     </form>
     <div class="admin-users__buttons-container">
         <button class="btn btn_type_white add-catalog__btn_type_archive">Сохранить в архив<img src="../vendor/images/arrow.svg" alt="" class="btn__img"></button>
-        <button class="btn add-catalog__btn_type_archive">Сохранить и опубликовать<img src="../vendor/images/arrow.svg" alt="" class="btn__img"></button>
+        <button class="btn add-catalog__btn_type_post">Сохранить и опубликовать<img src="../vendor/images/arrow.svg" alt="" class="btn__img"></button>
        <a href="./admin-main.html"><button class="btn btn_type_white add-catalog__btn_type_exit">На главную<img src="../vendor/images/arrow.svg" alt="" class="btn__img"></button></a>
     </div>
 </body>

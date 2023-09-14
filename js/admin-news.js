@@ -1,8 +1,11 @@
+import { addCard, createCardNews } from "./admin-main.js";
+import {getAdminNews} from "./api.js";
+import { exitAuth } from "./utils.js";
+const newsContainerAdmin = document.querySelector('.admin-news__content');
+getAdminNews()
+.then(data =>  {
+    data.forEach((article) => {
+    addCard(article, newsContainerAdmin, createCardNews)
+  })})
+exitAuth()
 
-import {renderAdminNews} from "./api.js"
-export const newsContainer = document.querySelector('.admin-news__content');
-// document.addEventListener("DOMContentLoaded", function(){
-//     if (window.location.pathname.endsWith('admin-news.html')){
-//       renderAdminNews()
-//     }
-// })

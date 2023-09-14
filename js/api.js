@@ -1,39 +1,19 @@
-import {addCard,  createCardNews, createCardCatalog} from './admin-main.js';
-import { newsContainer } from './admin-news.js';
+
 import { baseUrl, checkAnswer } from './utils.js';
-import { catalogContainer } from './admin-catalog.js';
 
-
-// вывод на главную страницу админа первых 3х новостей
-export const renderAdminNewsMain = () => {
+// вывод на клиентскую часть новостей
+export const getNews = () => {
     return fetch(`${baseUrl}/articles/`)
     .then(checkAnswer);
     }
-//вывод на страницу новостей
-export const renderAdminNews = () => {
-  return fetch(`${baseUrl}/articles/`)
-  .then(checkAnswer)
-  .then(data =>  {
-    data.forEach((article) => {
-    addCard(article, newsContainer, createCardNews)
-  })});
-}
-//вывод каталог главная админ
-export const renderAdminCatalogMain = () => {
+
+//вывод на клиентскую страницу каталог
+export const getProductsCatalog = () => {
   return fetch(`${baseUrl}/products/`)
   .then(checkAnswer)
-}
-//вывод на страницу каталог
-export const renderAdminCatalog = () => {
-  return fetch(`${baseUrl}/products/`)
-  .then(checkAnswer)
-  .then(data =>  {
-        data.forEach((item) => {
-       addCard(item, catalogContainer, createCardCatalog)
-          })})
 }
 
-//каталог продуктов 
+//каталог продуктов админ-панель
 export const getAdminProducts = () => {
   return fetch(`${baseUrl}/products/admin/list/`,{
   headers:{
@@ -54,15 +34,12 @@ export const getAdminNews = () => {
   .then(checkAnswer)
 }
 //post новости
-export const addNews = () => {
-  const inputName = document.querySelector('.admin-add-card__input-name');
-  const inputText = document.querySelector('.admin-add-card__input-text');
-  const inputFile = document.querySelector('.admin-add-card__input-file').files[0];
+export const postAdminNews = (name, text, file, published) => {
   const formData = new FormData();
-  formData.append('title', inputName.value);
-  formData.append('text', inputText.value);
-  formData.append('image', inputFile);
-  formData.append('published', true);
+  formData.append('title', name.value);
+  formData.append('text', text.value);
+  formData.append('image', file);
+  formData.append('published', published);
   return fetch(`${baseUrl}/articles/admin/list/`,{
     method: "POST",
    headers:{
@@ -72,18 +49,15 @@ export const addNews = () => {
   body: formData
   })
   .then(checkAnswer)
-  .then(res => console.log(res))
+
 }
 //post товара
-export const addProduct = () => {
-  const inputName = document.querySelector('.admin-add-catalog__input-name');
-  const inputText = document.querySelector('.admin-add-catalog__input-text');
-  const inputFile = document.querySelector('.admin-add-catalog__input-file').files[0];
+export const postAdminProduct = (name, text, file, published) => {
   const formData = new FormData();
-  formData.append('name', inputName.value);
-  formData.append('description', inputText.value);
-  formData.append('img1', inputFile);
-  formData.append('published', true);
+  formData.append('name', name.value);
+  formData.append('description', text.value);
+  formData.append('img1', file);
+  formData.append('published', published);
   return fetch(`${baseUrl}/products/admin/add/`,{
    method: "POST",
    headers:{
@@ -93,26 +67,31 @@ export const addProduct = () => {
   body: formData
   })
   .then(checkAnswer)
-  .then(res => console.log(res))
 
 }
 
+// export const deleletAdminNews = () => {
+//   getAdminNews()
+//   .then((data) => {
+//     fetch(`${baseUrl}/`)}
+    
+//     )
 
-document.addEventListener("DOMContentLoaded", function(){
+// }
 
-  if (window.location.pathname.endsWith('admin-news.html')){
-    renderAdminNews()
-  }
-  if (window.location.pathname.endsWith('admin-catalog.html')){
-    renderAdminCatalog();
-  }
-  if (window.location.pathname.endsWith('admin-add-news.html')){
-    const btnArchive = document.querySelector('.add-news__btn_type_archive');
-    btnArchive.addEventListener('click', addNews)
-  }
-  if (window.location.pathname.endsWith('admin-add-catalog.html')){
-    const btnArchive = document.querySelector('.add-catalog__btn_type_archive');
-    btnArchive.addEventListener('click', addProduct)
-  }
+//запрос для формы обратной связи
+
+export const postFeedback = (name, surname, phone) => {
+  return fetch(`${baseUrl}/feedbacks/add/`,{
+   method: "POST",
+   headers:{
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({
+    "first_name": name,
+    "last_name": surname,
+    "phone": phone
   })
-  
+  })
+  .then(checkAnswer)
+}
