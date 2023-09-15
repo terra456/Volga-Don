@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import AdminProductCard from '../../../components/Admin/AdminProductCard';
 import AdminCategoryCard from '../../../components/Admin/AdminCategoryCard';
 
 const ListCategory = () => {
@@ -11,6 +10,8 @@ const ListCategory = () => {
           <img src="../vendor/images/icons/add.svg" alt="Добавить запись" className="admin-add-card__icon" />
           <p className="admin-add-card__text">Добавить новый товар</p>
         </Link>
+        <AdminCategoryCard />
+        <AdminCategoryCard />
         <AdminCategoryCard />
       </div>
     </section>
