@@ -1,0 +1,46 @@
+@import url(./header/header.css);
+@import url(./main-page/main-page.css);
+@import url(./content/content.css);
+@import url(./btn/btn.css);
+@import url(./section/section.css);
+@import url(./team/team.css);
+@import url(./sertificates/sertificates.css);
+@import url(./logotype/logotype.css);
+@import url(./footer/footer.css);
+@import url(./catalog/catalog.css);
+@import url(./news/news.css);
+@import url(./contact/contact.css);
+@import url(./questions/questions.css);
+@import url(./admin/admin-registration/admin-registration.css);
+@import url(./admin/admin-main/admin-main.css);
+@import url(./admin/admin-header/admin-header.css);
+@import url(./admin/admin-btn/admin-btn.css);
+@import url(./admin/admin-main-block/admin-main-block.css);
+@import url(./admin/admin-news-card/admin-news-card.css);
+@import url(./admin/admin-btn/admin-btn-change.css);
+@import url(./admin/admin-status/admin-status.css);
+@import url(./admin/admin-add-card/admin-add-card.css);
+@import url(./admin/admin-news/admin-news.css);
+@import url(./admin/admin-catalog/admin-catalog.css);
+@import url(./admin/admin-users/admin-users.css);
+@import url(./admin/admin-title/admin-title.css);
+@import url(./base-input/base-input.css);
+@import url(./loading/loading-img/loading-img.css);
+@import url(./about/about.css);
+@import url(./reason/reason.css);
+@import url(./admin/admin-add-catalog/admin-add-catalog.css);
+@import url(./admin/admin-add-user/admin-add-user.css);
+@import url(./admin/admin-change/admin-change.css);
+@import url(./admin/admin-card/admin-card.css);
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.page{
+    font-family: Arial, Helvetica, sans-serif;
+}
+a{
+    text-decoration: none;
+}
+

@@ -1,0 +1,28 @@
+.content{
+    max-width: 1920px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 120px;
+    padding-bottom: 120px;
+}
+.content_type_about{
+    padding: 120px 0;
+}
+@media (max-width: 1240px){
+    .content{
+        gap: 60px
+    }
+    .content_type_about{
+        padding: 50px 0;
+    }
+}
+@media (max-width: 800px){
+    .content{
+        gap: 30px;
+        padding-bottom: 0;
+    }
+    .content_type_about{
+        padding: 20px 0;
+    }
+}

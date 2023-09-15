@@ -1,0 +1,17 @@
+.admin-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: #000;
+    font-size: 20px;
+    font-weight: 400;
+}
+.admin-btn__arrow{
+    padding-left: 15px;
+}
+.admin-btn__link{
+    text-decoration: none;
+    color: black
+}

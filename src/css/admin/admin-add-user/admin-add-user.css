@@ -1,0 +1,18 @@
+.admin-add-user{
+    height: 100vh
+}
+.admin-add-user__form{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    max-width: 612px;
+    justify-content: center;
+    margin: 0 auto;
+    padding-top: 150px;
+}
+.admin-add-user__buttons-container{
+    display: flex;
+    gap: 40px;
+    padding-top: 40px;
+    justify-content: center;
+}

@@ -1,0 +1,50 @@
+.admin-registration{
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ height: 100vh;
+ margin: 0;
+}
+.admin-registration__input{
+    padding: 25px 0 25px 36px;
+    border: 2px solid #000;
+    font-size: 20px;
+    font-weight: 700;
+    width: 100%;
+}
+.admin-registration__container{
+    display: flex;
+    flex-direction: column;
+}
+.admin-registration__title {
+    font-size: 72px;
+    font-style: normal;
+    font-weight: 700;
+    margin: 0;
+    padding-bottom: 80px;
+}
+.admin-registration__form{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    align-items: center;
+}
+.admin-registration__error-message {
+    color: #F34545;
+    font-family: Arial;
+    font-size: 16px;
+    font-weight: 700;
+    position: absolute;
+    bottom: -22px;
+    display: none;
+}
+.admin-registration__error-message_active{
+    display: block;
+}
+.admin-registration__fieldset{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border: none
+}

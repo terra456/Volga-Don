@@ -1,0 +1,29 @@
+.admin-main-block{
+ 
+}
+.admin-main-block__header{
+    background-color: #FBBF46;
+    display: flex;
+    justify-content: space-between;
+    padding: 23px 90px;
+}
+.admin-main-block__title{
+font-size: 20px;
+font-weight: 700;
+}
+.admin-main-block__content{
+    padding: 40px 90px 50px;
+    display: flex;
+    gap: 36px
+}
+/* .admin-main-block__content-news{
+    display: flex;
+    gap: 36px
+} */
+.admin-main-block__content-container{
+    display: flex;
+    gap: 36px
+}
+.admin-main-block__content-catalog{
+    height: 300px
+}
