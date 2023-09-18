@@ -5,81 +5,55 @@ import FirstStaticSections from '../components/HomeSections/FirstStaticSections'
 import sert1 from '../../assets/images/sertificate1.png';
 import sert2 from '../../assets/images/sertificate2.png';
 import QuestionFormSection from '../components/HomeSections/QuestionFormSection';
-import { useEffect, useState } from 'react';
-
-type Article = {
-  id: number;
-  title: string;
-  text: string;
-  image: string;
-  published: boolean;
-  created_at: string;
-};
-type Product = {
-  id: number;
-  name: string;
-  description: string;
-  in_stock: true;
-  published: true;
-  category: {
-    id: number;
-    name: string;
-  };
-  images: {
-    id: number;
-    img1: string;
-    img2: string;
-    img3: string;
-    img4: string;
-    img5: string;
-    product: number;
-  };
-};
+// import { useEffect, useState } from 'react';
+import { useGetAllArticlesQuery, useGetAllProductsQuery } from '../services/getApi';
 
 const Home = () => {
-  const [news, setNews] = useState<Article[]>([]);
-  const [newsLoader, setNewsLoader] = useState(false);
-  const [newsError, setNewsError] = useState('');
-  const [products, setProducts] = useState<Product[]>([]);
-  const [productsLoader, setProductsLoader] = useState(false);
-  const [productsError, setProductsError] = useState('');
+  const news = useGetAllArticlesQuery(0);
+  const products = useGetAllProductsQuery(0);
+  // const [news, setNews] = useState<Article[]>([]);
+  // const [newsLoader, setNewsLoader] = useState(false);
+  // const [newsError, setNewsError] = useState('');
+  // const [products, setProducts] = useState<Product[]>([]);
+  // const [productsLoader, setProductsLoader] = useState(false);
+  // const [productsError, setProductsError] = useState('');
 
-  useEffect(() => {
-    const fetchData = async () => {
-      setNewsLoader(true);
-      fetch('http://cv08121-django-53po4.tw1.ru/articles/', { mode: 'cors' })
-        .then(async (res) => {
-          if (res.ok) {
-            const data: Article[] = await res.json();
-            setNews(data);
-            console.log(data);
-          }
-        })
-        .catch((e) => {
-          setNewsError(e.message);
-        })
-        .finally(() => setNewsLoader(false));
-    };
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     setNewsLoader(true);
+  //     fetch('http://cv08121-django-53po4.tw1.ru/articles/', { mode: 'cors' })
+  //       .then(async (res) => {
+  //         if (res.ok) {
+  //           const data: Article[] = await res.json();
+  //           setNews(data);
+  //           console.log(data);
+  //         }
+  //       })
+  //       .catch((e) => {
+  //         setNewsError(e.message);
+  //       })
+  //       .finally(() => setNewsLoader(false));
+  //   };
 
-    const fetchProducts = async () => {
-      setProductsLoader(true);
-      fetch('http://cv08121-django-53po4.tw1.ru/products/', { mode: 'cors' })
-        .then(async (res) => {
-          if (res.ok) {
-            const data: Product[] = await res.json();
-            setProducts(data);
-            console.log(data);
-          }
-        })
-        .catch((e) => {
-          setProductsError(e.message);
-        })
-        .finally(() => setProductsLoader(false));
-    };
+  //   const fetchProducts = async () => {
+  //     setProductsLoader(true);
+  //     fetch('http://cv08121-django-53po4.tw1.ru/products/', { mode: 'cors' })
+  //       .then(async (res) => {
+  //         if (res.ok) {
+  //           const data: Product[] = await res.json();
+  //           setProducts(data);
+  //           console.log(data);
+  //         }
+  //       })
+  //       .catch((e) => {
+  //         setProductsError(e.message);
+  //       })
+  //       .finally(() => setProductsLoader(false));
+  //   };
 
-    fetchData();
-    fetchProducts();
-  }, []);
+  //   fetchData();
+  //   fetchProducts();
+  // }, []);
 
   return (
     <main className="content">
@@ -88,18 +62,18 @@ const Home = () => {
       <section className="section news" id="news">
         <h2 className="section__title">Последние новости</h2>
         <div className="section__container section__container_type_news">
-          {newsLoader && 'Loading'}
-          {newsError && <p>{newsError}</p>}
-          {news && news.slice(0, 3).map((el, i) => <NewsCard key={'article' + i} {...el} />)}
+          {news.isLoading && 'Loading'}
+          {news.error && <p>{news.error.toString()}</p>}
+          {news.data && news.data.slice(0, 3).map((el, i) => <NewsCard key={'article' + i} {...el} />)}
         </div>
       </section>
 
       <section className="section catalog">
         <h2 className="section__title">Каталог</h2>
         <div className="section__container section__container_type_catalog">
-          {productsLoader && 'Loading'}
-          {productsError && <p>{productsError}</p>}
-          {products && products.slice(0, 3).map((el, i) => <ProductCard key={'product' + i} {...el} />)}
+          {products.isLoading && 'Loading'}
+          {products.error && <p>{products.error.toString()}</p>}
+          {products.data && products.data.slice(0, 3).map((el, i) => <ProductCard key={'product' + i} {...el} />)}
         </div>
         <Link to={'catalog'} className="btn btn_type_catalog">
           Показать еще

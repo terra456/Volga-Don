@@ -1,9 +1,13 @@
 import AppRouter from './AppRouter';
+import getApi from './services/getApi';
+import { ApiProvider } from '@reduxjs/toolkit/query/react';
 
 function App() {
   return (
     <>
-      <AppRouter />
+      <ApiProvider api={getApi}>
+        <AppRouter />
+      </ApiProvider>
     </>
   );
 }
