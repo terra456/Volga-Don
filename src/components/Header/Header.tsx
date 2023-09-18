@@ -4,9 +4,9 @@ const Header = () => {
   return (
     <header className="header">
       <div className="header__container">
-        <img className="header__burger" alt="меню-картинка" src="./assets/images/burger.svg" />
+        <img className="header__burger" alt="меню-картинка" src="/assets/images/burger.svg" />
         <Link to={'/'}>
-          <img className="logotype logotype_type_header" src="./assets/images/logotype.svg" alt="Логотип" />
+          <img className="logotype logotype_type_header" src="/assets/images/logotype.svg" alt="Логотип" />
         </Link>
         <nav className="header__nav">
           <ul className="header__list">
