@@ -2,15 +2,20 @@ import { defineConfig } from 'vite';
 import { resolve } from 'path';
 import react from '@vitejs/plugin-react';
 
+const root = resolve(__dirname, 'src');
+const outDir = resolve(__dirname, 'dist');
+
 // https://vitejs.dev/config/
 export default defineConfig({
+  root,
   plugins: [react()],
-  base: '/Volga-Don/',
   build: {
+    outDir,
+    emptyOutDir: true,
     rollupOptions: {
       input: {
-        main: resolve(__dirname, 'index.html'),
-        nested: resolve(__dirname, 'admin/index.html'),
+        main: resolve(root, 'index.html'),
+        admin: resolve(root, 'admin', 'index.html'),
       },
     },
   },

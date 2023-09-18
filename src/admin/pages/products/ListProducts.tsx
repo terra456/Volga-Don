@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import AdminProductCard from '../../../components/Admin/AdminProductCard';
+import AdminProductCard from '../../Components/ProductCard';
 
 const ListProducts = () => {
   return (

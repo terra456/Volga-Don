@@ -1,4 +1,4 @@
-import AdminHeader from '../Admin/AdminHeader';
+import AdminHeader from './Header';
 import { Outlet } from 'react-router-dom';
 
 const AdminLayout = () => {

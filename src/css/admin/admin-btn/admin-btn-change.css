@@ -1,5 +1,5 @@
 .admin-btn-change{
-    background-image: url('../../../vendor/images/icons/Change.svg');
+    background-image: url('/assets/images/icons/Change.svg');
     width: 36px;
     height: 36px;
     border: none;
@@ -7,5 +7,5 @@
     cursor:pointer;
 }
 .admin-btn-change:hover{
-    background-image: url('../../../vendor/images/icons/Property\ 1=Hover.svg');
+    background-image: url('/assets/vendor/images/icons/Property\ 1=Hover.svg');
 }

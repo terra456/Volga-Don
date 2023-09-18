@@ -8,7 +8,7 @@ const Home = () => {
       <section className="main-page">
         <div className="main-page__container">
           <div className="main-page__title-container">
-            <img src="../vendor/images/icons/logo-vector.svg" />
+            <img src="../assets/images/icons/logo-vector.svg" />
             <h1 className="main-page__title">Ваш надежный партнер в мире промышленной техники</h1>
           </div>
           <p className="main-page__text">
@@ -20,14 +20,14 @@ const Home = () => {
             оборудование.
           </p>
           <button className="btn btn_type_main">Продолжить</button>
-          <img src="../vendor/images/main-image.png" alt="" className="main-page__img"></img>
+          <img src="../assets/images/main-image.png" alt="" className="main-page__img"></img>
         </div>
       </section>
       <section className="section about" id="about">
         <h2 className="section__title">О нас</h2>
         <div className="section__container section__container_type_about">
           <img
-            src="../vendor/images/about.png"
+            src="../assets/images/about.png"
             alt="картинка блока about"
             className="section__img section__img_type_about"
           />
@@ -64,7 +64,7 @@ const Home = () => {
         <h2 className="section__title">Почему мы?</h2>
         <div className="section__container section__container_type_reason">
           <article className="reason__card">
-            <img src="../vendor/images/icons/reason-1.svg" alt="" className="reason__img" />
+            <img src="../assets/images/icons/reason-1.svg" alt="" className="reason__img" />
             <p className="reason__title">12 лет на рынке</p>
             <p className="reason__text">
               Мы завоевали уважение и доверие, зарекомендовав себя как надежного делового партнера и поставщика
@@ -73,7 +73,7 @@ const Home = () => {
           </article>
 
           <article className="reason__card">
-            <img src="../vendor/images/icons/reason-2.svg" alt="" className="reason__img" />
+            <img src="../assets/images/icons/reason-2.svg" alt="" className="reason__img" />
             <p className="reason__title">Лучшие зарубежные и отечественные производители</p>
             <p className="reason__text">
               Являемся официальным дилером и поставщиком строительного оборудования таких компаний как Mörtel Meister,
@@ -82,7 +82,7 @@ const Home = () => {
           </article>
 
           <article className="reason__card">
-            <img src="../vendor/images/icons/reason-3.svg" alt="" className="reason__img" />
+            <img src="../assets/images/icons/reason-3.svg" alt="" className="reason__img" />
             <p className="reason__title">Доставка в любую точку страны</p>
             <p className="reason__text">
               Сотрудничаем с крупными транспортными компаниями как ПЭК, Деловые линии, Желдорэкспедиция. Наши товары
@@ -91,7 +91,7 @@ const Home = () => {
           </article>
 
           <article className="reason__card">
-            <img src="../vendor/images/icons/reason-4.svg" alt="" className="reason__img" />
+            <img src="../assets/images/icons/reason-4.svg" alt="" className="reason__img" />
             <p className="reason__title">Профессиональная поддержка</p>
             <p className="reason__text">
               Наши специалисты помогут подобрать необходимую строительную технику, оборудование, запчасти и
@@ -124,14 +124,14 @@ const Home = () => {
       <section className="section sertificates">
         <h2 className="section__title">Сертификаты</h2>
         <div className="section__container section__container_type_sertificates">
-          <img src="../vendor/images/sertificate1.png" alt="Сертификат1" className="sertificates__img" />
-          <img src="../vendor/images/sertificate2.png" alt="Сетификат2" className="sertificates__img" />
+          <img src="../assets/images/sertificate1.png" alt="Сертификат1" className="sertificates__img" />
+          <img src="../assets/images/sertificate2.png" alt="Сетификат2" className="sertificates__img" />
         </div>
       </section>
       <section className="section questions" id="questions">
         <h2 className="section__title">Остались вопросы?</h2>
         <div className="section__container section__container_type_questions">
-          <img src="../vendor/images/questions.png" alt="" className="questions__img" />
+          <img src="../assets/images/questions.png" alt="" className="questions__img" />
           <form className="questions__form">
             <p className="questions__form-title">Оставьте заявку, и мы перезвоним в течение 30 минут</p>
             <input

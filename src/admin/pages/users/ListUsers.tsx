@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import AdminUserCard from '../../../components/Admin/AdminUserCard';
+import AdminUserCard from '../../Components/UserCard';
 
 const ListUsers = () => {
   return (

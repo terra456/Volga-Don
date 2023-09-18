@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import AdminCategoryCard from '../../../components/Admin/AdminCategoryCard';
+import AdminCategoryCard from '../../Components/CategoryCard';
 
 const ListCategory = () => {
   return (

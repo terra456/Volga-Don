@@ -5,7 +5,7 @@ const Header = () => {
     <header className="header">
       <div className="header__container">
         {/* <img className="header__burger" alt="меню-картинка" src="../vendor/images/burger.svg"> */}
-        <Link to={`home`}>
+        <Link to={`/`}>
           {/* <img className="logotype logotype_type_header" src="../vendor/images/logotype.svg" alt="Логотип"> */}
           На сайт
         </Link>

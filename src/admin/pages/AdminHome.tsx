@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
-import AdminNewsCard from '../../components/Admin/AdminNewsCard';
-import AdminProductCard from '../../components/Admin/AdminProductCard';
-import AdminUserCard from '../../components/Admin/AdminUserCard';
+import AdminNewsCard from '../Components/NewsCard';
+import AdminProductCard from '../Components/ProductCard';
+import AdminUserCard from '../Components/UserCard';
 
-const Home = () => {
+const AdminHome = () => {
   return (
     <main>
       <h1 className="admin-title">Добро пожаловать!</h1>
@@ -66,4 +66,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default AdminHome;
