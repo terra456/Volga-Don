@@ -14,7 +14,6 @@ export default defineConfig({
     emptyOutDir: true,
     rollupOptions: {
       input: {
-        base: '/Volga-Don/',
         main: resolve(root, 'index.html'),
         admin: resolve(root, 'admin', 'index.html'),
       },
