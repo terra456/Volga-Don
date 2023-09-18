@@ -8,13 +8,13 @@ const outDir = resolve(__dirname, 'dist');
 // https://vitejs.dev/config/
 export default defineConfig({
   root,
-  base: '/Volga-Don/',
   plugins: [react()],
   build: {
     outDir,
     emptyOutDir: true,
     rollupOptions: {
       input: {
+        base: '/Volga-Don/',
         main: resolve(root, 'index.html'),
         admin: resolve(root, 'admin', 'index.html'),
       },

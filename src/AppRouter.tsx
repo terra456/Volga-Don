@@ -21,8 +21,8 @@ const AppRouter = () => {
               </ProtectedRoute>
             }
           /> */}
-          <Route path="catalog" element={<Catalog />} />
-          <Route path="about-us" element={<AboutUs />} />
+          <Route path="/catalog" element={<Catalog />} />
+          <Route path="/about-us" element={<AboutUs />} />
           <Route path="*" element={<NotFound />} />
         </Route>
         <Route path="/admin" element={<AdminLayout />}>
