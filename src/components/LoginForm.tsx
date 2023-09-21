@@ -27,7 +27,7 @@ const LoginForm = () => {
       try {
         const user = await login(data).unwrap();
         console.log(user);
-        dispatch(setCredentials({ acsessToken: user.acsess, refreshToken: user.refresh, username: data.username }));
+        dispatch(setCredentials({ acsessToken: user.access, refreshToken: user.refresh, username: data.username }));
         navigate('/admin');
       } catch (err) {
         console.log(err);

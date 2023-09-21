@@ -1,6 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { RootState } from '../store/store';
-import { LoginRequest, UserResponse } from '../types';
+import { Article, ArticleDTO, LoginRequest, UserResponse } from '../types';
+import { key } from 'localforage';
 
 export const authApi = createApi({
   reducerPath: 'authApi',
@@ -25,10 +26,15 @@ export const authApi = createApi({
         body: credentials,
       }),
     }),
-    protected: builder.mutation<{ message: string }, void>({
-      query: () => 'protected',
+    addArticle: builder.mutation<Article, FormData>({
+      query: (credentials) => ({
+        url: 'articles/admin/list/',
+        method: 'post',
+        headers: { 'content-type': 'multipart/form-data; boundary=---' },
+        body: credentials,
+      }),
     }),
   }),
 });
 
-export const { useLoginMutation, useProtectedMutation } = authApi;
+export const { useLoginMutation, useAddArticleMutation } = authApi;

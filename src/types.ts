@@ -29,7 +29,7 @@ export type Product = {
 };
 
 export interface UserResponse {
-  acsess: string;
+  access: string;
   refresh: string;
 }
 
@@ -42,3 +42,10 @@ export interface User {
   first_name: string;
   last_name: string;
 }
+
+export type ArticleDTO = {
+  title: string;
+  text: string;
+  image: File[];
+  published: boolean;
+};
