@@ -27,3 +27,18 @@ export type Product = {
     product: number;
   };
 };
+
+export interface UserResponse {
+  acsess: string;
+  refresh: string;
+}
+
+export interface LoginRequest {
+  username: string;
+  password: string;
+}
+
+export interface User {
+  first_name: string;
+  last_name: string;
+}

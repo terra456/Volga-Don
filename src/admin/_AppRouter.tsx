@@ -23,14 +23,6 @@ const AppRouter = () => {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          {/* <Route
-            path="auth"
-            element={
-              <ProtectedRoute passCondition={!isAuthrorized} route="/graphiql">
-                <Login />
-              </ProtectedRoute>
-            }
-          /> */}
         </Route>
         <Route path="admin" element={<AdminLayout />}>
           <Route index element={<AdminHome />} />

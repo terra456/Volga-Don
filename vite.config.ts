@@ -9,14 +9,14 @@ const outDir = resolve(__dirname, 'dist');
 export default defineConfig({
   root,
   plugins: [react()],
-  build: {
-    outDir,
-    emptyOutDir: true,
-    rollupOptions: {
-      input: {
-        main: resolve(root, 'index.html'),
-        admin: resolve(root, 'admin', 'index.html'),
-      },
-    },
-  },
+  // build: {
+  //   outDir,
+  //   emptyOutDir: true,
+  //   rollupOptions: {
+  //     input: {
+  //       main: resolve(root, 'index.html'),
+  //       admin: resolve(root, 'admin', 'index.html'),
+  //     },
+  //   },
+  // },
 });

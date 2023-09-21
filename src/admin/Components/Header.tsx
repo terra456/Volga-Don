@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
+import { useAuth } from '../../hooks/useAuth';
 
 const Header = () => {
+  const { user } = useAuth();
   return (
     <header className="header">
       <div className="header__container">
@@ -33,10 +35,7 @@ const Header = () => {
             </li>
           </ul>
         </nav>
-        <div className="header__connect">
-          <span>Войти</span>
-          <span>Выйти</span>
-        </div>
+        <div className="header__connect">{user ? <span>{user} Выйти</span> : <span>Войти</span>}</div>
       </div>
     </header>
   );
