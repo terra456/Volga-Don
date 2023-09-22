@@ -49,3 +49,11 @@ export type ArticleDTO = {
   image: File[];
   published: boolean;
 };
+
+export type ArticleEditDTO = {
+  id: number;
+  title?: string;
+  text?: string;
+  image?: File[];
+  published?: boolean;
+};

@@ -9,12 +9,14 @@ export const getApi = createApi({
   }),
   tagTypes: ['Article', 'Product'],
   endpoints: (builder) => ({
-    getArticle: builder.query<Article, number>({
+    getArticle: builder.query<Article, string>({
       // note: an optional `queryFn` may be used in place of `query`
-      query: (id) => ({ url: `article/${id}` }),
+      query: (id) => ({ url: `articles/${id}` }),
+      providesTags: ['Article'],
     }),
     getAllArticles: builder.query<Article[], number>({
       query: (_page = 0) => ({ url: 'articles/' }),
+      providesTags: ['Article'],
     }),
     getAllProducts: builder.query<Product[], number>({
       query: (_page = 0) => ({ url: 'products/' }),

@@ -1,4 +1,4 @@
-import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import { Routes, Route, BrowserRouter, useParams } from 'react-router-dom';
 import NotFound from './pages/NotFound';
 import Layout from './components/Layout/Layout';
 import Home from './pages/Home';
@@ -24,6 +24,8 @@ import ProtectedRoute from './components/ProtectedRoute';
 
 const AppRouter = () => {
   const auth = useAuth();
+  const baseUrl = 'http://cv08121-django-53po4.tw1.ru/';
+
   return (
     <BrowserRouter>
       <Routes>
@@ -85,6 +87,10 @@ const AppRouter = () => {
           />
           <Route
             path="news/:newsId/edit"
+            // loader={async ({ params }) => {
+            //   console.log(params);
+            //   return fetch(`${baseUrl}article/${params.teamId}`, { mode: 'cors' });
+            // }}
             element={
               <ProtectedRoute user={auth.user}>
                 <EditNews />

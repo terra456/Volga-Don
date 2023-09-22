@@ -30,16 +30,13 @@
     align-items: center;
 }
 .admin-registration__error-message {
+    display: block;
     color: #F34545;
     font-family: Arial;
     font-size: 16px;
     font-weight: 700;
     position: absolute;
     bottom: -22px;
-    display: none;
-}
-.admin-registration__error-message_active{
-    display: block;
 }
 .admin-registration__fieldset{
     position: relative;
