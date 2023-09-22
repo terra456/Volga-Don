@@ -14,7 +14,7 @@ const ArticleForm = () => {
     formState: { errors },
   } = useForm<ArticleDTO>();
   const [addArticle, { isLoading }] = useAddArticleMutation();
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const dataForm = (obj: any) => {
@@ -35,7 +35,7 @@ const ArticleForm = () => {
         const form = dataForm(data);
         const article = await addArticle(form).unwrap();
         console.log(article);
-        // navigate('/admin');
+        navigate('/admin/news');
       } catch (err) {
         console.log(err);
         // toast({
