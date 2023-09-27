@@ -28,6 +28,15 @@ export type Product = {
   };
 };
 
+export type ProductDTO = {
+  name: string;
+  description: string;
+  in_stock: true;
+  published: true;
+  category: number;
+  images: File[];
+};
+
 export interface UserResponse {
   access: string;
   refresh: string;
@@ -56,4 +65,14 @@ export type ArticleEditDTO = {
   text?: string;
   image?: File[];
   published?: boolean;
+};
+
+export type Categorie = {
+  id: number;
+  name: string;
+};
+
+export type CategorieDTO = {
+  id?: number;
+  name?: string;
 };

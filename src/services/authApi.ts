@@ -26,32 +26,7 @@ export const authApi = createApi({
         body: credentials,
       }),
     }),
-    addArticle: builder.mutation<Article, FormData>({
-      query: (credentials) => ({
-        url: 'articles/admin/list/',
-        method: 'post',
-        headers: { 'content-type': 'multipart/form-data; boundary=---' },
-        body: credentials,
-      }),
-      invalidatesTags: ['Article'],
-    }),
-    updateArticle: builder.mutation<Article, [FormData, string]>({
-      query: ([credentials, id]) => ({
-        url: `articles/admin/${id}`,
-        method: 'put',
-        headers: { 'content-type': 'multipart/form-data; boundary=---' },
-        body: credentials,
-      }),
-      invalidatesTags: ['Article'],
-    }),
-    deleteArticle: builder.mutation<Article, string>({
-      query: (id) => ({
-        url: `articles/admin/${id}`,
-        method: 'delete',
-      }),
-      invalidatesTags: ['Article'],
-    }),
   }),
 });
 
-export const { useLoginMutation, useAddArticleMutation, useUpdateArticleMutation, useDeleteArticleMutation } = authApi;
+export const { useLoginMutation } = authApi;

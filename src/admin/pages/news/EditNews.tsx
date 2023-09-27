@@ -5,7 +5,7 @@ import { useGetArticleQuery } from '../../../services/postApi';
 
 const EditNews = () => {
   const { newsId } = useParams();
-  const { data } = useGetArticleQuery(newsId);
+  const { data, isLoading } = useGetArticleQuery(newsId);
   useEffect(() => {
     console.log(newsId);
   }, []);
@@ -13,7 +13,12 @@ const EditNews = () => {
   return (
     <>
       <h2>Редактировать новость {newsId}</h2>
-      {newsId ? <>{data && <ArticleForm preloadData={data} />}</> : <ArticleForm preloadData={undefined} />}
+      {newsId && (
+        <>
+          {isLoading && <p>Loading...</p>}
+          {data && <ArticleForm preloadData={data} />}
+        </>
+      )}
     </>
   );
 };

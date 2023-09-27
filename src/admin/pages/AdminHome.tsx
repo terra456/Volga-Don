@@ -2,8 +2,12 @@ import { Link } from 'react-router-dom';
 import AdminNewsCard from '../Components/NewsCard';
 import AdminProductCard from '../Components/ProductCard';
 import AdminUserCard from '../Components/UserCard';
+import { useGetAllArticlesQuery, useGetAllProductsQuery } from '../../services/postApi';
 
 const AdminHome = () => {
+  const products = useGetAllProductsQuery(undefined);
+  const news = useGetAllArticlesQuery(undefined);
+
   return (
     <main>
       <h1 className="admin-title">Добро пожаловать!</h1>
@@ -16,9 +20,7 @@ const AdminHome = () => {
         </div>
         <section className="admin-main-block__content">
           <div className="admin-main-block__content-news admin-main-block__content-container">
-            <AdminNewsCard />
-            <AdminNewsCard />
-            <AdminNewsCard />
+            {news && news.data?.slice(3).map((el) => <AdminNewsCard key={el.id} {...el} />)}
           </div>
           <Link to={'news/add'} className="admin-add-card admin-add-card_type_news">
             <img src="../vendor/images/icons/add.svg" alt="Добавить запись" className="admin-add-card__icon" />
@@ -35,9 +37,7 @@ const AdminHome = () => {
         </div>
         <section className="admin-main-block__content">
           <div className="admin-main-block__content-catalog admin-main-block__content-container">
-            <AdminProductCard />
-            <AdminProductCard />
-            <AdminProductCard />
+            {products && products.data?.slice(3).map((el) => <AdminProductCard key={el.id} {...el} />)}
           </div>
           <Link to={'products/add'} className="admin-add-card admin-add-card_type_catalog">
             <img src="../vendor/images/icons/add.svg" alt="Добавить запись" className="admin-add-card__icon" />
