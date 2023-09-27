@@ -1,18 +1,39 @@
-import { Link } from 'react-router-dom';
-import AdminCategoryCard from '../../Components/CategoryCard';
+import AdminCategoryItem from '../../Components/CategoryItem';
+import { useGetAllCategoriesQuery, usePostCategorieMutation } from '../../../services/postApi';
+import { Categorie } from '../../../types';
+import { useState } from 'react';
 
 const ListCategory = () => {
+  const listCategories = useGetAllCategoriesQuery(undefined);
+  const [newValue, setNewValue] = useState<string | undefined>(undefined);
+  const [createCategorie] = usePostCategorieMutation();
   return (
     <section>
       <h1 className="admin-title admin-catalog__title">Категории</h1>
       <div className="admin-catalog__content">
-        <Link to={'add'} className="admin-add-card admin-add-card_type_catalog">
-          <img src="../vendor/images/icons/add.svg" alt="Добавить запись" className="admin-add-card__icon" />
-          <p className="admin-add-card__text">Добавить новый товар</p>
-        </Link>
-        <AdminCategoryCard />
-        <AdminCategoryCard />
-        <AdminCategoryCard />
+        {listCategories.isLoading && <p>Loading...</p>}
+        {listCategories.data && listCategories.data.map((el: Categorie) => <AdminCategoryItem key={el.id} {...el} />)}
+        <div>
+          {newValue === undefined && <button onClick={() => setNewValue('')}>add</button>}
+          {newValue !== undefined && (
+            <>
+              <input type="text" value={newValue} onChange={(e) => setNewValue(e.target.value)} />
+
+              <button
+                className="btn btn__save"
+                onClick={() => {
+                  createCategorie({ name: newValue });
+                  setNewValue(undefined);
+                }}
+              >
+                save
+              </button>
+              <button className="btn btn__save" onClick={() => setNewValue(undefined)}>
+                discard
+              </button>
+            </>
+          )}
+        </div>
       </div>
     </section>
   );

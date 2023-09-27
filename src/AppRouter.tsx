@@ -54,22 +54,6 @@ const AppRouter = () => {
             }
           />
           <Route
-            path="categories/add"
-            element={
-              <ProtectedRoute user={auth.user}>
-                <AddCategory />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="categories/:categorieId/edit"
-            element={
-              <ProtectedRoute user={auth.user}>
-                <EditCategory />
-              </ProtectedRoute>
-            }
-          />
-          <Route
             path="news"
             element={
               <ProtectedRoute user={auth.user}>

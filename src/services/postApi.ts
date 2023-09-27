@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { RootState } from '../store/store';
-import { Article, ArticleDTO, LoginRequest, Product, UserResponse } from '../types';
+import { Article, ArticleDTO, Categorie, CategorieDTO, LoginRequest, Product, UserResponse } from '../types';
 import { key } from 'localforage';
 
 export const postApi = createApi({
@@ -18,7 +18,7 @@ export const postApi = createApi({
     },
   }),
   refetchOnMountOrArgChange: true,
-  tagTypes: ['Article'],
+  tagTypes: ['Article', 'Categorie'],
   endpoints: (builder) => ({
     getArticle: builder.query<Article, string>({
       // note: an optional `queryFn` may be used in place of `query`
@@ -28,12 +28,6 @@ export const postApi = createApi({
     getAllArticles: builder.query<Article[], undefined>({
       query: () => ({ url: 'articles/admin/list/' }),
       providesTags: ['Article'],
-    }),
-    getAllProducts: builder.query<Product[], undefined>({
-      query: () => ({ url: 'products/admin/list/' }),
-    }),
-    getProduct: builder.query<Product, number>({
-      query: (id) => ({ url: `products/admin/${id}` }),
     }),
     addArticle: builder.mutation<Article, FormData>({
       query: (credentials) => ({
@@ -60,6 +54,36 @@ export const postApi = createApi({
       }),
       invalidatesTags: ['Article'],
     }),
+    getAllProducts: builder.query<Product[], undefined>({
+      query: () => ({ url: 'products/admin/list/' }),
+    }),
+    getProduct: builder.query<Product, number>({
+      query: (id) => ({ url: `products/admin/${id}` }),
+    }),
+    getAllCategories: builder.query<Categorie[], undefined>({
+      query: () => ({ url: 'products/admin/categories/' }),
+      providesTags: ['Categorie'],
+    }),
+    getCategorie: builder.query<Categorie, number>({
+      query: (id) => ({ url: `products/admin/categories/${id}` }),
+      providesTags: ['Categorie'],
+    }),
+    postCategorie: builder.mutation<Categorie, CategorieDTO>({
+      query: (credentials) => ({ url: `products/admin/categories/`, method: 'post', body: credentials }),
+      invalidatesTags: ['Categorie'],
+    }),
+    putCategorie: builder.mutation<Categorie, [CategorieDTO, number]>({
+      query: ([credentials, id]) => ({ url: `products/admin/categories/${id}`, method: 'put', body: credentials }),
+      invalidatesTags: ['Categorie'],
+    }),
+    patchCategorie: builder.mutation<Categorie, [CategorieDTO, number]>({
+      query: ([credentials, id]) => ({ url: `products/admin/categories/${id}`, method: 'patch', body: credentials }),
+      invalidatesTags: ['Categorie'],
+    }),
+    deleteCategorie: builder.mutation<Categorie, number>({
+      query: (id) => ({ url: `products/admin/categories/${id}`, method: 'delete' }),
+      invalidatesTags: ['Categorie'],
+    }),
   }),
 });
 
@@ -71,4 +95,10 @@ export const {
   useAddArticleMutation,
   useUpdateArticleMutation,
   useDeleteArticleMutation,
+  useGetAllCategoriesQuery,
+  useGetCategorieQuery,
+  usePostCategorieMutation,
+  usePutCategorieMutation,
+  usePatchCategorieMutation,
+  useDeleteCategorieMutation,
 } = postApi;
