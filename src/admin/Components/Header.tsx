@@ -1,8 +1,19 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
+import { useDispatch } from 'react-redux';
+import { logout } from '../../store/authSlice';
 
 const Header = () => {
   const { user } = useAuth();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const logoutHandler = () => {
+    dispatch(logout());
+    localStorage.removeItem('acsessToken');
+    navigate('/');
+  };
+
   return (
     <header className="header">
       <div className="header__container">
@@ -35,7 +46,16 @@ const Header = () => {
             </li>
           </ul>
         </nav>
-        <div className="header__connect">{user ? <span>{user} Выйти</span> : <span>Войти</span>}</div>
+        {user && (
+          <div className="header__connect">
+            <Link className="header__link" to={`user/edit`}>
+              {user.userInfo.username}
+            </Link>
+            <button className="btn" onClick={logoutHandler}>
+              Logout
+            </button>
+          </div>
+        )}
       </div>
     </header>
   );

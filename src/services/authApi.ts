@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { RootState } from '../store/store';
-import { Article, ArticleDTO, LoginRequest, UserResponse } from '../types';
+import { Article, ArticleDTO, AuthResponse, LoginRequest, RefreshRequest, UserDTO, UserResponse } from '../types';
 import { key } from 'localforage';
 
 export const authApi = createApi({
@@ -8,20 +8,41 @@ export const authApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: 'http://cv08121-django-53po4.tw1.ru/',
     mode: 'cors',
-    prepareHeaders: (headers, { getState }) => {
-      // By default, if we have a token in the store, let's use that for authenticated requests
-      const token = (getState() as RootState).auth.acsessToken || undefined;
-      if (token) {
-        headers.set('authorization', `Bearer ${token}`);
-      }
-      return headers;
-    },
   }),
-  tagTypes: ['auth', 'Article'],
+  tagTypes: ['auth'],
   endpoints: (builder) => ({
-    login: builder.mutation<UserResponse, LoginRequest>({
+    login: builder.mutation<AuthResponse, LoginRequest>({
       query: (credentials) => ({
         url: 'auth/login/',
+        method: 'post',
+        body: credentials,
+      }),
+      transformResponse: (returnValue: AuthResponse, _meta) => {
+        // `meta` here contains our added `requestId` & `timestamp`, as well as
+        // `request` & `response` from fetchBaseQuery's meta object.
+        // These properties can be used to transform the response as desired.
+        if (returnValue.access) {
+          localStorage.setItem('accessToken', returnValue.access);
+        }
+        return returnValue;
+      },
+    }),
+    refresh: builder.mutation<AuthResponse, RefreshRequest>({
+      query: (credentials) => ({
+        url: 'auth/login/refresh/',
+        method: 'post',
+        body: credentials,
+      }),
+      transformResponse: (returnValue: AuthResponse) => {
+        if (returnValue.access) {
+          localStorage.setItem('accessToken', returnValue.access);
+        }
+        return returnValue;
+      },
+    }),
+    signup: builder.mutation<UserDTO, UserDTO>({
+      query: (credentials) => ({
+        url: 'auth/register/',
         method: 'post',
         body: credentials,
       }),
@@ -29,4 +50,4 @@ export const authApi = createApi({
   }),
 });
 
-export const { useLoginMutation } = authApi;
+export const { useLoginMutation, useRefreshMutation, useSignupMutation } = authApi;

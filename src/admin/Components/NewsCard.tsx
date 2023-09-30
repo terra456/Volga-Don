@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Article } from '../../types';
 
 const AdminNewsCard = ({ id, title, text, image, published, created_at }: Article) => {
@@ -18,9 +18,9 @@ const AdminNewsCard = ({ id, title, text, image, published, created_at }: Articl
               В архиве <img src="/assets/images/icons/minus.svg" />
             </button>
           )}
-          <NavLink to={`${id}/edit`}>
+          <Link to={`/admin/news/${id}/edit`} relative="path">
             <span className="admin-btn-change">Edit</span>
-          </NavLink>
+          </Link>
         </div>
         <p className="admin-news-card__date">
           {date.toLocaleDateString('ru-RU', { year: '2-digit', month: 'numeric', day: 'numeric' })}

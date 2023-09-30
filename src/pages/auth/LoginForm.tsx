@@ -1,8 +1,8 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
 // import { navigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { setCredentials } from '../store/authSlice';
-import { useLoginMutation } from '../services/authApi';
+import { setCredentials } from '../../store/authSlice';
+import { useLoginMutation } from '../../services/authApi';
 import { useNavigate } from 'react-router-dom';
 // import { useLoginMutation, useProtectedMutation } from '../services/authApi';
 
@@ -27,7 +27,13 @@ const LoginForm = () => {
       try {
         const user = await login(data).unwrap();
         console.log(user);
-        dispatch(setCredentials({ acsessToken: user.access, refreshToken: user.refresh, username: data.username }));
+        dispatch(
+          setCredentials({
+            acsessToken: user.access,
+            refreshToken: user.refresh,
+            userInfo: { username: data.username },
+          }),
+        );
         navigate('/admin');
       } catch (err) {
         console.log(err);

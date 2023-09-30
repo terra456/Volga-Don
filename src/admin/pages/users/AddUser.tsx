@@ -1,5 +1,7 @@
+import UserForm from '../../../components/UserForm';
+
 const AddUser = () => {
-  return <h2>Добавить пользователя</h2>;
+  return <UserForm />;
 };
 
 export default AddUser;

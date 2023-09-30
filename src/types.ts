@@ -37,8 +37,12 @@ export type ProductDTO = {
   images: File[];
 };
 
-export interface UserResponse {
+export interface AuthResponse {
   access: string;
+  refresh: string;
+}
+
+export interface RefreshRequest {
   refresh: string;
 }
 
@@ -48,9 +52,21 @@ export interface LoginRequest {
 }
 
 export interface User {
-  first_name: string;
-  last_name: string;
+  id: number;
+  username: string;
 }
+
+export interface UserDTO {
+  username: string;
+  password1: string;
+  password2: string;
+}
+
+export type UserPassword = {
+  old_password: string;
+  password1: string;
+  password2: string;
+};
 
 export type ArticleDTO = {
   title: string;

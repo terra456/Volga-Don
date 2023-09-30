@@ -3,10 +3,12 @@ import AdminNewsCard from '../Components/NewsCard';
 import AdminProductCard from '../Components/ProductCard';
 import AdminUserCard from '../Components/UserCard';
 import { useGetAllArticlesQuery, useGetAllProductsQuery } from '../../services/postApi';
+import { useGetAllUsersQuery } from '../../services/userApi';
 
 const AdminHome = () => {
   const products = useGetAllProductsQuery(undefined);
   const news = useGetAllArticlesQuery(undefined);
+  const users = useGetAllUsersQuery(undefined);
 
   return (
     <main>
@@ -14,13 +16,14 @@ const AdminHome = () => {
       <div className="admin-main-block">
         <div className="admin-main-block__header">
           <p className="admin-main-block__title">Новости</p>
-          <Link to={'admin/news'} className="admin-btn__link">
+          <Link to={'news'} className="admin-btn__link">
             Показать все
           </Link>
         </div>
         <section className="admin-main-block__content">
           <div className="admin-main-block__content-news admin-main-block__content-container">
-            {news && news.data?.slice(3).map((el) => <AdminNewsCard key={el.id} {...el} />)}
+            {news.isLoading && <p>Loading...</p>}
+            {news.data && news.data.slice(0, 3).map((el) => <AdminNewsCard key={el.id} {...el} />)}
           </div>
           <Link to={'news/add'} className="admin-add-card admin-add-card_type_news">
             <img src="../vendor/images/icons/add.svg" alt="Добавить запись" className="admin-add-card__icon" />
@@ -37,7 +40,8 @@ const AdminHome = () => {
         </div>
         <section className="admin-main-block__content">
           <div className="admin-main-block__content-catalog admin-main-block__content-container">
-            {products && products.data?.slice(3).map((el) => <AdminProductCard key={el.id} {...el} />)}
+            {products.isLoading && <p>Loading...</p>}
+            {products.data && products.data.slice(0, 5).map((el) => <AdminProductCard key={el.id} {...el} />)}
           </div>
           <Link to={'products/add'} className="admin-add-card admin-add-card_type_catalog">
             <img src="../vendor/images/icons/add.svg" alt="Добавить запись" className="admin-add-card__icon" />
@@ -53,10 +57,11 @@ const AdminHome = () => {
           </Link>
         </div>
         <section className="admin-main-block__content">
-          <div className="admin-users">
-            <AdminUserCard />
+          <div className="admin-users__content">
+            {users.isLoading && <p>Loading...</p>}
+            {users.data && users.data.slice(0, 5).map((el, i) => <AdminUserCard key={i + 'user'} {...el} />)}
           </div>
-          <Link to={'products/add'} className="admin-add-card admin-add-card_type_users">
+          <Link to={'users/add'} className="admin-add-card admin-add-card_type_users">
             <img src="../vendor/images/icons/add.svg" alt="Добавить запись" className="admin-add-card__icon" />
             <p className="admin-add-card__text">Добавить нового сотрудника</p>
           </Link>

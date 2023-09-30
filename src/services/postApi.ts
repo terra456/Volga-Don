@@ -1,7 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { RootState } from '../store/store';
-import { Article, ArticleDTO, Categorie, CategorieDTO, LoginRequest, Product, UserResponse } from '../types';
-import { key } from 'localforage';
+import { Article, Categorie, CategorieDTO, Product } from '../types';
 
 export const postApi = createApi({
   reducerPath: 'postApi',

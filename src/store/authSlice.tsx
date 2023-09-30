@@ -1,27 +1,45 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import type { RootState } from './store';
+import { registerUser } from '../services/authApi';
 
 type AuthState = {
-  username: string | null;
-  acsessToken: string | null;
+  // username: string | null;
+  // acsessToken: string | null;
+  // refreshToken: string | null;
+  userInfo: { username: string | null }; // for user object
+  acsessToken: string | null; // for storing the JWT
   refreshToken: string | null;
 };
 
-const slice = createSlice({
+const acsessToken = localStorage.getItem('acsessToken') ? localStorage.getItem('acsessToken') : null;
+
+const initialState: AuthState = {
+  userInfo: { username: null }, // for user object
+  acsessToken, // for storing the JWT
+  refreshToken: null,
+};
+
+const authSlice = createSlice({
   name: 'auth',
-  initialState: { username: null, acsessToken: null, refreshToken: null } as AuthState,
+  initialState,
   reducers: {
-    setCredentials: (state, { payload: { username, acsessToken, refreshToken } }: PayloadAction<AuthState>) => {
-      state.username = username;
+    logout: (state) => {
+      state.userInfo = { username: null };
+      state.acsessToken = null;
+      state.refreshToken = null;
+    },
+    setCredentials: (state, { payload: { userInfo, acsessToken, refreshToken } }: PayloadAction<AuthState>) => {
+      state.userInfo = userInfo;
       state.acsessToken = acsessToken;
       state.refreshToken = refreshToken;
     },
   },
+  extraReducers: {},
 });
 
-export const { setCredentials } = slice.actions;
+export const { logout, setCredentials } = authSlice.actions;
 
-export default slice.reducer;
+export default authSlice.reducer;
 
-export const selectCurrentUser = (state: RootState) => state.auth.username;
+export const selectCurrentUser = (state: RootState) => state.auth;
