@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Article } from '../../types';
 
-const AdminNewsCard = ({ id, title, text, image, published, created_at }: Article) => {
+const AdminNewsCard = ({ id, title, image, published, created_at }: Article) => {
   const date = new Date(created_at);
   return (
     <article className="admin-news-card">

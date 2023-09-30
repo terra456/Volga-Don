@@ -4,7 +4,7 @@ import { useGetProductQuery } from '../../../services/postApi';
 
 const EditProduct = () => {
   const { productId } = useParams();
-  const { data, isLoading } = useGetProductQuery(productId);
+  const { data } = useGetProductQuery(Number(productId));
   return (
     <>
       <h2>Редактировать товар</h2>

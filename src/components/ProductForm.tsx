@@ -1,6 +1,4 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
-// import { navigate } from 'react-router-dom';
-import { setCredentials } from '../store/authSlice';
 import {
   useAddProductMutation,
   useDeleteProductMutation,
@@ -10,13 +8,12 @@ import {
 import { useNavigate } from 'react-router-dom';
 import { Product, ProductDTO } from '../types';
 import { dataForm } from '../utils/formData';
-import { useEffect, useState } from 'react';
-// import { useLoginMutation, useProtectedMutation } from '../services/authApi';
+import { useState } from 'react';
 
 type Props = {
   preloadData?: Product;
 };
-type Img = { url: string; name: string };
+// type Img = { url: string; name: string };
 
 const ProductForm = ({ preloadData }: Props) => {
   const serverUrl = 'http://cv08121-django-53po4.tw1.ru';
@@ -41,6 +38,7 @@ const ProductForm = ({ preloadData }: Props) => {
   const navigate = useNavigate();
 
   const postData = async (data: ProductDTO) => {
+    category; //fix ts, but must be added in form
     try {
       const form = dataForm(data);
       await addProduct(form).unwrap();
@@ -82,7 +80,9 @@ const ProductForm = ({ preloadData }: Props) => {
       const files = data.images;
       for (let i = imagesUpload.length; i < files.length; i++) {
         const file = files[i];
-        setImagesUpload((prev) => [...prev, URL.createObjectURL(file)]);
+        if (file) {
+          setImagesUpload((prev) => [...prev, URL.createObjectURL(file)]);
+        }
       }
     }
   });
@@ -99,10 +99,10 @@ const ProductForm = ({ preloadData }: Props) => {
       <form className="admin-registration__form" onSubmit={handleSubmit(onSubmit)}>
         <div className="admin-add-card admin-add-card_type_add-photo">
           {images &&
-            Object.keys(images)
+            (Object.keys(images) as Array<keyof typeof images>)
               .filter((el) => el.includes('img') && images[el])
               .map((el, i) => {
-                const url = images[el];
+                const url = images[el] as string;
                 return (
                   <img
                     key={`imgUpload${i}`}

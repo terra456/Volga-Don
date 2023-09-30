@@ -1,12 +1,9 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
-// import { navigate } from 'react-router-dom';
-import { setCredentials } from '../store/authSlice';
 import { useAddArticleMutation, useDeleteArticleMutation, useUpdateArticleMutation } from '../services/postApi';
 import { useNavigate } from 'react-router-dom';
 import { Article, ArticleDTO } from '../types';
 import { dataForm } from '../utils/formData';
 import { useState } from 'react';
-// import { useLoginMutation, useProtectedMutation } from '../services/authApi';
 
 type Props = {
   preloadData?: Article;
@@ -35,6 +32,7 @@ const ArticleForm = ({ preloadData }: Props) => {
   const navigate = useNavigate();
 
   const postData = async (data: ArticleDTO) => {
+    created_at; //fix typescript error
     try {
       const form = dataForm(data);
       await addArticle(form).unwrap();

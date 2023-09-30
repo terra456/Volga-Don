@@ -31,8 +31,8 @@ export type Product = {
 export type ProductDTO = {
   name: string;
   description: string;
-  in_stock: true;
-  published: true;
+  in_stock: boolean;
+  published: boolean;
   category: number;
   images: File[];
 };

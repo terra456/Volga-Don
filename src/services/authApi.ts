@@ -1,7 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { RootState } from '../store/store';
-import { Article, ArticleDTO, AuthResponse, LoginRequest, RefreshRequest, UserDTO, UserResponse } from '../types';
-import { key } from 'localforage';
+import { AuthResponse, LoginRequest, RefreshRequest, UserDTO } from '../types';
 
 export const authApi = createApi({
   reducerPath: 'authApi',
@@ -17,7 +15,7 @@ export const authApi = createApi({
         method: 'post',
         body: credentials,
       }),
-      transformResponse: (returnValue: AuthResponse, _meta) => {
+      transformResponse: (returnValue: AuthResponse) => {
         // `meta` here contains our added `requestId` & `timestamp`, as well as
         // `request` & `response` from fetchBaseQuery's meta object.
         // These properties can be used to transform the response as desired.

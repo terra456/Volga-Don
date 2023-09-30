@@ -15,7 +15,6 @@ const LoginForm = () => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm<Inputs>();
   const dispatch = useDispatch();

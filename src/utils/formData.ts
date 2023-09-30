@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const dataForm = (obj: any) => {
   const formdata = new FormData();
   Object.keys(obj).forEach((el) => {

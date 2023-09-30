@@ -1,11 +1,10 @@
-import { Routes, Route, BrowserRouter, useParams } from 'react-router-dom';
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import NotFound from './pages/NotFound';
 import Layout from './components/Layout/Layout';
 import Home from './pages/Home';
 import Catalog from './pages/Catalog';
 import AboutUs from './pages/AboutUs';
 import AdminLayout from './admin/Components/Layout';
-import LoginPage from './pages/LoginPage';
 import ListCategory from './admin/pages/categories/ListCategory';
 import ListNews from './admin/pages/news/ListNews';
 import ListProducts from './admin/pages/products/ListProducts';
@@ -16,8 +15,6 @@ import EditProduct from './admin/pages/products/EditProduct';
 import AddProduct from './admin/pages/products/AddProduct';
 import AddNews from './admin/pages/news/AddNews';
 import EditNews from './admin/pages/news/EditNews';
-import AddCategory from './admin/pages/categories/AddCategory';
-import EditCategory from './admin/pages/categories/EditCategory';
 import AdminHome from './admin/pages/AdminHome';
 import { useAuth } from './hooks/useAuth';
 import ProtectedRoute from './components/ProtectedRoute';
@@ -28,7 +25,6 @@ import ChangePasswordForm from './pages/user/ChangePasswordForm';
 
 const AppRouter = () => {
   const { user } = useAuth();
-  const baseUrl = 'http://cv08121-django-53po4.tw1.ru/';
 
   return (
     <BrowserRouter>
@@ -100,10 +96,6 @@ const AppRouter = () => {
           />
           <Route
             path="news/:newsId/edit"
-            // loader={async ({ params }) => {
-            //   console.log(params);
-            //   return fetch(`${baseUrl}article/${params.teamId}`, { mode: 'cors' });
-            // }}
             element={
               <ProtectedRoute user={user.userInfo.username}>
                 <EditNews />

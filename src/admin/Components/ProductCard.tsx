@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
-import { Product } from "../../types";
+import { Link } from 'react-router-dom';
+import { Product } from '../../types';
 
-const AdminProductCard = ({ id, name, description, in_stock, published, category, images }: Product) => {
+const AdminProductCard = ({ id, name, published, images }: Product) => {
   return (
     <article className="admin-news-card admin-news-card_type_catalog">
       <img src={images.img1} alt="" className="admin-catalog__img" />

@@ -1,17 +1,15 @@
-import React from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
-import { useChangePasswordMutation } from '../../services/userApi';
+import { useChangePasswordMutation } from '../services/userApi';
 // import { useLoginMutation, useProtectedMutation } from '../services/authApi';
 
 type RegisterInputs = {
-  username: string;
   old_password: string;
   password1: string;
   password2: string;
 };
 
-const ChangePasswordForm = () => {
+const PasswordForm = () => {
   const {
     register,
     handleSubmit,
@@ -28,12 +26,6 @@ const ChangePasswordForm = () => {
         navigate('/');
       } catch (err) {
         console.log(err);
-        // toast({
-        //   status: 'error',
-        //   title: 'Error',
-        //   description: 'Oh no, there was an error!',
-        //   isClosable: true,
-        // });
       }
     })();
   };
@@ -41,17 +33,6 @@ const ChangePasswordForm = () => {
     <div className="admin-registration__container">
       <h1 className="admin-registration__title">Изменить пароль</h1>
       <form className="admin-registration__form" onSubmit={handleSubmit(onSubmit)}>
-        <fieldset className="admin-registration__fieldset">
-          <input
-            type="text"
-            {...register('username', { required: true })}
-            className="admin-registration__input admin-registration__input_type_login"
-            placeholder="Имя пользователя"
-          />
-          {errors.old_password && (
-            <span className="admin-registration__error-message">*Это поле обязательно к заполнению</span>
-          )}
-        </fieldset>
         <fieldset className="admin-registration__fieldset">
           <input
             type="password"
@@ -105,4 +86,4 @@ const ChangePasswordForm = () => {
   );
 };
 
-export default ChangePasswordForm;
+export default PasswordForm;

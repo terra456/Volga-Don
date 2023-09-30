@@ -1,6 +1,6 @@
 // Or from '@reduxjs/toolkit/query/react'
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import type { Article, LoginRequest, Product, UserResponse } from '../types';
+import type { Article, LoginRequest, Product } from '../types';
 
 export const getApi = createApi({
   reducerPath: 'getApi',
@@ -14,12 +14,12 @@ export const getApi = createApi({
       query: (id) => ({ url: `articles/${id}` }),
       providesTags: ['Article'],
     }),
-    getAllArticles: builder.query<Article[], number>({
-      query: (_page = 0) => ({ url: 'articles/' }),
+    getAllArticles: builder.query<Article[], undefined>({
+      query: () => ({ url: 'articles/' }),
       providesTags: ['Article'],
     }),
-    getAllProducts: builder.query<Product[], number>({
-      query: (_page = 0) => ({ url: 'products/' }),
+    getAllProducts: builder.query<Product[], undefined>({
+      query: () => ({ url: 'products/' }),
     }),
     getProduct: builder.query<Product, number>({
       query: (id) => ({ url: `products/${id}` }),
