@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import ArticleForm from '../../../components/ArticleForm';
+import ArticleForm from '../../../components/admin/ArticleForm';
 import { useGetArticleQuery } from '../../../services/postApi';
 
 const EditNews = () => {

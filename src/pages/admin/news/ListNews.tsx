@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import AdminNewsCard from '../../Components/NewsCard';
+import AdminNewsCard from '../../../components/admin/NewsCard';
 import { useGetAllArticlesQuery } from '../../../services/postApi';
 
 const ListNews = () => {

@@ -1,6 +1,6 @@
 // Or from '@reduxjs/toolkit/query/react'
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import type { Article, LoginRequest, Product } from '../types';
+import type { Article, LoginRequest, Product, User } from '../types';
 
 export const getApi = createApi({
   reducerPath: 'getApi',
@@ -24,7 +24,7 @@ export const getApi = createApi({
     getProduct: builder.query<Product, number>({
       query: (id) => ({ url: `products/${id}` }),
     }),
-    getUser: builder.query<UserResponse, LoginRequest>({
+    getUser: builder.query<User, LoginRequest>({
       query: (credentials) => ({
         url: 'login',
         method: 'POST',

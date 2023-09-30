@@ -1,7 +1,7 @@
-import AdminCategoryItem from '../../Components/CategoryItem';
+import { useState } from 'react';
+import AdminCategoryItem from '../../../components/admin/CategoryItem';
 import { useGetAllCategoriesQuery, usePostCategorieMutation } from '../../../services/postApi';
 import { Categorie } from '../../../types';
-import { useState } from 'react';
 
 const ListCategory = () => {
   const listCategories = useGetAllCategoriesQuery(undefined);

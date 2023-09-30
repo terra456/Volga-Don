@@ -1,61 +1,53 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
-import {
-  useAddProductMutation,
-  useDeleteProductMutation,
-  useGetAllCategoriesQuery,
-  useUpdateProductMutation,
-} from '../services/postApi';
+import { useAddArticleMutation, useDeleteArticleMutation, useUpdateArticleMutation } from '../../services/postApi';
 import { useNavigate } from 'react-router-dom';
-import { Product, ProductDTO } from '../types';
-import { dataForm } from '../utils/formData';
+import { Article, ArticleDTO } from '../../types';
+import { dataForm } from '../../utils/formData';
 import { useState } from 'react';
 
 type Props = {
-  preloadData?: Product;
+  preloadData?: Article;
 };
-// type Img = { url: string; name: string };
 
-const ProductForm = ({ preloadData }: Props) => {
+const ArticleForm = ({ preloadData }: Props) => {
   const serverUrl = 'http://cv08121-django-53po4.tw1.ru';
-  const { id, images, category, ...formData } = preloadData || {
+  const { id, created_at, image, ...formData } = preloadData || {
     id: undefined,
-    name: undefined,
-    description: undefined,
-    in_stock: undefined,
+    title: undefined,
+    text: undefined,
+    image: undefined,
     published: undefined,
+    created_at: undefined,
   };
-  const [imagesUpload, setImagesUpload] = useState<string[]>([]);
-  const { register, handleSubmit, watch, setValue, formState } = useForm<ProductDTO>({
+  const [imageUpload, setImageUpload] = useState('');
+  const { register, handleSubmit, watch, setValue, formState } = useForm<ArticleDTO>({
     defaultValues: {
       ...formData,
     },
   });
   const { errors } = formState;
-  const [addProduct, { isLoading }] = useAddProductMutation();
-  const [updateProduct] = useUpdateProductMutation();
-  const { data } = useGetAllCategoriesQuery(undefined);
-  const [deleteProduct] = useDeleteProductMutation();
+  const [addArticle, { isLoading }] = useAddArticleMutation();
+  const [updateArticle] = useUpdateArticleMutation();
+  const [deleteArticle] = useDeleteArticleMutation();
   const navigate = useNavigate();
 
-  const postData = async (data: ProductDTO) => {
-    category; //fix ts, but must be added in form
+  const postData = async (data: ArticleDTO) => {
+    created_at; //fix typescript error
     try {
       const form = dataForm(data);
-      await addProduct(form).unwrap();
-      navigate('/admin/products');
+      await addArticle(form).unwrap();
+      navigate('/admin/news');
     } catch (err) {
       console.log(err);
     }
   };
 
-  const updateData = async (data: ProductDTO) => {
+  const updateData = async (data: ArticleDTO) => {
     try {
       if (id) {
         const form = dataForm(data);
-        console.log(form);
-        const product = await updateProduct([form, id.toString()]).unwrap();
-        console.log(product);
-        navigate('/admin/products');
+        await updateArticle([form, id.toString()]).unwrap();
+        navigate('/admin/news');
       }
     } catch (err) {
       console.log(err);
@@ -65,9 +57,9 @@ const ProductForm = ({ preloadData }: Props) => {
   const deleteData = async () => {
     try {
       if (id) {
-        const product = await deleteProduct(id.toString()).unwrap();
-        console.log(product);
-        navigate('/admin/products');
+        const article = await deleteArticle(id.toString()).unwrap();
+        console.log(article);
+        navigate('/admin/news');
       }
     } catch (err) {
       console.log(err);
@@ -75,19 +67,17 @@ const ProductForm = ({ preloadData }: Props) => {
   };
 
   watch((data, { name }) => {
-    if (name === 'images' && data.images !== undefined) {
-      console.log(data.images.length);
-      const files = data.images;
-      for (let i = imagesUpload.length; i < files.length; i++) {
-        const file = files[i];
-        if (file) {
-          setImagesUpload((prev) => [...prev, URL.createObjectURL(file)]);
-        }
+    if (name === 'image' && data.image !== undefined) {
+      console.log(data.image[0]);
+      const imgArr = data.image;
+      if (imgArr[0] !== undefined) {
+        const url = URL.createObjectURL(imgArr[0]);
+        setImageUpload(url);
       }
     }
   });
 
-  const onSubmit: SubmitHandler<ProductDTO> = (data) => {
+  const onSubmit: SubmitHandler<ArticleDTO> = (data) => {
     if (id) {
       updateData(data);
     } else {
@@ -98,30 +88,17 @@ const ProductForm = ({ preloadData }: Props) => {
     <div className="admin-add-news">
       <form className="admin-registration__form" onSubmit={handleSubmit(onSubmit)}>
         <div className="admin-add-card admin-add-card_type_add-photo">
-          {images &&
-            (Object.keys(images) as Array<keyof typeof images>)
-              .filter((el) => el.includes('img') && images[el])
-              .map((el, i) => {
-                const url = images[el] as string;
-                return (
-                  <img
-                    key={`imgUpload${i}`}
-                    src={url.includes('http') ? url : serverUrl + url}
-                    alt=""
-                    className="image"
-                  />
-                );
-              })}
-          {imagesUpload.length &&
-            imagesUpload.map((image, i) => {
-              return <img key={`imgUpload${i}`} src={image} alt="" className="image" />;
-            })}
+          <img
+            src={imageUpload ? imageUpload : image?.includes('http') ? image : serverUrl + image}
+            alt=""
+            className="image"
+          />
           {preloadData && preloadData.published && (
             <label htmlFor="published" className="">
               На сайте
             </label>
           )}
-          {images || imagesUpload ? (
+          {image || imageUpload ? (
             <label htmlFor="file" className="btn btn_type_change-foto">
               Заменить фото
             </label>
@@ -134,51 +111,41 @@ const ProductForm = ({ preloadData }: Props) => {
           <input
             type="file"
             id="file"
-            multiple
-            {...register('images', {
+            {...register('image', {
               validate: {
-                lessThan10MB: (files) => files[0]?.size < 300000 || 'Max 30kb',
+                lessThan10MB: (files) => files[0]?.size < 30000 || 'Max 30kb',
                 acceptedFormats: (files) =>
                   ['image/jpeg', 'image/png', 'image/gif'].includes(files[0]?.type) || 'Only PNG, JPEG e GIF',
               },
             })}
             className="admin-add-card__input-file"
-            name="images"
+            name="image"
             accept="image/png, image/jpeg"
           />
-          {errors.images && <span className="error-message">{errors.images.message}</span>}
+          {errors.image && <span className="error-message">{errors.image.message}</span>}
         </div>
-        {data && (
-          <select {...register('category')}>
-            {data.map((el) => (
-              <option value={el.id}>{el.name}</option>
-            ))}
-          </select>
-        )}
         <input
-          {...register('name', {
+          {...register('title', {
             required: 'This is required.',
             // pattern: {
             //   value: /d+/,
             //   message: 'This input is number only.',
             // },
             minLength: {
-              value: 5,
-              message: 'This input exceed minLength 5',
+              value: 10,
+              message: 'This input exceed maxLength.',
             },
           })}
           className="base-input base-input_type_name admin-add-card__input-name"
           placeholder="Заголовок"
         />
-        {errors.name && <span className="error-message">{errors.name.message}</span>}
+        {errors.title && <span className="error-message">{errors.title.message}</span>}
         <textarea
           className="base-input base-input_type_textarea admin-add-card__input-text"
           placeholder="Текст"
-          {...register('description', { required: true })}
+          {...register('text', { required: true })}
         />
-        {errors.description && <span className="error-message">*Это поле обязательно к заполнению</span>}
-        <input id="in_stock" type="checkbox" {...register('in_stock')} />
-        <label htmlFor="in_stock">In Stock</label>
+        {errors.text && <span className="error-message">*Это поле обязательно к заполнению</span>}
         <input id="published" type="checkbox" {...register('published')} />
         <div className="admin-users__buttons-container">
           {!id ? (
@@ -231,4 +198,4 @@ const ProductForm = ({ preloadData }: Props) => {
   );
 };
 
-export default ProductForm;
+export default ArticleForm;

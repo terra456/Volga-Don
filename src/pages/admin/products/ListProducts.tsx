@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import AdminProductCard from '../../Components/ProductCard';
+import AdminProductCard from '../../../components/admin/ProductCard';
 import { useGetAllProductsQuery } from '../../../services/postApi';
 
 const ListProducts = () => {

@@ -1,7 +1,6 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
-import { useChangePasswordMutation } from '../services/userApi';
-// import { useLoginMutation, useProtectedMutation } from '../services/authApi';
+import { useChangePasswordMutation } from '../../services/userApi';
 
 type RegisterInputs = {
   old_password: string;

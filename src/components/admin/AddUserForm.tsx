@@ -1,8 +1,6 @@
+import { Link, useNavigate } from 'react-router-dom';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
-import { useAddUserMutation } from '../services/userApi';
-import { Link } from 'react-router-dom';
-// import { useLoginMutation, useProtectedMutation } from '../services/authApi';
+import { useAddUserMutation } from '../../services/userApi';
 
 type RegisterInputs = {
   username: string;
@@ -10,7 +8,7 @@ type RegisterInputs = {
   password2: string;
 };
 
-const UserForm = () => {
+const AddUserForm = () => {
   const {
     register,
     handleSubmit,
@@ -93,4 +91,4 @@ const UserForm = () => {
   );
 };
 
-export default UserForm;
+export default AddUserForm;

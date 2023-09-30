@@ -2,7 +2,7 @@ import ProductCard from '../components/ProductCard/ProductCard';
 import { useGetAllProductsQuery } from '../services/getApi';
 
 const Catalog = () => {
-  const products = useGetAllProductsQuery(0);
+  const products = useGetAllProductsQuery(undefined);
   return (
     <section className="section catalog catalog_type_page">
       <h2 className="section__title">Каталог</h2>

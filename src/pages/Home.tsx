@@ -5,55 +5,11 @@ import FirstStaticSections from '../components/HomeSections/FirstStaticSections'
 import sert1 from '../../assets/images/sertificate1.png';
 import sert2 from '../../assets/images/sertificate2.png';
 import QuestionFormSection from '../components/HomeSections/QuestionFormSection';
-// import { useEffect, useState } from 'react';
 import { useGetAllArticlesQuery, useGetAllProductsQuery } from '../services/getApi';
 
 const Home = () => {
-  const news = useGetAllArticlesQuery(0);
-  const products = useGetAllProductsQuery(0);
-  // const [news, setNews] = useState<Article[]>([]);
-  // const [newsLoader, setNewsLoader] = useState(false);
-  // const [newsError, setNewsError] = useState('');
-  // const [products, setProducts] = useState<Product[]>([]);
-  // const [productsLoader, setProductsLoader] = useState(false);
-  // const [productsError, setProductsError] = useState('');
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     setNewsLoader(true);
-  //     fetch('http://cv08121-django-53po4.tw1.ru/articles/', { mode: 'cors' })
-  //       .then(async (res) => {
-  //         if (res.ok) {
-  //           const data: Article[] = await res.json();
-  //           setNews(data);
-  //           console.log(data);
-  //         }
-  //       })
-  //       .catch((e) => {
-  //         setNewsError(e.message);
-  //       })
-  //       .finally(() => setNewsLoader(false));
-  //   };
-
-  //   const fetchProducts = async () => {
-  //     setProductsLoader(true);
-  //     fetch('http://cv08121-django-53po4.tw1.ru/products/', { mode: 'cors' })
-  //       .then(async (res) => {
-  //         if (res.ok) {
-  //           const data: Product[] = await res.json();
-  //           setProducts(data);
-  //           console.log(data);
-  //         }
-  //       })
-  //       .catch((e) => {
-  //         setProductsError(e.message);
-  //       })
-  //       .finally(() => setProductsLoader(false));
-  //   };
-
-  //   fetchData();
-  //   fetchProducts();
-  // }, []);
+  const news = useGetAllArticlesQuery(undefined);
+  const products = useGetAllProductsQuery(undefined);
 
   return (
     <main className="content">
