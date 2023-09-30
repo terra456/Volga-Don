@@ -1,0 +1,23 @@
+{
+  "hash": "b28010a7",
+  "browserHash": "b89357da",
+  "optimized": {
+    "react": {
+      "src": "../../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "6361fb0c",
+      "needsInterop": true
+    },
+    "react/jsx-dev-runtime": {
+      "src": "../../../node_modules/react/jsx-dev-runtime.js",
+      "file": "react_jsx-dev-runtime.js",
+      "fileHash": "3a203112",
+      "needsInterop": true
+    }
+  },
+  "chunks": {
+    "chunk-2XWFK3HN": {
+      "file": "chunk-2XWFK3HN.js"
+    }
+  }
+}
