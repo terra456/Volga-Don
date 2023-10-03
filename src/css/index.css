@@ -37,10 +37,10 @@
     margin: 0;
     box-sizing: border-box;
 }
-.page{
+#root {
     font-family: Arial, Helvetica, sans-serif;
 }
-a{
+a {
     text-decoration: none;
 }
 

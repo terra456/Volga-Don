@@ -29,7 +29,7 @@ const Home = () => {
         <div className="section__container section__container_type_catalog">
           {products.isLoading && 'Loading'}
           {products.error && <p>{products.error.toString()}</p>}
-          {products.data && products.data.slice(0, 3).map((el, i) => <ProductCard key={'product' + i} {...el} />)}
+          {products.data && products.data.slice(0, 4).map((el, i) => <ProductCard key={'product' + i} {...el} />)}
         </div>
         <Link to={'catalog'} className="btn btn_type_catalog">
           Показать еще

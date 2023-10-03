@@ -29,17 +29,23 @@
 }
 .questions__img{
     width: 50%;
+    object-fit: cover;
 }
 @media(max-width:1240px){
-    .questions__img{
-        width: 100%;
-    }
     .questions__form{
         display: flex;
         align-items: center;
         gap: 18px
     }
 }
+
+@media(max-width:960px) {
+    .questions__img {
+        width: 70%;
+        margin: 0 auto;
+    }
+}
+
 @media(max-width:550px){
     .questions__form-title{
         font-size: 12px;

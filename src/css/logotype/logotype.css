@@ -2,9 +2,10 @@
     padding-top: 5px
 }
 .logotype_type_footer{
-    background-image: url('../../vendor/images/logotype-footer.svg');
     width: 131px;
-    height: 115px
+    height: 115px;
+    background-image: url('../../assets/images/logotype-footer.svg');
+    background-size: contain;
 }
 @media (max-width:1600px){
     .logotype_type_header{
@@ -14,6 +15,10 @@
 @media (max-width:1240px){
     .logotype_type_header{
         width: 200px;
+    }
+    .logotype_type_footer{
+        width: 99px;
+        height: 87px
     }
 }
 @media (max-width:800px){
@@ -25,8 +30,9 @@
     .logotype_type_header{
         width: 100px;
     }
+
     .logotype_type_footer{
-        background-image: url('../../vendor/images/logotype.svg');
+        background-image: url('../../assets/images/logotype.svg');
         background-position: 100%;
         background-size: contain;
         background-repeat: no-repeat;

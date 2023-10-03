@@ -12,8 +12,8 @@ const FirstStaticSections = () => {
       <section className="main-page">
         <div className="main-page__container">
           <div className="main-page__title-container">
-            <img src={logoVector} />
-            <h1 className="main-page__title">Ваш надежный партнер в мире промышленной техники</h1>
+            <img className="main-page__title-img" src={logoVector} />
+            <h1 className="main-page__title">Ваш надежный партнер в&nbsp;мире промышленной техники</h1>
           </div>
           <p className="main-page__text">
             Мы специализируемся на продаже, аренде и обслуживании строительно-отделочной техники от ведущих
@@ -40,20 +40,20 @@ const FirstStaticSections = () => {
             <div className="about__text-container">
               <div className="about__column">
                 <h5 className="about__column-title">Промышленно-гражданское строительство</h5>
-                <ul>
-                  <li className="about__text">Строительство и ремонт промышленных зданий и сооружений</li>
-                  <li className="about__text">Кровельные, фасадные и внутренние отделочные работы любой сложности</li>
-                  <li className="about__text">Ремонт наружных и внутренних систем коммуникаций</li>
+                <ul className="about__list">
+                  <li className="about__item">Строительство и ремонт промышленных зданий и сооружений</li>
+                  <li className="about__item">Кровельные, фасадные и внутренние отделочные работы любой сложности</li>
+                  <li className="about__item">Ремонт наружных и внутренних систем коммуникаций</li>
                 </ul>
               </div>
               <div className="about__column">
                 <h5 className="about__column-title">Поставка строительного оборудования</h5>
-                <ul>
-                  <li className="about__text">Поставка строительного оборудования</li>
-                  <li className="about__text">Поставки нового и б/у строительного оборудования и техники</li>
-                  <li className="about__text">Поставки запасных частей и комплектующих</li>
-                  <li className="about__text">Аренда строительного оборудования и техники</li>
-                  <li className="about__text">Ремонт и обслуживание</li>
+                <ul className="about__list">
+                  <li className="about__item">Поставка строительного оборудования</li>
+                  <li className="about__item">Поставки нового и б/у строительного оборудования и техники</li>
+                  <li className="about__item">Поставки запасных частей и комплектующих</li>
+                  <li className="about__item">Аренда строительного оборудования и техники</li>
+                  <li className="about__item">Ремонт и обслуживание</li>
                 </ul>
               </div>
             </div>
