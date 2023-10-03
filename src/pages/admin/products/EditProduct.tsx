@@ -6,10 +6,10 @@ const EditProduct = () => {
   const { productId } = useParams();
   const { data } = useGetProductQuery(Number(productId));
   return (
-    <>
-      <h2>Редактировать товар</h2>
+    <section className="admin-form-section">
+      <h2 className="admin-title">Редактировать товар</h2>
       {data && <ProductForm preloadData={data} />}
-    </>
+    </section>
   );
 };
 

@@ -2,10 +2,10 @@ import ProductForm from '../../../components/admin/ProductForm';
 
 const AddProduct = () => {
   return (
-    <>
-      <h2>Добавить товар</h2>
+    <section className="admin-form-section">
+      <h2 className="admin-title">Добавить товар</h2>
       <ProductForm />
-    </>
+    </section>
   );
 };
 

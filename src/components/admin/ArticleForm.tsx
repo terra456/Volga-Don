@@ -85,21 +85,27 @@ const ArticleForm = ({ preloadData }: Props) => {
     }
   };
   return (
-    <div className="admin-add-news">
-      <form className="admin-registration__form" onSubmit={handleSubmit(onSubmit)}>
-        <div className="admin-add-card admin-add-card_type_add-photo">
+    <div>
+      <form className="admin-add-card__form" onSubmit={handleSubmit(onSubmit)}>
+        <div className="admin-add-card__photo-conteiner">
           <img
             src={imageUpload ? imageUpload : image?.includes('http') ? image : serverUrl + image}
             alt=""
             className="image"
           />
-          {preloadData && preloadData.published && (
-            <label htmlFor="published" className="">
+          {preloadData && (
+            <label
+              htmlFor="published"
+              className={
+                'admin-status admin-status_lable ' +
+                (preloadData.published ? 'admin-status_type_ok' : 'admin-status_type_archive')
+              }
+            >
               На сайте
             </label>
           )}
           {image || imageUpload ? (
-            <label htmlFor="file" className="btn btn_type_change-foto">
+            <label htmlFor="file" className="btn admin-btn__change-foto">
               Заменить фото
             </label>
           ) : (
@@ -124,30 +130,28 @@ const ArticleForm = ({ preloadData }: Props) => {
           />
           {errors.image && <span className="error-message">{errors.image.message}</span>}
         </div>
-        <input
-          {...register('title', {
-            required: 'This is required.',
-            // pattern: {
-            //   value: /d+/,
-            //   message: 'This input is number only.',
-            // },
-            minLength: {
-              value: 10,
-              message: 'This input exceed maxLength.',
-            },
-          })}
-          className="base-input base-input_type_name admin-add-card__input-name"
-          placeholder="Заголовок"
-        />
-        {errors.title && <span className="error-message">{errors.title.message}</span>}
-        <textarea
-          className="base-input base-input_type_textarea admin-add-card__input-text"
-          placeholder="Текст"
-          {...register('text', { required: true })}
-        />
-        {errors.text && <span className="error-message">*Это поле обязательно к заполнению</span>}
-        <input id="published" type="checkbox" {...register('published')} />
-        <div className="admin-users__buttons-container">
+        <div className="admin-add-catalog__inputs-container">
+          <input
+            {...register('title', {
+              required: 'This is required.',
+              minLength: {
+                value: 10,
+                message: 'This input exceed maxLength.',
+              },
+            })}
+            className="base-input base-input_type_name admin-add-card__input-name"
+            placeholder="Заголовок"
+          />
+          {errors.title && <span className="error-message">{errors.title.message}</span>}
+          <textarea
+            className="base-input base-input_type_textarea admin-add-card__input-text"
+            placeholder="Текст"
+            {...register('text', { required: true })}
+          />
+          {errors.text && <span className="error-message">*Это поле обязательно к заполнению</span>}
+          <input id="published" type="checkbox" {...register('published')} className="admin-add-card__checbox-hidden" />
+        </div>
+        <div className="admin-add-catalog__buttons-container">
           {!id ? (
             <button
               onClick={() => {
@@ -156,12 +160,12 @@ const ArticleForm = ({ preloadData }: Props) => {
               }}
               type="submit"
               disabled={isLoading}
-              className="btn btn_type_white add-news__btn_type_archive"
+              className="btn btn_type_white add-catalog__btn_type_archive admin-btn__arrow"
             >
               Сохранить в архив
             </button>
           ) : (
-            <button onClick={deleteData} disabled={isLoading} className="btn btn_type_white add-news__btn_type_archive">
+            <button onClick={deleteData} disabled={isLoading} className="btn admin-btn__type_delete">
               Удалить
             </button>
           )}
@@ -173,7 +177,7 @@ const ArticleForm = ({ preloadData }: Props) => {
               }}
               type="submit"
               disabled={isLoading}
-              className="btn add-news__btn_type_post"
+              className="btn add-news__btn_type_post admin-btn__type_arrow"
             >
               Сохранить и опубликовать
             </button>
@@ -184,12 +188,15 @@ const ArticleForm = ({ preloadData }: Props) => {
               }}
               type="submit"
               disabled={isLoading}
-              className="btn add-news__btn_type_post"
+              className="btn add-news__btn_type_post admin-btn__type_arrow"
             >
               Сохранить изменения
             </button>
           )}
-          <button onClick={() => navigate('/admin')} className="btn btn_type_white add-news__btn_type_exit">
+          <button
+            onClick={() => navigate('/admin')}
+            className="btn btn_type_white add-catalog__btn_type_exit admin-btn__type_arrow"
+          >
             На главную
           </button>
         </div>

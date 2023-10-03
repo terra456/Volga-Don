@@ -36,8 +36,8 @@ const ChangePasswordForm = () => {
     })();
   };
   return (
-    <div className="admin-registration__container">
-      <h1 className="admin-registration__title">Изменить пароль</h1>
+    <div className="admin-form-section">
+      <h1 className="admin-title">Изменить пароль</h1>
       <form className="admin-registration__form" onSubmit={handleSubmit(onSubmit)}>
         <fieldset className="admin-registration__fieldset">
           <input

@@ -9,16 +9,33 @@
     padding: 9px 10px;
     align-items: center;
     cursor: pointer;
+    padding-right: 37px;
+    background-repeat: no-repeat;
+    background-position: center right 10px;
 }
 .admin-status_type_ok{
     background-color: #84DA82;
+    background-image: url(../../../assets/images/icons/icon.svg);
 }
 .admin-status_type_ok:hover{
     background-color: #7BBD79;
 }
 .admin-status_type_archive{
     background-color: #CBCBCB;
+    background-image: url(../../../assets/images/icons/minus.svg);
 }
 .admin-status_type_archive:hover{
     background-color: #B4B2B2;
+}
+
+.admin-status_lable {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    margin-left: 0px;
+}
+
+.admin-status_add-card {
+    height: 36px;
+    margin-left: 100px;
 }

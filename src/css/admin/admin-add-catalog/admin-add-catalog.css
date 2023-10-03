@@ -3,7 +3,8 @@
 }
 .admin-add-catalog__form{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 .admin-add-catalog__inputs-container{
     display: flex;
@@ -11,14 +12,48 @@
     gap: 25px
 }
 .admin-add-catalog__add-photo-container{
-    height: 180px
+    width: 100%;
+    height: 180px;
+    display: flex;
+    gap: 15px;
+    margin-bottom: 60px;
 }
+
 .admin-add-catalog__add-photo{
     width: 180px;
     height: 100%;
-    gap: 15px;
 }
+
 .admin-add-catalog__icon{
     width: 40px;
     height: 40px
+}
+
+.admin-add-catalog__inputs-container {
+    flex-grow: 1;
+}
+
+.admin-add-card__input-name,
+.admin-add-card__input-name::placeholder {
+    font-size: 16px;
+}
+
+.admin-add-card__input-text,
+.admin-add-card__input-text::placeholder {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.admin-add-card__fieldset {
+    border: none;
+}
+
+.admin-add-card__checbox-hidden {
+    display: none;
+}
+.admin-add-catalog__buttons-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
 }

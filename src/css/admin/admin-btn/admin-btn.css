@@ -11,7 +11,95 @@
 .admin-btn__arrow{
     padding-left: 15px;
 }
+.admin-btn__arrow{
+    padding-left: 15px;
+}
 .admin-btn__link{
     text-decoration: none;
     color: black
+}
+
+.admin-btn__link_arrow {
+    display: flex;
+    align-items: center;
+    padding-right: 50px;
+    background-image: url(../../../assets/images/arrow.svg);
+    background-repeat: no-repeat;
+    background-position: center right 10px;
+}
+.admin-btn__type_arrow {
+    display: flex;
+    align-items: center;
+    padding-right: 65px;
+    background-image: url(../../../assets/images/arrow.svg);
+    background-repeat: no-repeat;
+    background-position: center right 25px;
+}
+
+.admin-btn__link:hover {
+    background-color: #D6A038;
+}
+
+.admin-btn-change{
+    flex-shrink: 0;
+    background-color: #FBBF46;
+    background-image: url(../../../assets/images/icons/Change.svg);
+    width: 36px;
+    height: 36px;
+    border: none;
+    background-position: 100%;
+    cursor:pointer;
+}
+
+.admin-btn-change:hover{
+    background-color: #D6A038;
+}
+
+.admin-btn__change-foto {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    display: inline-flex;
+    height: 36px;
+    padding: 9px 40px 9px 10px;
+    align-items: center;
+    flex-shrink: 0;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400; 
+    background-image: url(../../../assets/images/icons/Change.svg);
+    border: none;
+    background-position: center right 5px;
+    background-repeat: no-repeat;
+    cursor:pointer;
+}
+
+.admin-btn__close {
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    background-color: #FB7146;
+    background-image: url(../../../assets/images/icons/close.svg);
+}
+
+.admin-btn__close_top {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.admin-btn__close:hover{
+    background-color: #C95936
+}
+
+.admin-btn__type_delete {
+    background-color: #FB7146;
+    padding-right: 70px;
+    background-image: url(../../../assets/images/icons/close.svg);
+    background-repeat: no-repeat;
+    background-position: center right 25px;
+}
+
+.admin-btn__type_delete:hover {
+    background-color: #C95936;
 }

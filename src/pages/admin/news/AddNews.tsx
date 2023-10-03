@@ -2,10 +2,10 @@ import ArticleForm from '../../../components/admin/ArticleForm';
 
 const AddNews = () => {
   return (
-    <>
-      <h2>Добавить новость</h2>;
+    <section className="admin-form-section">
+      <h2 className="admin-title">Добавить новость</h2>
       <ArticleForm />
-    </>
+    </section>
   );
 };
 

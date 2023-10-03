@@ -1,0 +1,15 @@
+.admin-category__item {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.admin-category__input {
+  width: 50%;
+  min-width: 500px;
+}
+
+.admin-category__input:disabled {
+  border: none;
+}

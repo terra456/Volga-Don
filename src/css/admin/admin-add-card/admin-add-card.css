@@ -9,6 +9,17 @@
     color: black;
     justify-content: center;
 }
+
+.admin-add-card:hover {
+    background: #D6A038; 
+}
+
+.admin-add-card__form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 36px;
+}
+
 .admin-add-card__icon{
     width: 60px;
     height: 60px
@@ -21,16 +32,21 @@
 }
 
 .admin-add-card_type_news{
- gap: 65px;
- padding-top: 90px;
- max-width: 288px;
- padding: 90px 42px 0
+    gap: 65px;
+    padding-top: 90px;
+    max-width: 288px;
+    padding: 90px 42px 0
 }
 .admin-add-card_type_catalog{
-   gap: 65px;
+    gap: 65px;
     padding-top: 80px;
     max-width: 180px;
     padding: 80px 27px 0;
+}
+
+.admin-add-card_type_img {
+    width: 180px;
+    gap: 30px;
  }
 .admin-add-card_type_users{
     padding: 25px 10px 0;
@@ -41,4 +57,13 @@
     padding: 96px 94px 0;
     width: 396px;
     gap: 60px
+}
+
+.admin-add-card__input-file {
+    display: none;
+}
+
+.admin-add-card__photo-conteiner {
+    position: relative;
+    width: fit-content;
 }

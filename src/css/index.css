@@ -17,7 +17,6 @@
 @import url(./admin/admin-btn/admin-btn.css);
 @import url(./admin/admin-main-block/admin-main-block.css);
 @import url(./admin/admin-news-card/admin-news-card.css);
-@import url(./admin/admin-btn/admin-btn-change.css);
 @import url(./admin/admin-status/admin-status.css);
 @import url(./admin/admin-add-card/admin-add-card.css);
 @import url(./admin/admin-news/admin-news.css);
@@ -32,6 +31,9 @@
 @import url(./admin/admin-add-user/admin-add-user.css);
 @import url(./admin/admin-change/admin-change.css);
 @import url(./admin/admin-card/admin-card.css);
+@import url(./admin/admin-form/admin-form.css);
+@import url(./admin/admin-category/admin-category.css);
+
 *{
     padding: 0;
     margin: 0;

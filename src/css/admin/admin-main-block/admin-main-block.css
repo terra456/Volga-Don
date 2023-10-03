@@ -5,7 +5,8 @@
     background-color: #FBBF46;
     display: flex;
     justify-content: space-between;
-    padding: 23px 90px;
+    align-items: center;
+    padding: 13px 90px;
 }
 .admin-main-block__title{
 font-size: 20px;
@@ -16,10 +17,7 @@ font-weight: 700;
     display: flex;
     gap: 36px
 }
-/* .admin-main-block__content-news{
-    display: flex;
-    gap: 36px
-} */
+
 .admin-main-block__content-container{
     display: flex;
     gap: 36px

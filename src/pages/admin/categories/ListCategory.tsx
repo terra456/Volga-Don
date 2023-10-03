@@ -13,14 +13,19 @@ const ListCategory = () => {
       <div className="admin-catalog__content">
         {listCategories.isLoading && <p>Loading...</p>}
         {listCategories.data && listCategories.data.map((el: Categorie) => <AdminCategoryItem key={el.id} {...el} />)}
-        <div>
+        <div className="admin-category__item">
           {newValue === undefined && <button onClick={() => setNewValue('')}>add</button>}
           {newValue !== undefined && (
             <>
-              <input type="text" value={newValue} onChange={(e) => setNewValue(e.target.value)} />
+              <input
+                type="text"
+                value={newValue}
+                onChange={(e) => setNewValue(e.target.value)}
+                className="base-input base-input_type_name admin-category__input"
+              />
 
               <button
-                className="btn btn__save"
+                className="admin-btn admin-btn__save"
                 onClick={() => {
                   createCategorie({ name: newValue });
                   setNewValue(undefined);
@@ -28,7 +33,7 @@ const ListCategory = () => {
               >
                 save
               </button>
-              <button className="btn btn__save" onClick={() => setNewValue(undefined)}>
+              <button className="admin-btn admin-btn__discard" onClick={() => setNewValue(undefined)}>
                 discard
               </button>
             </>

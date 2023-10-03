@@ -10,17 +10,11 @@ const AdminNewsCard = ({ id, title, image, published, created_at }: Article) => 
       <div className="admin-news-card__info admin-card__info">
         <div className="admin-news-card__buttons admin-card__buttons">
           {published ? (
-            <button className="admin-status admin-status_type_ok">
-              На сайте <img src="/assets/images/icons/icon.svg" />
-            </button>
+            <button className="admin-status admin-status_type_ok">На сайте</button>
           ) : (
-            <button className="admin-status admin-status_type_archive">
-              В архиве <img src="/assets/images/icons/minus.svg" />
-            </button>
+            <button className="admin-status admin-status_type_archive">В архиве</button>
           )}
-          <Link to={`/admin/news/${id}/edit`} relative="path">
-            <span className="admin-btn-change">Edit</span>
-          </Link>
+          <Link to={`/admin/news/${id}/edit`} relative="path" className="admin-btn-change" />
         </div>
         <p className="admin-news-card__date">
           {date.toLocaleDateString('ru-RU', { year: '2-digit', month: 'numeric', day: 'numeric' })}

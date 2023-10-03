@@ -11,13 +11,9 @@ const AdminProductCard = ({ id, name, published, images }: Product) => {
           {published ? (
             <button className="admin-status admin-status_type_archive">В архиве</button>
           ) : (
-            <button className="admin-status admin-status_type_ok">
-              На сайте <img src="/assets/images/icons/icon.svg" />
-            </button>
+            <button className="admin-status admin-status_type_ok">На сайте</button>
           )}
-          <Link to={`${id}/edit`} className="admin-btn-change">
-            edit
-          </Link>
+          <Link to={`${id}/edit`} className="admin-btn-change" />
         </div>
       </div>
     </article>

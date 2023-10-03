@@ -21,6 +21,11 @@
    background-color: #FFF;
    border:3px solid #FBBF46;
 }
+
+.btn_type_white:hover {
+   background-color: #FFF;
+   border:3px solid #D6A038;
+}
 .btn_disabled{
    background-color: #CBCBCB;
    color:rgba(99, 99, 99, 1)

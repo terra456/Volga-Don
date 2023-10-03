@@ -7,15 +7,15 @@ const EditNews = () => {
   const { data, isLoading } = useGetArticleQuery(newsId as string);
 
   return (
-    <>
-      <h2>Редактировать новость {newsId}</h2>
+    <section className="admin-form-section">
+      <h2 className="admin-title">Редактировать новость {newsId}</h2>
       {newsId && (
         <>
           {isLoading && <p>Loading...</p>}
           {data && <ArticleForm preloadData={data} />}
         </>
       )}
-    </>
+    </section>
   );
 };
 

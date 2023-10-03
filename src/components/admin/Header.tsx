@@ -22,10 +22,10 @@ const Header = () => {
           {/* <img className="logotype logotype_type_header" src="../vendor/images/logotype.svg" alt="Логотип"> */}
           На сайт
         </Link>
-        <nav className="header__nav">
-          <ul className="header__list">
+        <nav className="header__nav admin-header__nav">
+          <ul className="header__list admin-header__list">
             <li>
-              <Link className="header__link" to={`news`}>
+              <Link className="admin-header__link" to={`news`}>
                 Новости
               </Link>
             </li>
@@ -47,11 +47,11 @@ const Header = () => {
           </ul>
         </nav>
         {user && (
-          <div className="header__connect">
-            <Link className="header__link" to={`user/edit`}>
+          <div className="admin-header__buttons-container"> 
+            <Link className="header__link admin-btn__link_arrow" to={`user/edit`}>
               {user.userInfo.username}
             </Link>
-            <button className="btn" onClick={logoutHandler}>
+            <button className="btn admin-btn__link_arrow" onClick={logoutHandler}>
               Logout
             </button>
           </div>

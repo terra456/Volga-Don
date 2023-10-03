@@ -3,8 +3,11 @@
     display: flex;
     gap: 36px;
     flex-wrap: wrap;
+    justify-content: space-between;
 }
+
 .admin-catalog__img{
     height: 190px;
-    width: 180px
+    width: 180px;
+    object-fit: contain;
 }

@@ -9,22 +9,23 @@ const AdminCategoryItem = ({ id, name }: Categorie) => {
   const [deleteCategorie] = useDeleteCategorieMutation();
 
   return (
-    <div className="admin-users">
-      <input type="text" value={value} disabled={!isEdit} />
+    <div className="admin-category__item">
+      <input
+        type="text"
+        value={value}
+        disabled={!isEdit}
+        className="base-input base-input_type_name admin-category__input"
+      />
       {!isEdit && (
         <>
-          <button className="btn btn__edit" onClick={() => setIsEdit(true)}>
-            edit
-          </button>
-          <button className="btn btn__save" onClick={() => deleteCategorie(id)}>
-            delite
-          </button>
+          <button className="admin-btn admin-btn-change" onClick={() => setIsEdit(true)}></button>
+          <button className="admin-btn admin-btn__close" onClick={() => deleteCategorie(id)}></button>
         </>
       )}
       {isEdit && (
         <>
           <button
-            className="btn btn__save"
+            className="admin-btn admin-btn__save"
             onClick={() => {
               updateCategorie([{ name: value }, id]).then(() => {
                 setIsEdit(false);
@@ -34,7 +35,7 @@ const AdminCategoryItem = ({ id, name }: Categorie) => {
             save
           </button>
           <button
-            className="btn btn__save"
+            className="admin-btn admin-btn__discard"
             onClick={() => {
               setValue(name);
               setIsEdit(false);
