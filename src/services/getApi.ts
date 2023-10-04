@@ -5,7 +5,7 @@ import type { Article, LoginRequest, Product, User } from '../types';
 export const getApi = createApi({
   reducerPath: 'getApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'http://cv08121-django-53po4.tw1.ru/',
+    baseUrl: 'https://cv08121-django-53po4.tw1.ru/',
     mode: 'cors',
   }),
   tagTypes: ['Article', 'Product'],

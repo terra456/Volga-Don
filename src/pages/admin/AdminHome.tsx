@@ -56,6 +56,7 @@ const AdminHome = () => {
         </div>
         <section className="admin-main-block__content admin-users__content">
           {users.isLoading && <p>Loading...</p>}
+          {users.error && <p>{users.error.toString()}</p>}
           {users.data && users.data.slice(0, 5).map((el, i) => <AdminUserCard key={i + 'user'} {...el} />)}
 
           <Link to={'users/add'} className="admin-add-card admin-add-card_type_users">

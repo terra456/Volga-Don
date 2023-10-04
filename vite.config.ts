@@ -8,7 +8,6 @@ const outDir = resolve(__dirname, 'dist');
 // https://vitejs.dev/config/
 export default defineConfig({
   root,
-  base: '/Volga-Don/',
   plugins: [react()],
   build: {
     outDir,
