@@ -34,7 +34,6 @@ const authSlice = createSlice({
       state.refreshToken = refreshToken;
     },
   },
-  extraReducers: {},
 });
 
 export const { logout, setCredentials } = authSlice.actions;

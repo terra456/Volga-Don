@@ -46,8 +46,9 @@ const Header = () => {
             </li>
           </ul>
         </nav>
-        {user && (
-          <div className="admin-header__buttons-container"> 
+
+        {user ? (
+          <div className="admin-header__buttons-container">
             <Link className="header__link admin-btn__link_arrow" to={`user/edit`}>
               {user.userInfo.username}
             </Link>
@@ -55,6 +56,10 @@ const Header = () => {
               Logout
             </button>
           </div>
+        ) : (
+          <Link className="header__link admin-btn__link_arrow" to={`login`}>
+            Login
+          </Link>
         )}
       </div>
     </header>

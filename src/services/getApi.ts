@@ -1,11 +1,12 @@
 // Or from '@reduxjs/toolkit/query/react'
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import type { Article, LoginRequest, Product, User } from '../types';
+import { BASE_URL } from '../utils/variables';
 
 export const getApi = createApi({
   reducerPath: 'getApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://cv08121-django-53po4.tw1.ru/',
+    baseUrl: BASE_URL,
     mode: 'cors',
   }),
   tagTypes: ['Article', 'Product'],

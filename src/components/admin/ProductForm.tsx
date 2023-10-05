@@ -10,6 +10,7 @@ import { useNavigate } from 'react-router-dom';
 import { Product, ProductDTO } from '../../types';
 import { dataForm } from '../../utils/formData';
 import addImg from '../../assets/images/icons/add.svg';
+import { BASE_URL } from '../../utils/variables';
 
 type Props = {
   preloadData?: Product;
@@ -17,7 +18,7 @@ type Props = {
 // type Img = { url: string; name: string };
 
 const ProductForm = ({ preloadData }: Props) => {
-  const serverUrl = 'http://cv08121-django-53po4.tw1.ru';
+  const serverUrl = BASE_URL;
   const { id, images, category, ...formData } = preloadData || {
     id: undefined,
     name: undefined,

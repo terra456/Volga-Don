@@ -4,13 +4,14 @@ import { useNavigate } from 'react-router-dom';
 import { Article, ArticleDTO } from '../../types';
 import { dataForm } from '../../utils/formData';
 import { useState } from 'react';
+import { BASE_URL } from '../../utils/variables';
 
 type Props = {
   preloadData?: Article;
 };
 
 const ArticleForm = ({ preloadData }: Props) => {
-  const serverUrl = 'http://cv08121-django-53po4.tw1.ru';
+  const serverUrl = BASE_URL;
   const { id, created_at, image, ...formData } = preloadData || {
     id: undefined,
     title: undefined,

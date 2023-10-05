@@ -1,11 +1,12 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { RootState } from '../store/store';
 import { Article, Categorie, CategorieDTO, Product } from '../types';
+import { BASE_URL } from '../utils/variables';
 
 export const postApi = createApi({
   reducerPath: 'postApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'http://cv08121-django-53po4.tw1.ru/',
+    baseUrl: BASE_URL,
     mode: 'cors',
     prepareHeaders: (headers, { getState }) => {
       // By default, if we have a token in the store, let's use that for authenticated requests

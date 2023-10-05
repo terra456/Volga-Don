@@ -1,11 +1,12 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { RootState } from '../store/store';
 import { User, UserDTO, UserPassword } from '../types';
+import { BASE_URL } from '../utils/variables';
 
 export const userApi = createApi({
   reducerPath: 'userApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'http://cv08121-django-53po4.tw1.ru/',
+    baseUrl: BASE_URL,
     mode: 'cors',
     prepareHeaders: (headers, { getState }) => {
       const token = (getState() as RootState).auth.acsessToken || undefined;

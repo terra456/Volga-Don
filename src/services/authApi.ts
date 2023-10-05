@@ -1,10 +1,11 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { AuthResponse, LoginRequest, RefreshRequest, UserDTO } from '../types';
+import { BASE_URL } from '../utils/variables';
 
 export const authApi = createApi({
   reducerPath: 'authApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'http://cv08121-django-53po4.tw1.ru/',
+    baseUrl: BASE_URL,
     mode: 'cors',
   }),
   tagTypes: ['auth'],
