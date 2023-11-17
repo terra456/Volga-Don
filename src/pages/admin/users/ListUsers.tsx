@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import AdminUserCard from '../../../components/admin/UserCard';
 import { useGetAllUsersQuery } from '../../../services/userApi';
+import Loader from '../../../components/Loader/Loader';
 
 const ListUsers = () => {
   const users = useGetAllUsersQuery(undefined);
@@ -12,7 +13,7 @@ const ListUsers = () => {
           <img src="../vendor/images/icons/add.svg" alt="Добавить запись" className="admin-add-card__icon" />
           <p className="admin-add-card__text">Добавить нового сотрудника</p>
         </Link>
-        {users.isLoading && <p>Loading...</p>}
+        {users.isLoading && <Loader />}
         {users.data && users.data.map((el, i) => <AdminUserCard key={i + 'user'} {...el} />)}
       </div>
     </section>

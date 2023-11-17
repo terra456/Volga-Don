@@ -1,5 +1,6 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
 import questionsImg from '../../assets/images/questions.png';
+import { BASE_URL } from '../../utils/variables';
 
 type QuestionForm = {
   first_name: string;
@@ -9,7 +10,7 @@ type QuestionForm = {
 };
 
 const QuestionFormSection = () => {
-  const serverUrl = 'http://cv08121-django-53po4.tw1.ru';
+  const serverUrl = BASE_URL;
   const {
     register,
     handleSubmit,

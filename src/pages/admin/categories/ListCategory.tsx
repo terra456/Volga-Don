@@ -2,6 +2,7 @@ import { useState } from 'react';
 import AdminCategoryItem from '../../../components/admin/CategoryItem';
 import { useGetAllCategoriesQuery, usePostCategorieMutation } from '../../../services/postApi';
 import { Categorie } from '../../../types';
+import Loader from '../../../components/Loader/Loader';
 
 const ListCategory = () => {
   const listCategories = useGetAllCategoriesQuery(undefined);
@@ -11,7 +12,7 @@ const ListCategory = () => {
     <section>
       <h1 className="admin-title admin-catalog__title">Категории</h1>
       <div className="admin-catalog__content">
-        {listCategories.isLoading && <p>Loading...</p>}
+        {listCategories.isLoading && <Loader />}
         {listCategories.data && listCategories.data.map((el: Categorie) => <AdminCategoryItem key={el.id} {...el} />)}
         <div className="admin-category__item">
           {newValue === undefined && <button onClick={() => setNewValue('')}>add</button>}

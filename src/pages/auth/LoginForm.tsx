@@ -51,7 +51,6 @@ const LoginForm = () => {
       <form className="admin-registration__form" onSubmit={handleSubmit(onSubmit)}>
         <fieldset className="admin-registration__fieldset">
           <input
-            defaultValue="test"
             {...register('username', { required: true })}
             className="admin-registration__input admin-registration__input_type_login"
             placeholder="Логин"

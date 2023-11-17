@@ -6,6 +6,7 @@ import sert1 from '../../assets/images/sertificate1.png';
 import sert2 from '../../assets/images/sertificate2.png';
 import QuestionFormSection from '../components/HomeSections/QuestionFormSection';
 import { useGetAllArticlesQuery, useGetAllProductsQuery } from '../services/getApi';
+import Loader from '../components/Loader/Loader';
 
 const Home = () => {
   const news = useGetAllArticlesQuery(undefined);
@@ -18,18 +19,26 @@ const Home = () => {
       <section className="section news" id="news">
         <h2 className="section__title">Последние новости</h2>
         <div className="section__container section__container_type_news">
-          {news.isLoading && 'Loading'}
-          {news.error && <p>{news.error.toString()}</p>}
-          {news.data && news.data.slice(0, 3).map((el, i) => <NewsCard key={'article' + i} {...el} />)}
+          {news.isLoading && <Loader />}
+          {news.error && <p>{JSON.stringify(products.error)}</p>}
+          {news.data &&
+            news.data
+              .filter((el) => el.published)
+              .slice(0, 3)
+              .map((el, i) => <NewsCard key={'article' + i} {...el} />)}
         </div>
       </section>
 
       <section className="section catalog">
         <h2 className="section__title">Каталог</h2>
         <div className="section__container section__container_type_catalog">
-          {products.isLoading && 'Loading'}
-          {products.error && <p>{products.error.toString()}</p>}
-          {products.data && products.data.slice(0, 4).map((el, i) => <ProductCard key={'product' + i} {...el} />)}
+          {products.isLoading && <Loader />}
+          {products.error && <p>{JSON.stringify(products.error)}</p>}
+          {products.data &&
+            products.data
+              .filter((el) => el.published)
+              .slice(0, 4)
+              .map((el, i) => <ProductCard key={'product' + i} {...el} />)}
         </div>
         <Link to={'catalog'} className="btn btn_type_catalog">
           Показать еще

@@ -5,6 +5,7 @@ import AdminUserCard from '../../components/admin/UserCard';
 import { useGetAllArticlesQuery, useGetAllProductsQuery } from '../../services/postApi';
 import { useGetAllUsersQuery } from '../../services/userApi';
 import addImg from '../../assets/images/icons/add.svg';
+import Loader from '../../components/Loader/Loader';
 
 const AdminHome = () => {
   const products = useGetAllProductsQuery(undefined);
@@ -22,7 +23,7 @@ const AdminHome = () => {
           </Link>
         </div>
         <section className="admin-main-block__content admin-news__content admin-news__content_home">
-          {news.isLoading && <p>Loading...</p>}
+          {news.isLoading && <Loader />}
           {news.data && news.data.slice(0, 3).map((el) => <AdminNewsCard key={el.id} {...el} />)}
 
           <Link to={'news/add'} className="admin-add-card admin-add-card_type_news">
@@ -39,7 +40,7 @@ const AdminHome = () => {
           </Link>
         </div>
         <section className="admin-main-block__content admin-catalog__content admin-catalog__content_home">
-          {products.isLoading && <p>Loading...</p>}
+          {products.isLoading && <Loader />}
           {products.data && products.data.slice(0, 5).map((el) => <AdminProductCard key={el.id} {...el} />)}
           <Link to={'products/add'} className="admin-add-card admin-add-card_type_catalog">
             <img src={addImg} alt="Добавить запись" className="admin-add-card__icon" />
@@ -55,7 +56,7 @@ const AdminHome = () => {
           </Link>
         </div>
         <section className="admin-main-block__content admin-users__content">
-          {users.isLoading && <p>Loading...</p>}
+          {users.isLoading && <Loader />}
           {users.error && <p>{users.error.toString()}</p>}
           {users.data && users.data.slice(0, 5).map((el, i) => <AdminUserCard key={i + 'user'} {...el} />)}
 

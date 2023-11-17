@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import AdminProductCard from '../../../components/admin/ProductCard';
 import { useGetAllProductsQuery } from '../../../services/postApi';
+import Loader from '../../../components/Loader/Loader';
 
 const ListProducts = () => {
   const { data, isLoading, error } = useGetAllProductsQuery(undefined);
@@ -12,7 +13,7 @@ const ListProducts = () => {
           <img src="../vendor/images/icons/add.svg" alt="Добавить запись" className="admin-add-card__icon" />
           <p className="admin-add-card__text">Добавить новый товар</p>
         </Link>
-        {isLoading && 'Loading'}
+        {isLoading && <Loader />}
         {error && <p>{error.toString()}</p>}
         {data && data.map((el, i) => <AdminProductCard key={'product' + i} {...el} />)}
       </div>

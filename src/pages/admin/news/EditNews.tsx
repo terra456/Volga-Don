@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import ArticleForm from '../../../components/admin/ArticleForm';
 import { useGetArticleQuery } from '../../../services/postApi';
+import Loader from '../../../components/Loader/Loader';
 
 const EditNews = () => {
   const { newsId } = useParams();
@@ -11,7 +12,7 @@ const EditNews = () => {
       <h2 className="admin-title">Редактировать новость {newsId}</h2>
       {newsId && (
         <>
-          {isLoading && <p>Loading...</p>}
+          {isLoading && <Loader />}
           {data && <ArticleForm preloadData={data} />}
         </>
       )}

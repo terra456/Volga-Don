@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import AdminNewsCard from '../../../components/admin/NewsCard';
 import { useGetAllArticlesQuery } from '../../../services/postApi';
 import addImg from '../../../assets/images/icons/add.svg';
+import Loader from '../../../components/Loader/Loader';
 
 const ListNews = () => {
   const news = useGetAllArticlesQuery(undefined);
@@ -13,7 +14,7 @@ const ListNews = () => {
           <img src={addImg} alt="Добавить запись" className="admin-add-card__icon" />
           <p className="admin-add-card__text">Добавить новую запись</p>
         </Link>
-        {news.isLoading && 'Loading'}
+        {news.isLoading && <Loader />}
         {news.error && <p>{news.error.toString()}</p>}
         {news.data && news.data.map((el, i) => <AdminNewsCard key={'article' + i} {...el} />)}
       </div>

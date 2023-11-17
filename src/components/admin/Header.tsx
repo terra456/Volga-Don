@@ -22,7 +22,7 @@ const Header = () => {
           {/* <img className="logotype logotype_type_header" src="../vendor/images/logotype.svg" alt="Логотип"> */}
           На сайт
         </Link>
-        <nav className="header__nav admin-header__nav">
+        <nav className="admin-header__nav">
           <ul className="header__list admin-header__list">
             <li>
               <Link className="admin-header__link" to={`news`}>
