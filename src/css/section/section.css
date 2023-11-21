@@ -28,10 +28,11 @@
 .section__container_type_contacts{
     padding-left: 20px
 }
-.section__title{
-    font-size: 84px;
+.section__title {
+    font-size: 72px;
     font-style: normal;
-    font-weight: 900;
+    font-weight: 700;
+    line-height: normal; 
     text-align: center;
     padding-bottom: 80px;
 }

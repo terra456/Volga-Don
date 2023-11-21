@@ -43,7 +43,7 @@ const QuestionFormSection = () => {
       <div className="section__container section__container_type_questions">
         <img src={questionsImg} alt="" className="questions__img" />
         <form className="questions__form" onSubmit={handleSubmit(onSubmit)}>
-          <p className="questions__form-title">Оставьте заявку, и мы перезвоним в течение 30 минут</p>
+          <p className="questions__form-title">Оставьте заявку и мы перезвоним в течение 30 минут</p>
           <input
             type="text"
             className="base-input base-input_type_name questions__form-input-name"

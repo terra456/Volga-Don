@@ -23,7 +23,7 @@ const FirstStaticSections = () => {
             Наша цель — стать для Вас надежным партнером, предоставляя конструктивные решения и качественное
             оборудование.
           </p>
-          <button className="btn btn_type_main">Продолжить</button>
+          <button className="btn btn_type_main btn_arrow">Продолжить</button>
           <img src={mainImage} alt="main-image" className="main-page__img"></img>
         </div>
       </section>

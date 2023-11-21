@@ -1,18 +1,20 @@
 .btn{
+   width: max-content;
    padding: 20px 25px;
-   background-color: #FBBF46; 
    display: flex;
+   align-items: center;
+   flex-shrink: 0;
    gap: 15px;
    font-size: 20px;
+   color: #000000;
+   background-color: #FBBF46; 
    border: none;
-   align-items: center;
    cursor: pointer;
-   flex-shrink: 0;
-   width: max-content;
  
 }
 .btn:hover{
    background-color: #D6A038;
+   color: #000000;
 }
 .btn_type_main{
    margin-top: 60px
@@ -20,6 +22,15 @@
 .btn_type_white{
    background-color: #FFF;
    border:3px solid #FBBF46;
+}
+
+.btn_arrow {
+   display: flex;
+    align-items: center;
+    padding-right: 65px;
+    background-image: url(../../../assets/images/arrow.svg);
+    background-repeat: no-repeat;
+    background-position: center right 25px;
 }
 
 .btn_type_white:hover {
