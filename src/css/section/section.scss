@@ -1,0 +1,120 @@
+.section {
+    margin-bottom: 120px;
+
+    @include mobile480 {
+        margin-bottom: 60px;
+    }
+}
+
+.section__container {
+    max-width: 1920px;
+    margin: 0 auto;
+    padding: 0 120px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items:normal;
+    gap: 48px;
+
+    @include desktop1280 {
+        padding: 0 55px;
+        gap: 32px;
+    }
+
+    @include tablet960 {
+        padding: 0 36px;
+        gap: 24px;
+    }
+}
+
+// .section__container_type_about{
+//     flex-direction: row;
+//     align-items: stretch;
+// }
+
+// .section__img_type_about{
+//     width: 50%;
+//     height: 600px;
+//     object-fit: cover;
+// }
+
+// .section__container_type_catalog{
+//     display: grid;
+//     grid-template-columns: repeat(4,1fr);
+// }
+// .section__container_type_sertificates{
+//    gap: 30px;
+//    justify-content: center;
+// }
+// .section__container_type_news{
+//     display: grid;
+//     grid-template-columns: repeat(3, 1fr);
+// }
+// .section__container_type_contacts{
+//     padding-left: 20px
+// }
+.section__title {
+    @include header2;
+}
+
+.section__subtitle {
+    @include header3;
+}
+.section__text {
+    @include base-text;
+}
+// @media (max-width: 1240px){
+//     .section__container_type_team{
+//         display: grid;
+//         grid-template-columns: repeat(3, 1fr);
+//     }
+
+//     .section__container_type_news{
+//         overflow: scroll;
+//     }
+
+//     .section__title {
+//         padding-bottom: 30px;
+//     }
+//     .section__img_type_about{
+//         width: 50%;
+//         height: 100%;
+//     }
+// }
+
+// @media (max-width: 800px){
+//     .section__container {
+//         padding: 0 36px;
+//     }
+//     .section__container_type_about{
+//         flex-direction: column;
+//     }
+//     .section__img_type_about{
+//         max-width: 500px;
+//         width: 100%;
+//         height: 400px;
+//         margin: 0 auto;
+//     }
+
+//     .section__container_type_catalog{
+//         grid-template-columns: repeat(2, 2fr);
+//     }
+//     .section__container_type_questions {
+//         flex-direction: column;
+//     }
+// }
+// @media (max-width: 550px){
+//     .section__img_type_about{
+//         width: 100%;
+//         height: 275px
+//     }
+//     .section__container_type_team{
+//         grid-template-columns: repeat(2, 1fr);
+//     }
+//     .section__container_type_catalog{
+//         grid-template-columns: repeat(2, 2fr);
+//     }
+//     .section__container_type_contacts{
+//         flex-direction: column;
+//     }
+// }

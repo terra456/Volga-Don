@@ -24,35 +24,35 @@ const Header = () => {
   }
 
   return (
-    <header className="header">
-      <div className="header__container">
+    <header className="header section">
+      <div className="header__container section__container">
         <button className={isMenuOpen ? 'header__burger-btn' : 'header__burger-btn active'} onClick={menuButtonHandler}>
-          <img className="logotype header__logotype_burger" src={logo} alt="Логотип" />
+          <img className="header__logotype_burger" src={logo} alt="Логотип" />
         </button>
         <Link to={'/'} className="header__logotype-link">
-          <img className="logotype logotype_type_header" src={logo} alt="Логотип" />
+          <img className="header__logotype" src={logo} alt="Логотип" />
         </Link>
         <nav className={isMenuOpen ? 'header__nav active' : 'header__nav'}>
-          <ul className="header__list">
+          <ul className="nav__list">
             <li>
-              <a className="header__link" href="/#about" id="about-link">
-                О нас
+              <a className="nav__link" href="/#about" id="about-link">
+                О&nbsp;нас
               </a>
             </li>
             <li>
-              <a className="header__link" href="/#news" id="news-link">
+              <a className="nav__link" href="/#news" id="news-link">
                 Новости
               </a>
             </li>
             <li>
-              <Link className="header__link" to={`catalog`}>
+              <Link className="nav__link" to={`catalog`}>
                 Каталог
               </Link>
             </li>
           </ul>
         </nav>
-        <div className="header__connect">
-          <a href="/#questions" className="header__link">
+        <div className="btn btn_arrow header__btn-arrow">
+          <a href="/#questions" className="nav__link">
             Cвязаться с нами
           </a>
         </div>

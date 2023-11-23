@@ -1,0 +1,16 @@
+.nav__list {
+    list-style-type: none;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 120px;
+
+    @include desktop1280 {
+        gap: 56px;
+    }
+}
+
+.nav__link {
+    @include link-text;
+    cursor: pointer;
+}

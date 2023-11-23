@@ -1,0 +1,15 @@
+.news__card {
+    width: 33%;
+}
+
+.news__name-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.news__img {
+    width: 100%;
+    height: 424px;
+    object-fit: cover;
+}
+

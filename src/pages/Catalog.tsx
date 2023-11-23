@@ -7,7 +7,7 @@ const Catalog = () => {
   return (
     <section className="section catalog catalog_type_page">
       <h2 className="section__title">Каталог</h2>
-      <div className="section__container catalog__container">
+      <div className="section__container catalog__conteiner">
         {products.isLoading && <Loader />}
         {products.error && <p>{products.error.toString()}</p>}
         {products.data && products.data.map((el, i) => <ProductCard key={'product' + i} {...el} />)}

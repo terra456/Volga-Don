@@ -1,0 +1,44 @@
+.contacts {
+    margin-bottom: 80px;
+
+    @include desktop1280 {
+        margin-bottom: 30px;
+    }
+
+    @include tablet960 {
+        margin-bottom: 63px;
+    }
+
+    @include mobile480 {
+        margin-bottom: 30px;
+    }
+}
+
+.contact {
+    width: 30%;
+    min-width: 368px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+.contact__link {
+    font-weight: 700;
+
+    &:last-child {
+        padding-bottom: 0;
+    }
+
+    @include desktop1280 {
+        padding-bottom: 10px;
+    }
+}
+
+.contacts__map {
+    height: 292px;
+
+    @include desktop1280 {
+        height: 277px;
+    }
+}

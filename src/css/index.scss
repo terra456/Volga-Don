@@ -1,21 +1,23 @@
-@import url(./header/header.css);
-@import url(./main-page/main-page.css);
-@import url(./content/content.css);
-@import url(./btn/btn.css);
-@import url(./section/section.css);
-@import url(./team/team.css);
-@import url(./sertificates/sertificates.css);
-@import url(./logotype/logotype.css);
-@import url(./footer/footer.css);
-@import url(./catalog/catalog.css);
-@import url(./news/news.css);
-@import url(./contact/contact.css);
-@import url(./questions/questions.css);
-@import url(./base-input/base-input.css);
-@import url(./loading/loading-img/loading-img.css);
-@import url(./loader/loader.css);
-@import url(./about/about.css);
-@import url(./reason/reason.css);
+@import 'base/variables';
+@import 'base/media-queries';
+@import 'base/typography';
+
+@import './section/section.scss';
+@import './card/card.scss';
+@import './btn/btn.scss';
+@import './header/header.scss';
+@import './main-page/main-page.scss';
+@import './sertificates/sertificates.scss';
+@import './catalog/catalog.scss';
+@import './news/news.scss';
+@import './contact/contact.scss';
+@import './footer/footer.scss';
+@import './questions/questions.scss';
+@import './input/input.scss';
+@import './loader/loader.scss';
+@import './about/about.scss';
+@import './reason/reason.scss';
+@import './nav/nav.scss';
 
 
 html {
@@ -28,9 +30,9 @@ html {
     margin: 0;
     box-sizing: border-box;
 }
-#root {
-    font-family: Arial, Helvetica, sans-serif;
-}
+// #root {
+//     font-family: Arial, Helvetica, sans-serif;
+// }
 a {
     text-decoration: none;
 }

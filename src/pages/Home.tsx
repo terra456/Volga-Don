@@ -2,8 +2,8 @@ import { Link } from 'react-router-dom';
 import NewsCard from '../components/NewsCard/NewsCard';
 import ProductCard from '../components/ProductCard/ProductCard';
 import FirstStaticSections from '../components/HomeSections/FirstStaticSections';
-import sert1 from '../../assets/images/sertificate1.png';
-import sert2 from '../../assets/images/sertificate2.png';
+import sert1 from '../../assets/images/sert1.jpeg';
+import sert2 from '../../assets/images/sert2.jpeg';
 import QuestionFormSection from '../components/HomeSections/QuestionFormSection';
 import { useGetAllArticlesQuery, useGetAllProductsQuery } from '../services/getApi';
 import Loader from '../components/Loader/Loader';
@@ -13,12 +13,12 @@ const Home = () => {
   const products = useGetAllProductsQuery(undefined);
 
   return (
-    <main className="content">
+    <main>
       <FirstStaticSections />
 
       <section className="section news" id="news">
         <h2 className="section__title">Последние новости</h2>
-        <div className="section__container section__container_type_news">
+        <div className="section__container">
           {news.isLoading && <Loader />}
           {news.error && <p>{JSON.stringify(products.error)}</p>}
           {news.data &&
@@ -31,7 +31,7 @@ const Home = () => {
 
       <section className="section catalog">
         <h2 className="section__title">Каталог</h2>
-        <div className="section__container section__container_type_catalog">
+        <div className="section__container">
           {products.isLoading && <Loader />}
           {products.error && <p>{JSON.stringify(products.error)}</p>}
           {products.data &&
@@ -47,7 +47,7 @@ const Home = () => {
 
       <section className="section sertificates">
         <h2 className="section__title">Сертификаты</h2>
-        <div className="section__container section__container_type_sertificates">
+        <div className="section__container sertificates__container">
           <img src={sert1} alt="Сертификат1" className="sertificates__img" />
           <img src={sert2} alt="Сетификат2" className="sertificates__img" />
         </div>
@@ -59,14 +59,17 @@ const Home = () => {
         <h2 className="section__title">Контакты</h2>
         <div className="section__container">
           <div className="contact">
-            <p className="contact__link">+7&nbsp;(123)&nbsp;456-7890</p>
-            <p className="contact__link">info@volgograd-industry.ru</p>
-            <p className="contact__link">г.&nbsp;Волгоград, ул.&nbsp;Ленина, д.&nbsp;123, офис&nbsp;456</p>
+            <p className="contact__link section__text">+7&nbsp;(123)&nbsp;456-7890</p>
+            <p className="contact__link section__text">info@volgograd-industry.ru</p>
+            <p className="contact__link section__text">
+              г.&nbsp;Волгоград, ул.&nbsp;Ленина, д.&nbsp;123, офис&nbsp;456
+            </p>
           </div>
           <iframe
+            className="contacts__map"
             src="https://yandex.ru/map-widget/v1/?um=constructor%3A7697c06b0da4192192a6bd63b9b8aff9e4ca9562023f6113470adb20af381b37&amp;source=constructor"
             width="100%"
-            height="300"
+            height="292"
             frameBorder="0"
           ></iframe>
         </div>

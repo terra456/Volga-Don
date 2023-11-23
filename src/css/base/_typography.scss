@@ -1,0 +1,97 @@
+@mixin header1 {
+  color: #120A00; 
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 84px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 92px;
+
+  @include desktop1280 {
+    font-size: 60px;
+    line-height: 70px;
+  }
+
+  @include tablet960 {
+    font-size: 50px;
+    line-height: 55px;
+  }
+
+  @include mobile480 {
+    font-size: 22px;
+    line-height: 110.016%;
+  }
+}
+
+@mixin header2 {
+  padding: 0;
+  padding-bottom: 80px;
+  color: #000;
+  text-align: center;
+  font-family: Arial;
+  font-size: 72px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+
+  @include desktop1280 {
+    font-size: 56px;
+    line-height: normal;
+  }
+
+  @include mobile480 {
+    padding-bottom: 30px;
+    font-size: 18px;
+    line-height: normal;
+  }
+}
+
+@mixin header3 {
+  margin: 0;
+  padding: 0;
+  padding-bottom: 40px;
+  color: #000;
+  text-align: center;
+  font-family: Arial;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+
+}
+
+@mixin base-text {
+  margin: 0;
+  padding: 0;
+  padding-bottom: 30px;
+  color: #000;
+  font-family: Arial;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 110%;
+
+  @include desktop1280 {
+    font-size: 16px;
+  }
+
+  @include mobile480 {
+    padding-bottom: 8px;
+    font-size: 12px;
+  }
+}
+
+@mixin link-text {
+  padding: 0;
+  color: #000;
+  text-align: center;
+  font-family: Arial;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-decoration: none;
+
+  @include mobile480 {
+    font-size: 10px;
+  }
+}

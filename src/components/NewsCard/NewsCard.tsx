@@ -17,15 +17,15 @@ export type Props = {
 const NewsCard = ({ title, text, image, created_at }: Props) => {
   const date = new Date(created_at);
   return (
-    <article className="news__card">
-      <img className="news__img" src={image} alt={title} />
+    <article className="news__card card">
+      <img className="news__img card__img" src={image} alt={title} />
       <div className="news__name-container">
-        <p className="news__name">{title}</p>
-        <p className="news__date">
+        <p className="news__name card__title">{title}</p>
+        <p className="news__date card__text">
           {date.toLocaleDateString('ru-RU', { year: '2-digit', month: 'numeric', day: 'numeric' })}
         </p>
       </div>
-      <p className="news__about">{text}</p>
+      <p className="news__about card__text">{text}</p>
     </article>
   );
 };

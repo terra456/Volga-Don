@@ -29,10 +29,10 @@ type Props = {
 
 const ProductCard = ({ name, description, images }: Props) => {
   return (
-    <article className="catalog__card">
-      <img className="catalog__img" src={images.img1} alt={name} />
-      <p className="catalog__name">{name}</p>
-      <p className="catalog__about">{description}</p>
+    <article className="catalog__card card">
+      <img className="card__img" src={images.img1} alt={name} />
+      <p className="card__title">{name}</p>
+      <p className="card__text">{description}</p>
     </article>
   );
 };

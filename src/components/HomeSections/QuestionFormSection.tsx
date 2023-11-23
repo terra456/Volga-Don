@@ -40,29 +40,29 @@ const QuestionFormSection = () => {
   return (
     <section className="section questions" id="questions">
       <h2 className="section__title">Остались вопросы?</h2>
-      <div className="section__container section__container_type_questions">
+      <div className="section__container questions__container">
         <img src={questionsImg} alt="" className="questions__img" />
         <form className="questions__form" onSubmit={handleSubmit(onSubmit)}>
-          <p className="questions__form-title">Оставьте заявку и мы перезвоним в течение 30 минут</p>
+          <p className="questions__form-title section__text">Оставьте заявку и мы перезвоним в течение 30&nbsp;минут</p>
           <input
             type="text"
-            className="base-input base-input_type_name questions__form-input-name"
+            className="input-base"
             placeholder="Имя"
             {...register('first_name', { required: 'This is required.' })}
           />
           <input
             type="text"
-            className="base-input base-input_type_surname questions__form-input-surname"
+            className="input-base"
             placeholder="Фамилия"
             {...register('last_name', { required: 'This is required.' })}
           />
           <input
             type="tel"
-            className="base-input base-input_type_phone questions__form-input-number"
+            className="input-base"
             placeholder="Телефон"
             {...register('phone', { required: 'This is required.' })}
           />
-          <button type="submit" className="btn btn_type_questions">
+          <button type="submit" className="btn btn_arrow btn_type_questions">
             Отправить заявку
           </button>
         </form>

@@ -1,0 +1,28 @@
+.reason__conteiner {
+    justify-content: space-between;
+}
+
+.reason__title {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+}
+
+.reason__img{
+    width: 135px;
+    height: 135px;
+    margin-bottom: 33px;
+}
+
+@media (max-width: 1240px){
+    .reason__img{
+        width: 100px;
+        height: 100px
+    }
+}
+@media (max-width: 800px){
+    .reason__card{
+        width: 45%
+    }
+}
+
