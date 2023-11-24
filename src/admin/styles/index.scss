@@ -1,4 +1,12 @@
-@import '../input/input.scss';
+@import '../../css/base/media-queries';
+@import '../../css/base/typography';
+
+@import '../../css/btn/btn.scss';
+@import '../../css/input/input.scss';
+@import '../../css/section/section.scss';
+@import '../../css/header/header.scss';
+@import '../../css/loader/loader.scss';
+@import '../../css/nav/nav.scss';
 
 @import url(./admin-registration/admin-registration.css);
 @import url(./admin-main/admin-main.css);

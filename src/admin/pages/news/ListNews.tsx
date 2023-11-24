@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import AdminNewsCard from '../../../components/admin/NewsCard';
+import AdminNewsCard from '../../../admin/components/NewsCard';
 import { useGetAllArticlesQuery } from '../../../services/postApi';
 import addImg from '../../../assets/images/icons/add.svg';
 import Loader from '../../../components/Loader/Loader';

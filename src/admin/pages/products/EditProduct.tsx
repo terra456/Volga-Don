@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import ProductForm from '../../../components/admin/ProductForm';
+import ProductForm from '../../../admin/components/ProductForm';
 import { useGetProductQuery } from '../../../services/postApi';
 
 const EditProduct = () => {

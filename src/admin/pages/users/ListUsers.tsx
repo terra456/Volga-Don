@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import AdminUserCard from '../../../components/admin/UserCard';
+import AdminUserCard from '../../../admin/components/UserCard';
 import { useGetAllUsersQuery } from '../../../services/userApi';
 import Loader from '../../../components/Loader/Loader';
 

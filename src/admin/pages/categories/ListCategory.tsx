@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import AdminCategoryItem from '../../../components/admin/CategoryItem';
+import AdminCategoryItem from '../../../admin/components/CategoryItem';
 import { useGetAllCategoriesQuery, usePostCategorieMutation } from '../../../services/postApi';
 import { Categorie } from '../../../types';
 import Loader from '../../../components/Loader/Loader';

@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import ArticleForm from '../../../components/admin/ArticleForm';
+import ArticleForm from '../../../admin/components/ArticleForm';
 import { useGetArticleQuery } from '../../../services/postApi';
 import Loader from '../../../components/Loader/Loader';
 

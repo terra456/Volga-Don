@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import AdminNewsCard from '../../components/admin/NewsCard';
-import AdminProductCard from '../../components/admin/ProductCard';
-import AdminUserCard from '../../components/admin/UserCard';
+import AdminNewsCard from '../../admin/components/NewsCard';
+import AdminProductCard from '../../admin/components/ProductCard';
+import AdminUserCard from '../../admin/components/UserCard';
 import { useGetAllArticlesQuery, useGetAllProductsQuery } from '../../services/postApi';
 import { useGetAllUsersQuery } from '../../services/userApi';
 import addImg from '../../assets/images/icons/add.svg';

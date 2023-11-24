@@ -1,4 +1,4 @@
-import ArticleForm from '../../../components/admin/ArticleForm';
+import ArticleForm from '../../../admin/components/ArticleForm';
 
 const AddNews = () => {
   return (
