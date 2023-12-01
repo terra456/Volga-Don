@@ -1,0 +1,37 @@
+.base-input {
+    padding: 25px 27px;
+    border: 2px solid #000;
+    font-family: Arial;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.base-input::placeholder {
+    color: rgba(0, 0, 0, 0.52);
+}
+
+.base-input_type_textarea {
+    min-height: 232px
+}
+
+.base-input.input-base_type_textarea::placeholder {
+    font-weight: 400;
+}
+
+.error-message {
+    color: #F34545;
+    font-family: Arial;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-top: -20px;
+    margin-left: 27px;
+}
+
+.error-absolute {
+    position: absolute;
+    bottom: 0;
+}

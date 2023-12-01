@@ -1,4 +1,6 @@
-.admin-status{
+.admin-status {
+    width: 112px;
+    height: 36px;
     border: none;
     display: flex;
     gap: 15px;
@@ -17,22 +19,40 @@
     background-color: #84DA82;
     background-image: url(../../../assets/images/icons/icon.svg);
 }
-.admin-status_type_ok:hover{
-    background-color: #7BBD79;
-}
+// .admin-status_type_ok:hover{
+//     background-color: #7BBD79;
+// }
 .admin-status_type_archive{
     background-color: #CBCBCB;
     background-image: url(../../../assets/images/icons/minus.svg);
 }
-.admin-status_type_archive:hover{
-    background-color: #B4B2B2;
-}
+// .admin-status_type_archive:hover{
+//     background-color: #B4B2B2;
+// }
 
 .admin-status_lable {
     position: absolute;
     top: 15px;
     left: 15px;
     margin-left: 0px;
+
+    input:checked + & {
+        background-color: #84DA82;
+        background-image: url(../../../assets/images/icons/icon.svg);
+
+        &:hover {
+            background-color: #7BBD79;
+        }
+    }
+
+    input:not(:checked) + & {
+        background-color: #CBCBCB;
+        background-image: url(../../../assets/images/icons/minus.svg);
+
+        &:hover {
+            background-color: #B4B2B2;
+        }
+    }
 }
 
 .admin-status_add-card {

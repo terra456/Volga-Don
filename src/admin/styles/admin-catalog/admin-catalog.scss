@@ -1,0 +1,15 @@
+.admin-catalog__content {
+    @include conteiner;
+    flex-wrap: wrap;
+    gap: 36px;
+
+    & > *:last-child {
+        margin-right: auto;
+    }
+}
+
+.admin-catalog__img {
+    height: 190px;
+    width: 180px;
+    object-fit: contain;
+}

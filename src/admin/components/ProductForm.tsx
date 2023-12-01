@@ -108,7 +108,7 @@ const ProductForm = ({ preloadData }: Props) => {
               .map((el, i) => {
                 const url = images[el] as string;
                 return (
-                  <div>
+                  <div className="admin-add-catalog__photo-conteiner">
                     <img
                       key={`imgUpload${i}`}
                       src={url.includes('http') ? url : serverUrl + url}
@@ -132,18 +132,21 @@ const ProductForm = ({ preloadData }: Props) => {
             id="file"
             multiple
             {...register('images', {
+              /*
+              required: false,
               validate: {
                 // lessThan10MB: (files) => files[0]?.size < 300000 || 'Max 30kb',
                 // maxCount5: (files) => files.length >= 5 || 'Не более 5 изображений',
                 acceptedFormats: (files) =>
                   ['image/jpeg', 'image/png', 'image/gif'].includes(files[0]?.type) || 'Only PNG, JPEG e GIF',
               },
+            */
             })}
             className="admin-add-card__input-file"
             name="images"
             accept="image/png, image/jpeg"
           />
-          {errors.images && <span className="error-message">{errors.images.message}</span>}
+          {errors.images && <span className="error-message error-absolute">{errors.images.message}</span>}
         </div>
         <div className="admin-add-catalog__inputs-container">
           {data && (
@@ -159,14 +162,14 @@ const ProductForm = ({ preloadData }: Props) => {
           )}
           <input
             {...register('name', {
-              required: 'This is required.',
+              required: '*Это поле обязательно к заполнению',
               // pattern: {
               //   value: /d+/,
               //   message: 'This input is number only.',
               // },
               minLength: {
                 value: 5,
-                message: 'This input exceed minLength 5',
+                message: 'Название не может быть меньше 5 симоволов',
               },
             })}
             className="base-input base-input_type_name admin-add-card__input-name"
@@ -185,11 +188,11 @@ const ProductForm = ({ preloadData }: Props) => {
               In Stock
             </label>
           </fieldset>
-          <input id="published" type="checkbox" {...register('published')} className="admin-add-card__checbox-hidden" />
         </div>
+        <input id="published" type="checkbox" {...register('published')} className="admin-add-card__checbox-hidden" />
         {preloadData && preloadData.published && (
-          <label htmlFor="published" className="admin-status admin-status_add-card admin-status_type_ok">
-            На сайте
+          <label htmlFor="published" className="admin-status admin-status_add-card">
+            {preloadData.published ? 'На сайте' : 'В архиве'}
           </label>
         )}
         <div className="admin-add-catalog__buttons-container">
@@ -201,7 +204,7 @@ const ProductForm = ({ preloadData }: Props) => {
               }}
               type="submit"
               disabled={isLoading}
-              className="btn btn_type_white add-catalog__btn_type_archive admin-btn__arrow"
+              className="admin-btn admin-btn_type_white admin-btn__type_arrow"
             >
               Сохранить в архив
             </button>
@@ -218,7 +221,7 @@ const ProductForm = ({ preloadData }: Props) => {
               }}
               type="submit"
               disabled={isLoading}
-              className="btn add-news__btn_type_post admin-btn__type_arrow"
+              className="admin-btn admin-btn__type_arrow"
             >
               Сохранить и опубликовать
             </button>
@@ -229,15 +232,12 @@ const ProductForm = ({ preloadData }: Props) => {
               }}
               type="submit"
               disabled={isLoading}
-              className="btn add-news__btn_type_post admin-btn__type_arrow"
+              className="admin-btn admin-btn__type_arrow"
             >
               Сохранить изменения
             </button>
           )}
-          <button
-            onClick={() => navigate('/admin')}
-            className="btn btn_type_white add-catalog__btn_type_exit admin-btn__type_arrow"
-          >
+          <button onClick={() => navigate('/admin')} className="admin-btn admin-btn_type_white admin-btn__type_arrow">
             На главную
           </button>
         </div>

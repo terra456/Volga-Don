@@ -5,6 +5,7 @@ import { Article, ArticleDTO } from '../../types';
 import { dataForm } from '../../utils/formData';
 import { useState } from 'react';
 import { BASE_URL } from '../../utils/variables';
+import addImg from '../../assets/images/icons/add.svg';
 
 type Props = {
   preloadData?: Article;
@@ -94,15 +95,10 @@ const ArticleForm = ({ preloadData }: Props) => {
             alt=""
             className="image"
           />
+          <input id="published" type="checkbox" {...register('published')} className="admin-add-card__checbox-hidden" />
           {preloadData && (
-            <label
-              htmlFor="published"
-              className={
-                'admin-status admin-status_lable ' +
-                (preloadData.published ? 'admin-status_type_ok' : 'admin-status_type_archive')
-              }
-            >
-              На сайте
+            <label htmlFor="published" className="admin-status admin-status_lable">
+              {preloadData.published ? 'На сайте' : 'В архиве'}
             </label>
           )}
           {image || imageUpload ? (
@@ -110,8 +106,8 @@ const ArticleForm = ({ preloadData }: Props) => {
               Заменить фото
             </label>
           ) : (
-            <label htmlFor="file">
-              <img src="../vendor/images/icons/add.svg" alt="Добавить запись" className="admin-add-card__icon" />
+            <label htmlFor="file" className="admin-add-card admin-add-card_type_img">
+              <img src={addImg} alt="Добавить запись" className="admin-add-card__icon" />
               <p className="admin-add-card__text">Добавить фото</p>
             </label>
           )}
@@ -119,25 +115,27 @@ const ArticleForm = ({ preloadData }: Props) => {
             type="file"
             id="file"
             {...register('image', {
-              validate: {
-                lessThan10MB: (files) => files[0]?.size < 30000 || 'Max 30kb',
-                acceptedFormats: (files) =>
-                  ['image/jpeg', 'image/png', 'image/gif'].includes(files[0]?.type) || 'Only PNG, JPEG e GIF',
-              },
+              // required: false,
+              // validate: {
+              //   lessThan10MB: (files) => files[0]?.size < 1000000 || '*максимально 10mb',
+              //   acceptedFormats: (files) =>
+              //     ['image/jpeg', 'image/png', 'image/gif'].includes(files[0]?.type) ||
+              //     '*Выберите картинку в PNG, JPEG или GIF',
+              // },
             })}
             className="admin-add-card__input-file"
             name="image"
             accept="image/png, image/jpeg"
           />
-          {errors.image && <span className="error-message">{errors.image.message}</span>}
+          {errors.image && <span className="error-message error-absolute">{errors.image.message}</span>}
         </div>
         <div className="admin-add-catalog__inputs-container">
           <input
             {...register('title', {
-              required: 'This is required.',
+              required: '*Это поле обязательно к заполнению',
               minLength: {
                 value: 10,
-                message: 'This input exceed maxLength.',
+                message: '*Требуется более развернутое описание',
               },
             })}
             className="base-input base-input_type_name admin-add-card__input-name"
@@ -150,7 +148,6 @@ const ArticleForm = ({ preloadData }: Props) => {
             {...register('text', { required: true })}
           />
           {errors.text && <span className="error-message">*Это поле обязательно к заполнению</span>}
-          <input id="published" type="checkbox" {...register('published')} className="admin-add-card__checbox-hidden" />
         </div>
         <div className="admin-add-catalog__buttons-container">
           {!id ? (
@@ -161,12 +158,12 @@ const ArticleForm = ({ preloadData }: Props) => {
               }}
               type="submit"
               disabled={isLoading}
-              className="btn btn_type_white add-catalog__btn_type_archive admin-btn__arrow"
+              className="admin-btn admin-btn__type_arrow admin-btn_type_white"
             >
               Сохранить в архив
             </button>
           ) : (
-            <button onClick={deleteData} disabled={isLoading} className="btn admin-btn__type_delete">
+            <button onClick={deleteData} disabled={isLoading} className="admin-btn admin-btn__type_delete">
               Удалить
             </button>
           )}
@@ -178,7 +175,7 @@ const ArticleForm = ({ preloadData }: Props) => {
               }}
               type="submit"
               disabled={isLoading}
-              className="btn add-news__btn_type_post admin-btn__type_arrow"
+              className="admin-btn admin-btn__type_arrow"
             >
               Сохранить и опубликовать
             </button>
@@ -189,15 +186,12 @@ const ArticleForm = ({ preloadData }: Props) => {
               }}
               type="submit"
               disabled={isLoading}
-              className="btn add-news__btn_type_post admin-btn__type_arrow"
+              className="admin-btn admin-btn__type_arrow"
             >
               Сохранить изменения
             </button>
           )}
-          <button
-            onClick={() => navigate('/admin')}
-            className="btn btn_type_white add-catalog__btn_type_exit admin-btn__type_arrow"
-          >
+          <button onClick={() => navigate('/admin')} className="admin-btn admin-btn_type_white admin-btn__type_arrow">
             На главную
           </button>
         </div>

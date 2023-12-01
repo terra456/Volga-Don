@@ -17,9 +17,13 @@
 }
 
 .admin-users__content{
-    display: flex;
+    @include conteiner;
+    flex-wrap: wrap;
     gap: 36px;
-    /* padding: 0 90px */
+
+    & > *:last-child {
+        margin-right: auto;
+    }
 }
 
 .admin-users__form{
@@ -33,10 +37,13 @@
     flex-direction: column;
     gap: 25px
 }
-.admin-users__buttons-container{
+.admin-users__buttons-container {
     display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
     gap: 40px;
-    padding: 0 300px
 }
 
 .admin-users__buttons-container_column {

@@ -31,8 +31,8 @@ const AdminRouter = () => {
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="*" element={<NotFound />} />
         </Route> */}
+        <Route path="/login" element={<LoginForm />} />
         <Route path="/admin" element={<AdminLayout />}>
-          <Route path="login" element={<LoginForm />} />
           <Route path="register" element={<RegisterForm />} />
           <Route
             index

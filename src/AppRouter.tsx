@@ -18,7 +18,7 @@ import AboutUs from './pages/AboutUs';
 // import AdminHome from './pages/admin/AdminHome';
 // import { useAuth } from './hooks/useAuth';
 // import ProtectedRoute from './components/ProtectedRoute';
-import LoginForm from './pages/auth/LoginForm';
+// import LoginForm from './pages/auth/LoginForm';
 import RegisterForm from './pages/auth/RegisterForm';
 // import UpdateUsernameForm from './pages/user/UpdateUsernameForm';
 // import ChangePasswordForm from './pages/user/ChangePasswordForm';
@@ -35,7 +35,7 @@ const AppRouter = () => {
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="*" element={<NotFound />} />
         </Route>
-        <Route path="/login" element={<LoginForm />} />
+        {/* <Route path="/login" element={<LoginForm />} /> */}
         <Route path="/register" element={<RegisterForm />} />
         {/* <Route path="/admin" element={<RegisterForm />} /> */}
         {/* <Route path="/admin" element={<AdminLayout />}>

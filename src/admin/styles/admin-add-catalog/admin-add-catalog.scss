@@ -11,7 +11,13 @@
     flex-direction: column;
     gap: 25px
 }
-.admin-add-catalog__add-photo-container{
+
+.admin-add-catalog__photo-conteiner {
+    position: relative;
+}
+
+.admin-add-catalog__add-photo-container {
+    position: relative;
     width: 100%;
     height: 180px;
     display: flex;

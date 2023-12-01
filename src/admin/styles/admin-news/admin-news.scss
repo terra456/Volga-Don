@@ -1,0 +1,13 @@
+.admin-news__content {
+    @include conteiner;
+    flex-wrap: wrap;
+    gap: 36px;
+
+    & > *:last-child {
+        margin-right: auto;
+    }
+}
+
+.admin-news-card:last-child {
+    margin-right: auto;
+}

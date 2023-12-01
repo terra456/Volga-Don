@@ -1,20 +1,20 @@
-.admin-news-card{
+.admin-news-card {
     max-width: 288px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 15px
+    gap: 15px;
 }
 
 .admin-news-card:last-child {
     margin-right: auto;
 }
 
-.admin-news-card_type_catalog{
+.admin-news-card_type_catalog {
     max-width: 180px;
 }
 
-.admin-news-card__img{
+.admin-news-card__img {
     width: 100%;
     height: 200px;
     object-fit: cover;

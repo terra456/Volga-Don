@@ -22,7 +22,7 @@ export const postApi = createApi({
   endpoints: (builder) => ({
     getArticle: builder.query<Article, string>({
       // note: an optional `queryFn` may be used in place of `query`
-      query: (id) => ({ url: `articles/admin/${id}` }),
+      query: (id) => ({ url: `articles/admin/${id}/` }),
       providesTags: ['Article'],
     }),
     getAllArticles: builder.query<Article[], undefined>({
@@ -40,7 +40,7 @@ export const postApi = createApi({
     }),
     updateArticle: builder.mutation<Article, [FormData, string]>({
       query: ([credentials, id]) => ({
-        url: `articles/admin/${id}`,
+        url: `articles/admin/${id}/`,
         method: 'put',
         headers: { 'content-type': 'multipart/form-data; boundary=---' },
         body: credentials,
@@ -49,7 +49,7 @@ export const postApi = createApi({
     }),
     deleteArticle: builder.mutation<Article, string>({
       query: (id) => ({
-        url: `articles/admin/${id}`,
+        url: `articles/admin/${id}/`,
         method: 'delete',
       }),
       invalidatesTags: ['Article'],
@@ -59,7 +59,7 @@ export const postApi = createApi({
       providesTags: ['Product'],
     }),
     getProduct: builder.query<Product, number>({
-      query: (id) => ({ url: `products/admin/${id}` }),
+      query: (id) => ({ url: `products/admin/${id}/` }),
       providesTags: ['Product'],
     }),
     addProduct: builder.mutation<Product, FormData>({
@@ -73,7 +73,7 @@ export const postApi = createApi({
     }),
     updateProduct: builder.mutation<Product, [FormData, string]>({
       query: ([credentials, id]) => ({
-        url: `products/admin/${id}`,
+        url: `products/admin/${id}/`,
         method: 'put',
         headers: { 'content-type': 'multipart/form-data; boundary=---' },
         body: credentials,
@@ -82,7 +82,7 @@ export const postApi = createApi({
     }),
     deleteProduct: builder.mutation<Product, string>({
       query: (id) => ({
-        url: `products/admin/${id}`,
+        url: `products/admin/${id}/`,
         method: 'delete',
       }),
       invalidatesTags: ['Product'],
@@ -92,7 +92,7 @@ export const postApi = createApi({
       providesTags: ['Categorie'],
     }),
     getCategorie: builder.query<Categorie, number>({
-      query: (id) => ({ url: `products/admin/categories/${id}` }),
+      query: (id) => ({ url: `products/admin/categories/${id}/` }),
       providesTags: ['Categorie'],
     }),
     postCategorie: builder.mutation<Categorie, CategorieDTO>({
@@ -100,15 +100,15 @@ export const postApi = createApi({
       invalidatesTags: ['Categorie'],
     }),
     putCategorie: builder.mutation<Categorie, [CategorieDTO, number]>({
-      query: ([credentials, id]) => ({ url: `products/admin/categories/${id}`, method: 'put', body: credentials }),
+      query: ([credentials, id]) => ({ url: `products/admin/categories/${id}/`, method: 'put', body: credentials }),
       invalidatesTags: ['Categorie'],
     }),
     patchCategorie: builder.mutation<Categorie, [CategorieDTO, number]>({
-      query: ([credentials, id]) => ({ url: `products/admin/categories/${id}`, method: 'patch', body: credentials }),
+      query: ([credentials, id]) => ({ url: `products/admin/categories/${id}/`, method: 'patch', body: credentials }),
       invalidatesTags: ['Categorie'],
     }),
     deleteCategorie: builder.mutation<Categorie, number>({
-      query: (id) => ({ url: `products/admin/categories/${id}`, method: 'delete' }),
+      query: (id) => ({ url: `products/admin/categories/${id}/`, method: 'delete' }),
       invalidatesTags: ['Categorie'],
     }),
   }),

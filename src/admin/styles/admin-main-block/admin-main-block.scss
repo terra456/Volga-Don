@@ -1,0 +1,21 @@
+.admin-main-block__header{
+    background-color: #FBBF46;
+}
+
+.admin-main-block__header-conteiner {
+    @include conteiner;
+    align-items: center;
+    padding: 19px $content-padding;
+}
+
+
+.admin-main-block__title{
+    @include title-text;
+}
+
+.admin-main-block__content {
+    @include conteiner;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+

@@ -17,12 +17,14 @@ const AdminHome = () => {
       <h1 className="admin-title">Добро пожаловать!</h1>
       <div className="admin-main-block">
         <div className="admin-main-block__header">
-          <p className="admin-main-block__title">Новости</p>
-          <Link to={'news'} className="admin-btn__link admin-btn__link_arrow">
-            Показать все
-          </Link>
+          <div className="admin-main-block__header-conteiner">
+            <p className="admin-main-block__title">Новости</p>
+            <Link to={'news'} className="admin-btn__link admin-btn__link_arrow">
+              Показать все
+            </Link>
+          </div>
         </div>
-        <section className="admin-main-block__content admin-news__content admin-news__content_home">
+        <section className="admin-main-block__content">
           {news.isLoading && <Loader />}
           {news.data && news.data.slice(0, 3).map((el) => <AdminNewsCard key={el.id} {...el} />)}
 
@@ -34,12 +36,14 @@ const AdminHome = () => {
       </div>
       <div className="admin-main-block">
         <div className="admin-main-block__header">
-          <p className="admin-main-block__title">Каталог</p>
-          <Link to={'products'} className="admin-btn__link admin-btn__link_arrow">
-            Показать все
-          </Link>
+          <div className="admin-main-block__header-conteiner">
+            <p className="admin-main-block__title">Каталог</p>
+            <Link to={'products'} className="admin-btn__link admin-btn__link_arrow">
+              Показать все
+            </Link>
+          </div>
         </div>
-        <section className="admin-main-block__content admin-catalog__content admin-catalog__content_home">
+        <section className="admin-main-block__content">
           {products.isLoading && <Loader />}
           {products.data && products.data.slice(0, 5).map((el) => <AdminProductCard key={el.id} {...el} />)}
           <Link to={'products/add'} className="admin-add-card admin-add-card_type_catalog">
@@ -50,12 +54,14 @@ const AdminHome = () => {
       </div>
       <div className="admin-main-block">
         <div className="admin-main-block__header">
-          <p className="admin-main-block__title">Сотрудники</p>
-          <Link to={'users'} className="admin-btn__link admin-btn__link_arrow">
-            Показать все
-          </Link>
+          <div className="admin-main-block__header-conteiner">
+            <p className="admin-main-block__title">Сотрудники</p>
+            <Link to={'users'} className="admin-btn__link admin-btn__link_arrow">
+              Показать все
+            </Link>
+          </div>
         </div>
-        <section className="admin-main-block__content admin-users__content">
+        <section className="admin-main-block__content">
           {users.isLoading && <Loader />}
           {users.error && <p>{users.error.toString()}</p>}
           {users.data && users.data.slice(0, 5).map((el, i) => <AdminUserCard key={i + 'user'} {...el} />)}

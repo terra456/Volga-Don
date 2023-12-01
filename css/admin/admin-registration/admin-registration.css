@@ -39,9 +39,9 @@
     bottom: -22px;
 }
 .admin-registration__fieldset{
+    width: 612px;
     position: relative;
     display: flex;
     flex-direction: column;
-    width: 100%;
     border: none
 }

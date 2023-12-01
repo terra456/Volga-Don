@@ -15,7 +15,11 @@ const ListCategory = () => {
         {listCategories.isLoading && <Loader />}
         {listCategories.data && listCategories.data.map((el: Categorie) => <AdminCategoryItem key={el.id} {...el} />)}
         <div className="admin-category__item">
-          {newValue === undefined && <button onClick={() => setNewValue('')}>add</button>}
+          {newValue === undefined && (
+            <button onClick={() => setNewValue('')} className="admin-btn">
+              add
+            </button>
+          )}
           {newValue !== undefined && (
             <>
               <input
