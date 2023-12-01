@@ -1,6 +1,7 @@
 .admin-news__content {
     @include conteiner;
     flex-wrap: wrap;
+    align-items: stretch;
     gap: 36px;
 
     & > *:last-child {

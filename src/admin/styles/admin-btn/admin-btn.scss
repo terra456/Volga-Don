@@ -1,13 +1,14 @@
 .admin-btn,
 .btn {
     @include link-text;
+    box-sizing: border-box;
     padding: 20px 25px;
     background-color: #FBBF46;
-    border: 3px solid #FBBF46;
+    outline: none;
+    border: none;
 
     &:hover {
         background-color: #D6A038;
-        border: 3px solid #D6A038;
         cursor: pointer;
     }
 
@@ -21,6 +22,7 @@
     padding: 20px 25px;
     text-decoration: none;
     color: black;
+    outline: none;
 
     &:hover {
         background-color: #D6A038;
@@ -30,9 +32,11 @@
 
 .admin-btn_type_white {
     background-color: transparent;
+    border: 3px solid #FBBF46;
 
     &:hover {
         background-color: transparent;
+        border: 3px solid #D6A038;
     }
 }
 
