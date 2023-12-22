@@ -8,9 +8,9 @@ type Props = {
 
 const ProtectedRoute = ({ user, children }: Props) => {
   // const navigate = useNavigate();
-  // if (!user) {
-  //   return <Navigate to="/login" />;
-  // }
+  if (!user) {
+    return <Navigate to="/login" />;
+  }
 
   return children;
 };

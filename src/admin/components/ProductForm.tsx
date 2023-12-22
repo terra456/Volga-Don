@@ -27,7 +27,7 @@ const ProductForm = ({ preloadData }: Props) => {
     published: undefined,
   };
   const [imagesUpload, setImagesUpload] = useState<string[]>([]);
-  const { register, handleSubmit, watch, setValue, formState } = useForm<ProductDTO>({
+  const { register, handleSubmit, watch, setValue, formState, getValues } = useForm<ProductDTO>({
     defaultValues: {
       ...formData,
     },
@@ -191,8 +191,8 @@ const ProductForm = ({ preloadData }: Props) => {
         </div>
         <input id="published" type="checkbox" {...register('published')} className="admin-add-card__checbox-hidden" />
         {preloadData && preloadData.published && (
-          <label htmlFor="published" className="admin-status admin-status_add-card">
-            {preloadData.published ? 'На сайте' : 'В архиве'}
+          <label htmlFor="published" className="admin-status admin-status_lable">
+            {preloadData.published || getValues('published') ? 'На сайте' : 'В архиве'}
           </label>
         )}
         <div className="admin-add-catalog__buttons-container">

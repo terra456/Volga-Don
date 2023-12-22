@@ -22,7 +22,7 @@ const ArticleForm = ({ preloadData }: Props) => {
     created_at: undefined,
   };
   const [imageUpload, setImageUpload] = useState('');
-  const { register, handleSubmit, watch, setValue, formState } = useForm<ArticleDTO>({
+  const { register, handleSubmit, watch, setValue, formState, getValues } = useForm<ArticleDTO>({
     defaultValues: {
       ...formData,
     },
@@ -98,7 +98,7 @@ const ArticleForm = ({ preloadData }: Props) => {
           <input id="published" type="checkbox" {...register('published')} className="admin-add-card__checbox-hidden" />
           {preloadData && (
             <label htmlFor="published" className="admin-status admin-status_lable">
-              {preloadData.published ? 'На сайте' : 'В архиве'}
+              {preloadData.published || getValues('published') ? 'На сайте' : 'В архиве'}
             </label>
           )}
           {image || imageUpload ? (
