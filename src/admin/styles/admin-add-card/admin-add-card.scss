@@ -20,6 +20,13 @@
     gap: 36px;
 }
 
+.admin-add-card__inputs-container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    flex-grow: 1;
+}
+
 .admin-add-card__icon{
     width: 60px;
     height: 60px

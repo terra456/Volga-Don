@@ -32,7 +32,7 @@ const AdminRouter = () => {
           <Route path="*" element={<NotFound />} />
         </Route> */}
         <Route path="/login" element={<LoginForm />} />
-        <Route path="/admin" element={<AdminLayout />}>
+        <Route path="/admin/" element={<AdminLayout />}>
           <Route path="register" element={<RegisterForm />} />
           <Route
             index

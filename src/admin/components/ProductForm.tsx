@@ -188,13 +188,13 @@ const ProductForm = ({ preloadData }: Props) => {
               In Stock
             </label>
           </fieldset>
+          <input id="published" type="checkbox" {...register('published')} className="admin-add-card__checbox-hidden" />
+          {preloadData && (
+            <label htmlFor="published" className="admin-status admin-status_lable">
+              {preloadData.published || getValues('published') ? 'На сайте' : 'В архиве'}
+            </label>
+          )}
         </div>
-        <input id="published" type="checkbox" {...register('published')} className="admin-add-card__checbox-hidden" />
-        {preloadData && preloadData.published && (
-          <label htmlFor="published" className="admin-status admin-status_lable">
-            {preloadData.published || getValues('published') ? 'На сайте' : 'В архиве'}
-          </label>
-        )}
         <div className="admin-add-catalog__buttons-container">
           {!id ? (
             <button

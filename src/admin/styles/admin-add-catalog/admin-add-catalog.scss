@@ -7,9 +7,21 @@
     flex-wrap: wrap;
 }
 .admin-add-catalog__inputs-container{
+    position: relative;
     display: flex;
     flex-direction: column;
-    gap: 25px
+    gap: 25px;
+
+        &:has(.admin-status) > *:not(.admin-status) {
+            box-sizing: border-box;
+            width: calc(100% - 150px);
+        }
+    
+        & > .admin-status {
+            left: auto;
+            right: 0px;
+        }
+
 }
 
 .admin-add-catalog__photo-conteiner {

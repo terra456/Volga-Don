@@ -129,7 +129,7 @@ const ArticleForm = ({ preloadData }: Props) => {
           />
           {errors.image && <span className="error-message error-absolute">{errors.image.message}</span>}
         </div>
-        <div className="admin-add-catalog__inputs-container">
+        <div className="admin-add-card__inputs-container">
           <input
             {...register('title', {
               required: '*Это поле обязательно к заполнению',
