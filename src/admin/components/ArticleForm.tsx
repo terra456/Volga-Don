@@ -3,7 +3,7 @@ import { useAddArticleMutation, useDeleteArticleMutation, useUpdateArticleMutati
 import { useNavigate } from 'react-router-dom';
 import { Article, ArticleDTO } from '../../types';
 import { dataForm } from '../../utils/formData';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { BASE_URL } from '../../utils/variables';
 import addImg from '../../assets/images/icons/add.svg';
 
@@ -22,25 +22,45 @@ const ArticleForm = ({ preloadData }: Props) => {
     created_at: undefined,
   };
   const [imageUpload, setImageUpload] = useState('');
-  const { register, handleSubmit, watch, setValue, formState, getValues } = useForm<ArticleDTO>({
+  const [serverError, setServerError] = useState('');
+  const { register, handleSubmit, watch, setValue, formState, getValues, reset } = useForm<ArticleDTO>({
     defaultValues: {
       ...formData,
     },
   });
   const { errors } = formState;
-  const [addArticle, { isLoading }] = useAddArticleMutation();
+  const [addArticle, { isLoading, status, error }] = useAddArticleMutation();
   const [updateArticle] = useUpdateArticleMutation();
-  const [deleteArticle] = useDeleteArticleMutation();
+  const [deleteArticle, deleteObj] = useDeleteArticleMutation();
   const navigate = useNavigate();
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const setError = (err: any) => {
+    if (typeof err.error === 'string') {
+      setServerError(err.error);
+    } else if (err.data) {
+      for (const key in err.data) {
+        if (typeof err.data[key] === 'string') {
+          setServerError(err.data[key]);
+        } else if (Array.isArray(err.data[key])) {
+          setServerError(err.data[key].join(''));
+        }
+      }
+    }
+  };
 
   const postData = async (data: ArticleDTO) => {
     created_at; //fix typescript error
     try {
       const form = dataForm(data);
       await addArticle(form).unwrap();
-      navigate('/admin/news');
-    } catch (err) {
+      //если нужно перейти на осн стр
+      // navigate('/admin/news');
+      reset();
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (err: any) {
       console.log(err);
+      setError(err);
     }
   };
 
@@ -49,10 +69,13 @@ const ArticleForm = ({ preloadData }: Props) => {
       if (id) {
         const form = dataForm(data);
         await updateArticle([form, id.toString()]).unwrap();
-        navigate('/admin/news');
+        // navigate('/admin/news');
+        reset();
       }
-    } catch (err) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (err: any) {
       console.log(err);
+      setError(err);
     }
   };
 
@@ -63,8 +86,10 @@ const ArticleForm = ({ preloadData }: Props) => {
         console.log(article);
         navigate('/admin/news');
       }
-    } catch (err) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (err: any) {
       console.log(err);
+      setError(err);
     }
   };
 
@@ -158,12 +183,20 @@ const ArticleForm = ({ preloadData }: Props) => {
               }}
               type="submit"
               disabled={isLoading}
-              className="admin-btn admin-btn__type_arrow admin-btn_type_white"
+              className={`admin-btn admin-btn__type_arrow admin-btn_type_white ${
+                isLoading ? 'load' : status === 'fulfilled' ? 'good' : ''
+              }`}
             >
-              Сохранить в архив
+              {isLoading ? 'Идет сохранение' : status === 'fulfilled' ? 'Изменения сохранены' : 'Сохранить в архив'}
             </button>
           ) : (
-            <button onClick={deleteData} disabled={isLoading} className="admin-btn admin-btn__type_delete">
+            <button
+              onClick={deleteData}
+              disabled={isLoading}
+              className={`admin-btn admin-btn__type_delete ${
+                deleteObj.isLoading ? 'load' : deleteObj.status === 'fulfilled' ? 'good' : ''
+              }`}
+            >
               Удалить
             </button>
           )}
@@ -175,9 +208,13 @@ const ArticleForm = ({ preloadData }: Props) => {
               }}
               type="submit"
               disabled={isLoading}
-              className="admin-btn admin-btn__type_arrow"
+              className={`admin-btn admin-btn__type_arrow ${isLoading ? 'load' : status === 'fulfilled' ? 'good' : ''}`}
             >
-              Сохранить и опубликовать
+              {isLoading
+                ? 'Идет сохранение'
+                : status === 'fulfilled'
+                ? 'Изменения сохранены'
+                : 'Сохранить и опубликовать'}
             </button>
           ) : (
             <button
@@ -186,15 +223,16 @@ const ArticleForm = ({ preloadData }: Props) => {
               }}
               type="submit"
               disabled={isLoading}
-              className="admin-btn admin-btn__type_arrow"
+              className={`admin-btn admin-btn__type_arrow ${isLoading ? 'load' : status === 'fulfilled' ? 'good' : ''}`}
             >
-              Сохранить изменения
+              {isLoading ? 'Идет сохранение' : status === 'fulfilled' ? 'Изменения сохранены' : 'Сохранить изменения'}
             </button>
           )}
           <button onClick={() => navigate('/admin')} className="admin-btn admin-btn_type_white admin-btn__type_arrow">
             На главную
           </button>
         </div>
+        {serverError && <div className="error-message">{serverError.toString()}</div>}
       </form>
     </div>
   );

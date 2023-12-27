@@ -1,6 +1,7 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useAddUserMutation } from '../../services/userApi';
+import { useState } from 'react';
 
 type RegisterInputs = {
   username: string;
@@ -13,18 +14,35 @@ const AddUserForm = () => {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm<RegisterInputs>();
-  const [addUser, { isLoading }] = useAddUserMutation();
-  const navigate = useNavigate();
+  const [addUser, { isLoading, status }] = useAddUserMutation();
+  const [serverError, setServerError] = useState('');
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const setError = (err: any) => {
+    if (typeof err.error === 'string') {
+      setServerError(err.error);
+    } else if (err.data) {
+      for (const key in err.data) {
+        if (typeof err.data[key] === 'string') {
+          setServerError(err.data[key]);
+        } else if (Array.isArray(err.data[key])) {
+          setServerError(err.data[key].join(''));
+        }
+      }
+    }
+  };
 
   const onSubmit: SubmitHandler<RegisterInputs> = (data) => {
     (async () => {
       try {
         const user = await addUser(data).unwrap();
         console.log(user);
-        navigate('/login');
+        reset();
       } catch (err) {
         console.log(err);
+        setError(err);
       }
     })();
   };
@@ -58,7 +76,7 @@ const AddUserForm = () => {
         />
         {errors.password1 && <span className="error-message">{errors.password1.message}</span>}
       </fieldset>
-      {/* <fieldset className="admin-registration__fieldset">
+      <fieldset className="admin-registration__fieldset">
         <input
           type="password"
           className="base-input"
@@ -71,15 +89,20 @@ const AddUserForm = () => {
           })}
         />
         {errors.password2 && <span className="error-message">{errors.password2.message}</span>}
-      </fieldset> */}
+      </fieldset>
       <div className="admin-users__buttons-container">
-        <button type="submit" disabled={isLoading} className="admin-btn admin-btn__type_arrow">
+        <button
+          type="submit"
+          disabled={isLoading}
+          className={`admin-btn admin-btn__type_arrow ${isLoading ? 'load' : status === 'fulfilled' ? 'good' : ''}`}
+        >
           Добавить
         </button>
         <Link to={'/admin'} className="admin-btn admin-btn__type_arrow admin-btn_type_white">
           На главную
         </Link>
       </div>
+      {serverError && <div className="error-message">{serverError.toString()}</div>}
     </form>
   );
 };

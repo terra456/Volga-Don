@@ -1,3 +1,5 @@
+@import '../base/loader.scss';
+
 .admin-btn,
 .btn {
     @include link-text;
@@ -44,12 +46,47 @@
 .admin-btn__type_arrow,
 .btn__type_arrow,
 .admin-btn__arrow {
+    position: relative;
     display: flex;
     align-items: center;
     padding-right: 65px;
+}
+
+.admin-btn__link_arrow::after,
+.admin-btn__type_arrow::after,
+.btn__type_arrow::after,
+.admin-btn__arrow::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 25px;
+    right: 25px;
     background-image: url(../../../assets/images/arrow.svg);
     background-repeat: no-repeat;
-    background-position: center right 25px;
+    background-position: center;
+}
+
+.admin-btn__type_arrow.load::after,
+.btn__type_arrow.load::after,
+.admin-btn__arrow.load::after {
+
+    background-image: url(../../../assets/images/icons/loader.svg);
+    background-size: 25px 25px;
+    animation: loading 1s linear infinite;
+}
+
+.admin-btn__type_arrow.good,
+.btn__type_arrow.good,
+.admin-btn__arrow.good {
+    background-color: #84DA82;
+}
+
+.admin-btn__type_arrow.good::after,
+.btn__type_arrow.good::after,
+.admin-btn__arrow.good::after {
+    background-color: #84DA82;;
+    background-image: url(../../../assets/images/icons/icon.svg);
+    background-size: 15px 15px;
 }
 
 .admin-btn-change {

@@ -27,26 +27,44 @@ const ProductForm = ({ preloadData }: Props) => {
     published: undefined,
   };
   const [imagesUpload, setImagesUpload] = useState<string[]>([]);
-  const { register, handleSubmit, watch, setValue, formState, getValues } = useForm<ProductDTO>({
+  const [serverError, setServerError] = useState('');
+  const { register, handleSubmit, watch, setValue, formState, getValues, reset } = useForm<ProductDTO>({
     defaultValues: {
       ...formData,
     },
   });
   const { errors } = formState;
-  const [addProduct, { isLoading }] = useAddProductMutation();
+  const [addProduct, { isLoading, status }] = useAddProductMutation();
   const [updateProduct] = useUpdateProductMutation();
   const { data } = useGetAllCategoriesQuery(undefined);
   const [deleteProduct] = useDeleteProductMutation();
   const navigate = useNavigate();
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const setError = (err: any) => {
+    if (typeof err.error === 'string') {
+      setServerError(err.error);
+    } else if (err.data) {
+      for (const key in err.data) {
+        if (typeof err.data[key] === 'string') {
+          setServerError(err.data[key]);
+        } else if (Array.isArray(err.data[key])) {
+          setServerError(err.data[key].join(''));
+        }
+      }
+    }
+  };
 
   const postData = async (data: ProductDTO) => {
     category; //fix ts, but must be added in form
     try {
       const form = dataForm(data);
       await addProduct(form).unwrap();
-      navigate('/admin/products');
+      // navigate('/admin/products');
+      reset();
     } catch (err) {
       console.log(err);
+      setError(err);
     }
   };
 
@@ -57,10 +75,12 @@ const ProductForm = ({ preloadData }: Props) => {
         console.log(form);
         const product = await updateProduct([form, id.toString()]).unwrap();
         console.log(product);
-        navigate('/admin/products');
+        reset();
+        // navigate('/admin/products');
       }
     } catch (err) {
       console.log(err);
+      setError(err);
     }
   };
 
@@ -73,6 +93,7 @@ const ProductForm = ({ preloadData }: Props) => {
       }
     } catch (err) {
       console.log(err);
+      setError(err);
     }
   };
 
@@ -204,9 +225,11 @@ const ProductForm = ({ preloadData }: Props) => {
               }}
               type="submit"
               disabled={isLoading}
-              className="admin-btn admin-btn_type_white admin-btn__type_arrow"
+              className={`admin-btn admin-btn_type_white admin-btn__type_arrow ${
+                isLoading ? 'load' : status === 'fulfilled' ? 'good' : ''
+              }`}
             >
-              Сохранить в архив
+              {isLoading ? 'Идет сохранение' : status === 'fulfilled' ? 'Изменения сохранены' : 'Сохранить в архив'}
             </button>
           ) : (
             <button onClick={deleteData} disabled={isLoading} className="btn admin-btn__type_delete">
@@ -221,9 +244,13 @@ const ProductForm = ({ preloadData }: Props) => {
               }}
               type="submit"
               disabled={isLoading}
-              className="admin-btn admin-btn__type_arrow"
+              className={`admin-btn admin-btn__type_arrow ${isLoading ? 'load' : status === 'fulfilled' ? 'good' : ''}`}
             >
-              Сохранить и опубликовать
+              {isLoading
+                ? 'Идет сохранение'
+                : status === 'fulfilled'
+                ? 'Изменения сохранены'
+                : 'Сохранить и опубликовать'}
             </button>
           ) : (
             <button
@@ -232,15 +259,16 @@ const ProductForm = ({ preloadData }: Props) => {
               }}
               type="submit"
               disabled={isLoading}
-              className="admin-btn admin-btn__type_arrow"
+              className={`admin-btn admin-btn__type_arrow ${isLoading ? 'load' : status === 'fulfilled' ? 'good' : ''}`}
             >
-              Сохранить изменения
+              {isLoading ? 'Идет сохранение' : status === 'fulfilled' ? 'Изменения сохранены' : 'Сохранить изменения'}
             </button>
           )}
           <button onClick={() => navigate('/admin')} className="admin-btn admin-btn_type_white admin-btn__type_arrow">
             На главную
           </button>
         </div>
+        {serverError && <div className="error-message">{serverError.toString()}</div>}
       </form>
     </div>
   );
