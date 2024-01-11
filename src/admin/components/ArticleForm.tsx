@@ -30,7 +30,7 @@ const ArticleForm = ({ preloadData }: Props) => {
   });
   const { errors } = formState;
   const [addArticle, { isLoading, status, error }] = useAddArticleMutation();
-  const [updateArticle] = useUpdateArticleMutation();
+  const [updateArticle, updateObj] = useUpdateArticleMutation();
   const [deleteArticle, deleteObj] = useDeleteArticleMutation();
   const navigate = useNavigate();
 
@@ -223,9 +223,15 @@ const ArticleForm = ({ preloadData }: Props) => {
               }}
               type="submit"
               disabled={isLoading}
-              className={`admin-btn admin-btn__type_arrow ${isLoading ? 'load' : status === 'fulfilled' ? 'good' : ''}`}
+              className={`admin-btn admin-btn__type_arrow ${
+                updateObj.isLoading ? 'load' : updateObj.status === 'fulfilled' ? 'good' : ''
+              }`}
             >
-              {isLoading ? 'Идет сохранение' : status === 'fulfilled' ? 'Изменения сохранены' : 'Сохранить изменения'}
+              {updateObj.isLoading
+                ? 'Идет сохранение'
+                : updateObj.status === 'fulfilled'
+                ? 'Изменения сохранены'
+                : 'Сохранить изменения'}
             </button>
           )}
           <button onClick={() => navigate('/admin')} className="admin-btn admin-btn_type_white admin-btn__type_arrow">

@@ -21,7 +21,10 @@ export const authApi = createApi({
         // `request` & `response` from fetchBaseQuery's meta object.
         // These properties can be used to transform the response as desired.
         if (returnValue.access) {
-          localStorage.setItem('accessToken', returnValue.access);
+          localStorage.setItem('acsessToken', returnValue.access);
+        }
+        if (returnValue.refresh) {
+          localStorage.setItem('refreshToken', returnValue.refresh);
         }
         return returnValue;
       },
@@ -34,7 +37,10 @@ export const authApi = createApi({
       }),
       transformResponse: (returnValue: AuthResponse) => {
         if (returnValue.access) {
-          localStorage.setItem('accessToken', returnValue.access);
+          localStorage.setItem('acsessToken', returnValue.access);
+        }
+        if (returnValue.refresh) {
+          localStorage.setItem('refreshToken', returnValue.refresh);
         }
         return returnValue;
       },

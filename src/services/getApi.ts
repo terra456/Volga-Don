@@ -17,7 +17,7 @@ export const getApi = createApi({
       providesTags: ['Article'],
     }),
     getAllArticles: builder.query<Article[], undefined>({
-      query: () => ({ url: 'articles/' }),
+      query: () => ({ url: 'articles/list/' }),
       providesTags: ['Article'],
     }),
     getAllProducts: builder.query<Product[], undefined>({

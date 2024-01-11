@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import type { RootState } from './store';
+import { AuthResponse } from '../types';
 
 type AuthState = {
   // username: string | null;
@@ -12,11 +13,12 @@ type AuthState = {
 };
 
 const acsessToken = localStorage.getItem('acsessToken') ? localStorage.getItem('acsessToken') : null;
+const refreshToken = localStorage.getItem('refreshToken') ? localStorage.getItem('refreshToken') : null;
 
 const initialState: AuthState = {
-  userInfo: { username: null }, // for user object
+  userInfo: { username: acsessToken ? 'admin' : null }, // for user object
   acsessToken, // for storing the JWT
-  refreshToken: null,
+  refreshToken,
 };
 
 const authSlice = createSlice({
@@ -24,6 +26,8 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     logout: (state) => {
+      localStorage.removeItem('acsessToken');
+      localStorage.removeItem('refreshToken');
       state.userInfo = { username: null };
       state.acsessToken = null;
       state.refreshToken = null;
@@ -33,10 +37,16 @@ const authSlice = createSlice({
       state.acsessToken = acsessToken;
       state.refreshToken = refreshToken;
     },
+    setRefresh: (state, { payload: { access, refresh } }: PayloadAction<AuthResponse>) => {
+      localStorage.addItem('acsessToken', access);
+      localStorage.addItem('refreshToken', refresh);
+      state.acsessToken = access;
+      state.refreshToken = refresh;
+    },
   },
 });
 
-export const { logout, setCredentials } = authSlice.actions;
+export const { logout, setCredentials, setRefresh } = authSlice.actions;
 
 export default authSlice.reducer;
 

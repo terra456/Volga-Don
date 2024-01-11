@@ -1,22 +1,10 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { RootState } from '../store/store';
+import { createApi } from '@reduxjs/toolkit/query/react';
 import { Article, Categorie, CategorieDTO, Product } from '../types';
-import { BASE_URL } from '../utils/variables';
+import customFetchBase from './customFetchBase';
 
 export const postApi = createApi({
   reducerPath: 'postApi',
-  baseQuery: fetchBaseQuery({
-    baseUrl: BASE_URL,
-    mode: 'cors',
-    prepareHeaders: (headers, { getState }) => {
-      // By default, if we have a token in the store, let's use that for authenticated requests
-      const token = (getState() as RootState).auth.acsessToken || undefined;
-      if (token) {
-        headers.set('authorization', `Bearer ${token}`);
-      }
-      return headers;
-    },
-  }),
+  baseQuery: customFetchBase,
   refetchOnMountOrArgChange: true,
   tagTypes: ['Article', 'Categorie', 'Product'],
   endpoints: (builder) => ({
@@ -26,12 +14,12 @@ export const postApi = createApi({
       providesTags: ['Article'],
     }),
     getAllArticles: builder.query<Article[], undefined>({
-      query: () => ({ url: 'articles/admin/list/' }),
+      query: () => ({ url: 'articles/admin/' }),
       providesTags: ['Article'],
     }),
     addArticle: builder.mutation<Article, FormData>({
       query: (credentials) => ({
-        url: 'articles/admin/list/',
+        url: 'articles/admin/',
         method: 'post',
         headers: { 'content-type': 'multipart/form-data; boundary=---' },
         body: credentials,
@@ -75,7 +63,7 @@ export const postApi = createApi({
       query: ([credentials, id]) => ({
         url: `products/admin/${id}/`,
         method: 'put',
-        headers: { 'content-type': 'multipart/form-data; boundary=---' },
+        headers: { 'content-type': 'application/json' },
         body: credentials,
       }),
       invalidatesTags: ['Product'],

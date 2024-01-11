@@ -1,21 +1,10 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { RootState } from '../store/store';
+import { createApi } from '@reduxjs/toolkit/query/react';
 import { User, UserDTO, UserPassword } from '../types';
-import { BASE_URL } from '../utils/variables';
+import customFetchBase from './customFetchBase';
 
 export const userApi = createApi({
   reducerPath: 'userApi',
-  baseQuery: fetchBaseQuery({
-    baseUrl: BASE_URL,
-    mode: 'cors',
-    prepareHeaders: (headers, { getState }) => {
-      const token = (getState() as RootState).auth.acsessToken || undefined;
-      if (token) {
-        headers.set('authorization', `Bearer ${token}`);
-      }
-      return headers;
-    },
-  }),
+  baseQuery: customFetchBase,
   tagTypes: ['User'],
   endpoints: (builder) => ({
     updateUsername: builder.mutation<{ username: string }, { username: string }>({
